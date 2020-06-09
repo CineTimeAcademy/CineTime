@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC18248FB37300BB50A1 /* AppDelegate.swift */; };
 		77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */; };
-		77E0FC1D248FB37300BB50A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC1C248FB37300BB50A1 /* ViewController.swift */; };
 		77E0FC22248FB37800BB50A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC21248FB37800BB50A1 /* Assets.xcassets */; };
 		77E0FC25248FB37800BB50A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC23248FB37800BB50A1 /* LaunchScreen.storyboard */; };
 		77E0FC30248FB37900BB50A1 /* CineTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC2F248FB37900BB50A1 /* CineTimeTests.swift */; };
 		77E0FC3B248FB37900BB50A1 /* CineTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */; };
+		814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */; };
+		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
+		814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */; };
+		814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +40,6 @@
 		77E0FC15248FB37300BB50A1 /* CineTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E0FC18248FB37300BB50A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		77E0FC1C248FB37300BB50A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		77E0FC21248FB37800BB50A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77E0FC24248FB37800BB50A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77E0FC26248FB37800BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +49,10 @@
 		77E0FC36248FB37900BB50A1 /* CineTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineTimeUITests.swift; sourceTree = "<group>"; };
 		77E0FC3C248FB37900BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
+		814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,12 +103,12 @@
 		77E0FC17248FB37300BB50A1 /* CineTime */ = {
 			isa = PBXGroup;
 			children = (
-				77E0FC18248FB37300BB50A1 /* AppDelegate.swift */,
-				77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */,
-				77E0FC1C248FB37300BB50A1 /* ViewController.swift */,
-				77E0FC21248FB37800BB50A1 /* Assets.xcassets */,
-				77E0FC23248FB37800BB50A1 /* LaunchScreen.storyboard */,
 				77E0FC26248FB37800BB50A1 /* Info.plist */,
+				814E1DB3248FBC12006ADFCB /* Config */,
+				814E1DB2248FBB5D006ADFCB /* Extensions */,
+				814E1DB1248FBB56006ADFCB /* Controller */,
+				814E1DB0248FBB50006ADFCB /* View */,
+				814E1DAF248FBB43006ADFCB /* Model */,
 			);
 			path = CineTime;
 			sourceTree = "<group>";
@@ -123,6 +129,57 @@
 				77E0FC3C248FB37900BB50A1 /* Info.plist */,
 			);
 			path = CineTimeUITests;
+			sourceTree = "<group>";
+		};
+		814E1DAF248FBB43006ADFCB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		814E1DB0248FBB50006ADFCB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				814E1DB4248FBC88006ADFCB /* Storyboard */,
+				77E0FC21248FB37800BB50A1 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		814E1DB1248FBB56006ADFCB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */,
+				814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */,
+				814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */,
+				814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		814E1DB2248FBB5D006ADFCB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		814E1DB3248FBC12006ADFCB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				77E0FC18248FB37300BB50A1 /* AppDelegate.swift */,
+				77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		814E1DB4248FBC88006ADFCB /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				77E0FC23248FB37800BB50A1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,9 +312,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77E0FC1D248FB37300BB50A1 /* ViewController.swift in Sources */,
+				814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */,
 				77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */,
+				814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */,
+				814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
+				814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
