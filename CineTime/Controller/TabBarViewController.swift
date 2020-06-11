@@ -19,6 +19,9 @@ class TabBarViewController: UITabBarController {
     
     func setupTabBar() {
         
+        self.tabBar.tintColor = .actionColor
+        self.tabBar.barTintColor = .black
+        
         let recommendationsVC = RecommendationsViewController()
         recommendationsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
 

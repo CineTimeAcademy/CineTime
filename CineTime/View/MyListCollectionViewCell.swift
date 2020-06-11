@@ -16,6 +16,7 @@ class MyListCollectionViewCell: UICollectionViewCell {
     lazy var streamingTitle: UILabel = {
         let label = UILabel()
         label.textColor = .white
+        label.font = label.font.withSize(12)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Prime Video"

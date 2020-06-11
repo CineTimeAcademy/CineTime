@@ -81,6 +81,7 @@ class MyListViewController: UIViewController {
         // Allows large title
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        
         view.backgroundColor = .black
         
         // Change title from rootViewController
@@ -136,7 +137,6 @@ class MyListViewController: UIViewController {
            header.frame.size.height = headerHeight
         case 1:
              header.frame.size.height = headerHeight - collectionHeight
-            
         default:
             header.frame.size.height = headerHeight
         }
