@@ -16,7 +16,7 @@ class MyListCollectionViewCell: UICollectionViewCell {
     lazy var streamingTitle: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.font = label.font.withSize(12)
+        label.font = label.font.withSize(14)
         label.adjustsFontSizeToFitWidth = true
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Prime Video"
@@ -64,26 +64,42 @@ class MyListCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        self.deselected()
+        self.isFiltering = false
+    }
+    
 }
 
 extension MyListCollectionViewCell {
     
-    // Function to switch view appearence when tap on collection item
-    func switchStateWhenSelected(cell: MyListCollectionViewCell) {
-        if !cell.isFiltering {
-            cell.background.backgroundColor = .actionColor
-            cell.streamingTitle.textColor = .black
-            cell.background.layer.borderWidth = 0
-            cell.isFiltering = true
-        } else {
-            cell.isFiltering = false
-            cell.streamingTitle.textColor = .white
-            cell.background.backgroundColor = .clear
-            cell.background.layer.borderWidth = 1
-            cell.background.layer.borderColor = UIColor.white.cgColor
-        }
-        
+    func selected() {
+        background.backgroundColor = .actionColor
+        streamingTitle.textColor = .black
+        background.layer.borderWidth = 0
     }
     
+    func deselected() {
+        streamingTitle.textColor = .white
+        background.backgroundColor = .clear
+        background.layer.borderWidth = 1
+        background.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    // Function to switch view appearence when tap on collection item
+    func switchStateWhenSelected() {
+        if !self.isFiltering {
+            background.backgroundColor = .actionColor
+            streamingTitle.textColor = .black
+            background.layer.borderWidth = 0
+            isFiltering = true
+        } else {
+            isFiltering = false
+            streamingTitle.textColor = .white
+            background.backgroundColor = .clear
+            background.layer.borderWidth = 1
+            background.layer.borderColor = UIColor.white.cgColor
+        }
+    }
 }
 

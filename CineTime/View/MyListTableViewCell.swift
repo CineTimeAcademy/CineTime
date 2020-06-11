@@ -41,7 +41,7 @@ class MyListTableViewCell: UITableViewCell {
     lazy var advisoryRating: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.image = UIImage(systemName: "pencil.and.outline")
+        imageView.image = UIImage(named: "l.square")
         return imageView
     }()
     
@@ -83,12 +83,14 @@ class MyListTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             category.leadingAnchor.constraint(equalTo: self.imageFilm.trailingAnchor, constant: 6),
-            category.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 3)
+            category.topAnchor.constraint(equalTo: self.title.bottomAnchor, constant: 6)
         ])
         
         NSLayoutConstraint.activate([
             advisoryRating.leadingAnchor.constraint(equalTo: self.imageFilm.trailingAnchor, constant: 6),
-            advisoryRating.topAnchor.constraint(equalTo: self.category.bottomAnchor, constant: 3)
+            advisoryRating.topAnchor.constraint(equalTo: self.category.bottomAnchor, constant: 6),
+            advisoryRating.heightAnchor.constraint(equalToConstant: 14.38),
+            advisoryRating.widthAnchor.constraint(equalToConstant: 14.38)
         ])
     }
     

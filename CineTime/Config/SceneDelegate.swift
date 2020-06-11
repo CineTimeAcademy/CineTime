@@ -20,6 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let navgationController = UINavigationController(rootViewController: TabBarViewController())
+        navgationController.navigationBar.barTintColor = .black
+        navgationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         window?.rootViewController = navgationController
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene

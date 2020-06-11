@@ -10,7 +10,13 @@ import UIKit
 
 class HeaderViewController: UIViewController {
     
-    let streamings = ["Prime Video", "Netflix", "Disney plus", "Apple TV+", "Telecine Premium"]
+    var streamings = [
+        (name: "Prime Video", selected: false),
+        (name: "Netflix", selected: false),
+        (name: "Disney Plus", selected: false),
+        (name: "Apple TV+", selected: false),
+        (name: "Telecine", selected: false)
+    ]
     
     lazy var headerView: MyListHeaderView = {
         let header = MyListHeaderView(frame: .zero)
@@ -34,19 +40,28 @@ extension HeaderViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyListCollectionViewCell.identifier, for: indexPath) as! MyListCollectionViewCell
-        cell.streamingTitle.text = streamings[indexPath.row]
-        return cell
+        let streaming = streamings[indexPath.row]
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyListCollectionViewCell.identifier, for: indexPath) as? MyListCollectionViewCell {
+            cell.streamingTitle.text = streaming.name
+
+            if streaming.selected {
+                cell.selected()
+                cell.isFiltering = true
+            }
+            
+            return cell
+        }
+        return UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! MyListCollectionViewCell
-        cell.switchStateWhenSelected(cell: cell)
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? MyListCollectionViewCell {
+            streamings[indexPath.row].selected = !streamings[indexPath.row].selected
+            cell.switchStateWhenSelected()
+        }
         
     }
-    
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        cell.backgroundColor = .clear
-//    }
     
 }

@@ -163,6 +163,7 @@ extension MyListViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyListTableViewCell.identifier) as! MyListTableViewCell
+        cell.selectionStyle = .none
         cell.title.text = rowToDisplay[indexPath.row]
         return cell
     }
@@ -172,4 +173,7 @@ extension MyListViewController: UITableViewDataSource, UITableViewDelegate {
         return view
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
 }
