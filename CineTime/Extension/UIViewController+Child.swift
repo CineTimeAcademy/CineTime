@@ -6,4 +6,14 @@
 //  Copyright © 2020 Beatriz Carlos. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension UIViewController {
+    
+    func add(_ child: UIViewController) {
+        addChild(child)
+        view.addSubview(child.view)
+        child.didMove(toParent: self)
+    }
+    
+}

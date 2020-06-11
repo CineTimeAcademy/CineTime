@@ -9,12 +9,10 @@
 import UIKit
 
 extension UIColor {
-    static let primaryLight = UIColor(red: 0.99, green: 0.99, blue: 0.99, alpha: 1.00)
-    static let primaryDark = UIColor(red: 0.13, green: 0.13, blue: 0.13, alpha: 1.00)
     
-    static let Platinum = UIColor(red: 0.90, green: 0.88, blue: 0.87, alpha: 1.00)
-    static let EerieBlack = UIColor(red: 0.10, green: 0.12, blue: 0.13, alpha: 1.00)
-    static let Gunmetal = UIColor(red: 0.15, green: 0.18, blue: 0.20, alpha: 1.00)
+    static let actionColor = UIColor(red: 1.00, green: 0.86, blue: 0.38, alpha: 1.00)
+    static let primaryColor = UIColor(red: 0.00, green: 0.00, blue: 0.00, alpha: 1.00)
+    
     
     public convenience init?(hex: String, alpha: CGFloat = 1.0) {
         var hexFormatted: String = hex.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).uppercased()

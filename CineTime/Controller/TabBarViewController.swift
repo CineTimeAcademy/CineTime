@@ -28,6 +28,7 @@ class TabBarViewController: UITabBarController {
         
         let myListVC = MyListViewController()
         myListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+        myListVC.tabBarItem = UITabBarItem(title: "Minha Lista", image: UIImage(named: "line.horizontal.3"), selectedImage: UIImage(named:"line.horizontal.3"))
         
         
         viewControllers = [recommendationsVC, categoriesVC, myListVC]
