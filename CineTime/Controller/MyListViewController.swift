@@ -10,22 +10,10 @@ import UIKit
 
 // sectionHeaderHeight & sectionHeaderWidth
 
-class MyListViewController: UIViewController {
+class MyListViewController: UITableViewController {
     
     // Child View Controller
-    let header = HeaderViewController()
-    
-    // TableView Configurations
-    lazy var tableView: UITableView = {
-        let tableView = UITableView(frame: .zero, style: .plain)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.sectionHeaderHeight = 0
-        tableView.register(MyListTableViewCell.self, forCellReuseIdentifier: MyListTableViewCell.identifier)
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = .black
-        tableView.tableHeaderView?.backgroundColor = .clear
-        return tableView
-    }()
+    let header = HeaderChildViewController()
     
     // Itens there are displayed, variable used to switch when click on Segmented Control
     lazy var rowToDisplay = assistidos
@@ -57,18 +45,7 @@ class MyListViewController: UIViewController {
         "Star Wars: The Last Jedi",
         "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
         "Star Wars: The Rise of Skywalker", "Solo: A Star Wars Story",
-        "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
-        "Solo: A Star Wars Story", "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
-        "Star Wars: The Rise of Skywalker", "Solo: A Star Wars Story",
-        "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
-        "Solo: A Star Wars Story", "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
-        "Star Wars: The Rise of Skywalker", "Solo: A Star Wars Story",
-        "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story"
+        "Star Wars: The Last Jedi"
     ]
     
     let paraAssistir = [
@@ -98,9 +75,6 @@ class MyListViewController: UIViewController {
         
         // TableView delegates and setting TableViewHeader
         setupTableView()
-        
-        // All Constraints from TableView
-        setupConstraints()
     }
     
     func setupHeader() {
@@ -114,10 +88,9 @@ class MyListViewController: UIViewController {
     }
     
     func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.register(MyListTableViewCell.self, forCellReuseIdentifier: MyListTableViewCell.identifier)
+        tableView.separatorStyle = .none
         tableView.tableHeaderView = header.view
-        view.addSubview(tableView)
     }
     
     override func viewWillLayoutSubviews() {
@@ -142,38 +115,32 @@ class MyListViewController: UIViewController {
         }
     }
     
-    func setupConstraints() {
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
-        ])
-    }
-    
-
 }
 
 // Implementation Of TableView
-extension MyListViewController: UITableViewDataSource, UITableViewDelegate {
+extension MyListViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return rowToDisplay.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyListTableViewCell.identifier) as! MyListTableViewCell
         cell.selectionStyle = .none
         cell.title.text = rowToDisplay[indexPath.row]
         return cell
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         return view
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
     }
+}
+
+extension MyListViewController {
+    
 }

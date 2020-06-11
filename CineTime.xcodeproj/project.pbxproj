@@ -19,7 +19,7 @@
 		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
 		814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */; };
 		814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */; };
-		814E1DCF2491AC69006ADFCB /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DCE2491AC69006ADFCB /* HeaderViewController.swift */; };
+		814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */; };
 		814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */; };
 		814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */; };
 		814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */; };
@@ -62,7 +62,7 @@
 		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
 		814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
-		814E1DCE2491AC69006ADFCB /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChildViewController.swift; sourceTree = "<group>"; };
 		814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListHeaderView.swift; sourceTree = "<group>"; };
 		814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
 		814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
@@ -206,7 +206,7 @@
 		814E1DCD2491AC3F006ADFCB /* Child */ = {
 			isa = PBXGroup;
 			children = (
-				814E1DCE2491AC69006ADFCB /* HeaderViewController.swift */,
+				814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */,
 			);
 			path = Child;
 			sourceTree = "<group>";
@@ -352,7 +352,7 @@
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
 				814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */,
 				814E1DD72491B934006ADFCB /* MyListCollectionViewCell.swift in Sources */,
-				814E1DCF2491AC69006ADFCB /* HeaderViewController.swift in Sources */,
+				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
 				814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

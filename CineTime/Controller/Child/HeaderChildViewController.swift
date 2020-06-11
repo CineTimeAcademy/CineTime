@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaderViewController: UIViewController {
+class HeaderChildViewController: UIViewController {
     
     var streamings = [
         (name: "Prime Video", selected: false),
@@ -32,7 +32,7 @@ class HeaderViewController: UIViewController {
     
 }
 
-extension HeaderViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HeaderChildViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return streamings.count

@@ -9,8 +9,6 @@
 import UIKit
 
 class MyListHeaderView: UIView {
-        
-    var collectionViewConstraint: NSLayoutConstraint?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
