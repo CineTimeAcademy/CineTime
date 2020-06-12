@@ -140,7 +140,3 @@ extension MyListViewController {
         print(indexPath.row)
     }
 }
-
-extension MyListViewController {
-    
-}
