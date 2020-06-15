@@ -19,9 +19,13 @@
 		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
 		814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */; };
 		814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */; };
+		A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C98249692070026E899 /* HorizontalFlowLayout.swift */; };
+		A7825C9B249717B30026E899 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9A249717B30026E899 /* Movie.swift */; };
+		A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9C249722F00026E899 /* NewsPosterCell.swift */; };
 		A7ADBED9249274AD00D00702 /* ZoomAndSnapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */; };
 		A7ADBEDB2492760A00D00702 /* RecoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */; };
 		A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */; };
+		A7ADBEDF24968E3100D00702 /* NewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +64,13 @@
 		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
 		814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		A7825C98249692070026E899 /* HorizontalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowLayout.swift; sourceTree = "<group>"; };
+		A7825C9A249717B30026E899 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = CineTime/View/Movie.swift; sourceTree = SOURCE_ROOT; };
+		A7825C9C249722F00026E899 /* NewsPosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPosterCell.swift; sourceTree = "<group>"; };
 		A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomAndSnapFlowLayout.swift; sourceTree = "<group>"; };
 		A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoCollectionView.swift; sourceTree = "<group>"; };
 		A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCell.swift; sourceTree = "<group>"; };
+		A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 		814E1DAF248FBB43006ADFCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A7825C9A249717B30026E899 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -162,9 +171,12 @@
 			children = (
 				814E1DB4248FBC88006ADFCB /* Storyboard */,
 				77E0FC21248FB37800BB50A1 /* Assets.xcassets */,
-				A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */,
 				A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */,
+				A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */,
 				A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */,
+				A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */,
+				A7825C98249692070026E899 /* HorizontalFlowLayout.swift */,
+				A7825C9C249722F00026E899 /* NewsPosterCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -336,8 +348,12 @@
 				814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */,
 				7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */,
 				814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */,
+				A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
+				A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */,
 				814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */,
+				A7825C9B249717B30026E899 /* Movie.swift in Sources */,
+				A7ADBEDF24968E3100D00702 /* NewCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

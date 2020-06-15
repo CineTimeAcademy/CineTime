@@ -1,14 +1,14 @@
 //
-//  MoviePosterCell.swift
+//  NewsPosterCell.swift
 //  CineTime
 //
-//  Created by Leonardo Gomes on 11/06/20.
+//  Created by Leonardo Gomes on 15/06/20.
 //  Copyright © 2020 Beatriz Carlos. All rights reserved.
 //
 
 import UIKit
 
-class MoviePosterCell: UICollectionViewCell {
+class NewsPosterCell: UICollectionViewCell {
 
     var movie: Movie? {
         didSet {
@@ -24,7 +24,6 @@ class MoviePosterCell: UICollectionViewCell {
         let imageView = UIImageView(image: UIImage(named: "player_one"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        
         return imageView
     }()
     
@@ -32,7 +31,7 @@ class MoviePosterCell: UICollectionViewCell {
         super.init(frame: frame)
 
         
-        contentView.backgroundColor = .red
+        contentView.backgroundColor = .white
         
         setupPoster()
     }
@@ -43,10 +42,11 @@ class MoviePosterCell: UICollectionViewCell {
 
     private func setupPoster() {
         self.addSubview(posterImageView)
-        
-        posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+  
+        posterImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         posterImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        posterImageView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+        posterImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8).isActive = true
         posterImageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         
     }

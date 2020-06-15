@@ -24,24 +24,36 @@ class RecommendationsViewController: UIViewController {
 
         view.backgroundColor = .black
         
-        let reco = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
-        reco.backgroundColor = .red
+//        let reco = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
+//        reco.backgroundColor = .red
         
-        let collecReco = RecoCollectionView(frame: CGRect(x: 0, y: view.frame.height / 4, width: view.frame.width, height: view.frame.height / 4), collectionViewLayout: ZoomAndSnapFlowLayout())
+        let sizeMinCollection: CGFloat = 256
+        let indicationColletion = RecoCollectionView(frame: CGRect(x: 0, y: 0 , width: view.frame.width, height: view.frame.height - sizeMinCollection), collectionViewLayout: ZoomAndSnapFlowLayout())
         
-        collecReco.backgroundColor = .blue
-        reco.addSubview(collecReco)
-        
-        
-        
-        
-        view.addSubview(reco)
+        indicationColletion.backgroundColor = .black
+        view.addSubview(indicationColletion)
     
+    
+        let newsColletion = NewCollectionView(frame: CGRect(x: 0, y: view.frame.height - sizeMinCollection , width: view.frame.width, height: sizeMinCollection), collectionViewLayout: HorizontalFlowLayout())
+        
+        newsColletion.backgroundColor = .black
+        view.addSubview(newsColletion)
+        
+        let NewName: UILabel = {
+            let label = UILabel(frame: CGRect(x: 16, y: view.frame.height - sizeMinCollection, width: 170, height: 34))
+            label.textAlignment = .left
+            label.text = "Lançamentos"
+            label.font = UIFont.preferredFont(forTextStyle: .title2)
+            label.textColor = .white
+            return label
+        }()
+        
+        view.addSubview(NewName)
         
     }
     
 
-    /*
+    /*r
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

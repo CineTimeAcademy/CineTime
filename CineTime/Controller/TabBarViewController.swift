@@ -20,7 +20,7 @@ class TabBarViewController: UITabBarController {
     func setupTabBar() {
         
         let recommendationsVC = RecommendationsViewController()
-        recommendationsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
+        recommendationsVC.tabBarItem = UITabBarItem(title: "Recomendações", image: UIImage(named: "rolinho"), tag: 0)
 
         let categoriesVC = CategoriesViewController()
         categoriesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
