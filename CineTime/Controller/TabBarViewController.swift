@@ -16,19 +16,18 @@ class TabBarViewController: UITabBarController {
         setupTabBar()
     }
     
-    
     func setupTabBar() {
+        
+        self.tabBar.tintColor = .actionColor
+        self.tabBar.barTintColor = .black
         
         let recommendationsVC = RecommendationsViewController()
         recommendationsVC.tabBarItem = UITabBarItem(title: "Recomendações", image: UIImage(named: "rolinho"), tag: 0)
-
         let categoriesVC = CategoriesViewController()
-        categoriesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 1)
-        
+        categoriesVC.tabBarItem = UITabBarItem(title: "Buscar", image: UIImage(named: "buscar"), tag: 1)
         
         let myListVC = MyListViewController()
-        myListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
-        
+        myListVC.tabBarItem = UITabBarItem(title: "Minha Lista", image: UIImage(named: "line.horizontal.3"), tag: 2)
         
         viewControllers = [recommendationsVC, categoriesVC, myListVC]
     }
