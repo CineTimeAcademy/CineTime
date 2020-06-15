@@ -13,9 +13,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
-        
+        if #available(iOS 13.0, *) {
+           
+        } else {
+            window = UIWindow(frame: UIScreen.main.bounds)
+            
+            let navigationController = UINavigationController(rootViewController: TabBarViewController())
+            navigationController.navigationBar.barTintColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
+            navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+            navigationController.navigationBar.backgroundColor = .black
+            
+            navigationController.navigationBar.tintColor = .white
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+        }
         return true
     }
 

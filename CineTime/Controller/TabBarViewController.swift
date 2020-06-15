@@ -19,6 +19,9 @@ class TabBarViewController: UITabBarController {
     
     func setupTabBar() {
         
+        self.tabBar.tintColor = .actionColor
+        self.tabBar.barTintColor = .black
+        
         let recommendationsVC = RecommendationsViewController()
         recommendationsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
 
@@ -28,6 +31,7 @@ class TabBarViewController: UITabBarController {
         
         let myListVC = MyListViewController()
         myListVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 2)
+        myListVC.tabBarItem = UITabBarItem(title: "Minha Lista", image: UIImage(named: "line.horizontal.3"), selectedImage: UIImage(named:"line.horizontal.3"))
         
         
         viewControllers = [recommendationsVC, categoriesVC, myListVC]
