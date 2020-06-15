@@ -24,7 +24,8 @@ class TabBarViewController: UITabBarController {
         let recommendationsVC = RecommendationsViewController()
         recommendationsVC.tabBarItem = UITabBarItem(title: "Recomendações", image: UIImage(named: "rolinho"), tag: 0)
         let categoriesVC = CategoriesViewController()
-        categoriesVC.tabBarItem = UITabBarItem(title: "Buscar", image: UIImage(named: "buscar"), tag: 1)
+        
+        categoriesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
         
         let myListVC = MyListViewController()
         myListVC.tabBarItem = UITabBarItem(title: "Minha Lista", image: UIImage(named: "line.horizontal.3"), tag: 2)

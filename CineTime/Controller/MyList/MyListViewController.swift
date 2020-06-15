@@ -55,20 +55,9 @@ class MyListViewController: UITableViewController {
     }
     
     // My TableView Data Source
-    let assistidos = [
-        "Star Wars: The Rise of Skywalker", "Solo: A Star Wars Story",
-        "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
-        "Star Wars: The Rise of Skywalker", "Solo: A Star Wars Story",
-        "Star Wars: The Last Jedi",
-        "Star Wars: The Force Awakens", "Rogue One: A Star Wars Story",
-        "Star Wars: The Rise of Skywalker", "Solo: A Star Wars Story",
-        "Star Wars: The Last Jedi"
-    ]
+    let assistidos = [String]()
     
-    let paraAssistir = [
-        "Solo: A Star Wars Story"
-    ]
+    let paraAssistir = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -78,6 +67,21 @@ class MyListViewController: UITableViewController {
         
         // TableView delegates and setting TableViewHeader
         setupTableView()
+        
+        // Teste de chamada
+        callApi()
+    }
+    
+    func callApi() {
+        
+        Service().findFilmByGenre(with: ["28", "12"]) { films in
+            
+            guard let films = films else { return }
+            print(films)
+            
+            
+        }
+        
     }
     
     func setupHeader() {

@@ -17,13 +17,6 @@
 		77E0FC3B248FB37900BB50A1 /* CineTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */; };
 		814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */; };
 		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
-		A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C98249692070026E899 /* HorizontalFlowLayout.swift */; };
-		A7825C9B249717B30026E899 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9A249717B30026E899 /* Movie.swift */; };
-		A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9C249722F00026E899 /* NewsPosterCell.swift */; };
-		A7ADBED9249274AD00D00702 /* ZoomAndSnapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */; };
-		A7ADBEDB2492760A00D00702 /* RecoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */; };
-		A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */; };
-		A7ADBEDF24968E3100D00702 /* NewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */; };
 		814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */; };
 		814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */; };
 		814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */; };
@@ -34,6 +27,17 @@
 		815380BA2497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380B92497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift */; };
 		815380BC2497C77400E1F7F6 /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380BB2497C77400E1F7F6 /* CategoriesTableViewCell.swift */; };
 		815380C12497C81700E1F7F6 /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380C02497C81700E1F7F6 /* HeaderTableView.swift */; };
+		815380D12497E5D200E1F7F6 /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380D02497E5D200E1F7F6 /* MyListViewController.swift */; };
+		815380D32497ECBB00E1F7F6 /* Trailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380D22497ECBB00E1F7F6 /* Trailer.swift */; };
+		815380DE249805FB00E1F7F6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380DD249805FB00E1F7F6 /* Service.swift */; };
+		815380E02498062100E1F7F6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380DF2498062100E1F7F6 /* Router.swift */; };
+		A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C98249692070026E899 /* HorizontalFlowLayout.swift */; };
+		A7825C9B249717B30026E899 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9A249717B30026E899 /* Movie.swift */; };
+		A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9C249722F00026E899 /* NewsPosterCell.swift */; };
+		A7ADBED9249274AD00D00702 /* ZoomAndSnapFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */; };
+		A7ADBEDB2492760A00D00702 /* RecoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */; };
+		A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */; };
+		A7ADBEDF24968E3100D00702 /* NewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,20 @@
 		77E0FC3C248FB37900BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
+		814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChildViewController.swift; sourceTree = "<group>"; };
+		814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListHeaderView.swift; sourceTree = "<group>"; };
+		814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
+		814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCollectionViewCell.swift; sourceTree = "<group>"; };
+		815380B32497C5A000E1F7F6 /* CategoriesAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAutoLayout.swift; sourceTree = "<group>"; };
+		815380B72497C71B00E1F7F6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		815380B92497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		815380BB2497C77400E1F7F6 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		815380C02497C81700E1F7F6 /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
+		815380D02497E5D200E1F7F6 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		815380D22497ECBB00E1F7F6 /* Trailer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Trailer.swift; path = CineTime/Controller/MyList/Trailer.swift; sourceTree = SOURCE_ROOT; };
+		815380DD249805FB00E1F7F6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		815380DF2498062100E1F7F6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		A7825C98249692070026E899 /* HorizontalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowLayout.swift; sourceTree = "<group>"; };
 		A7825C9A249717B30026E899 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = CineTime/View/Movie.swift; sourceTree = SOURCE_ROOT; };
 		A7825C9C249722F00026E899 /* NewsPosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPosterCell.swift; sourceTree = "<group>"; };
@@ -77,17 +95,6 @@
 		A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoCollectionView.swift; sourceTree = "<group>"; };
 		A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCell.swift; sourceTree = "<group>"; };
 		A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionView.swift; sourceTree = "<group>"; };
-		814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChildViewController.swift; sourceTree = "<group>"; };
-		814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListHeaderView.swift; sourceTree = "<group>"; };
-		814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
-		814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
-		814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCollectionViewCell.swift; sourceTree = "<group>"; };
-		815380B32497C5A000E1F7F6 /* CategoriesAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAutoLayout.swift; sourceTree = "<group>"; };
-		815380B52497C68800E1F7F6 /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
-		815380B72497C71B00E1F7F6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		815380B92497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
-		815380BB2497C77400E1F7F6 /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
-		815380C02497C81700E1F7F6 /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,7 +156,7 @@
 		77E0FC17248FB37300BB50A1 /* CineTime */ = {
 			isa = PBXGroup;
 			children = (
-				818BDC802493097E0055C814 /* Service */,
+				815380D82498051400E1F7F6 /* Service */,
 				7713F32A248FEDE900A6E07D /* Extension */,
 				814E1DB3248FBC12006ADFCB /* Config */,
 				814E1DB1248FBB56006ADFCB /* Controller */,
@@ -182,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A7825C9A249717B30026E899 /* Movie.swift */,
+				815380D22497ECBB00E1F7F6 /* Trailer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,15 +270,17 @@
 		815380BD2497C7B300E1F7F6 /* MyList */ = {
 			isa = PBXGroup;
 			children = (
-				815380B52497C68800E1F7F6 /* MyListViewController.swift */,
 				814E1DCD2491AC3F006ADFCB /* Child */,
+				815380D02497E5D200E1F7F6 /* MyListViewController.swift */,
 			);
 			path = MyList;
 			sourceTree = "<group>";
 		};
-		818BDC802493097E0055C814 /* Service */ = {
+		815380D82498051400E1F7F6 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				815380DD249805FB00E1F7F6 /* Service.swift */,
+				815380DF2498062100E1F7F6 /* Router.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -405,14 +415,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */,
 				A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */,
+				815380DE249805FB00E1F7F6 /* Service.swift in Sources */,
 				814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */,
 				815380B42497C5A000E1F7F6 /* CategoriesAutoLayout.swift in Sources */,
+				815380E02498062100E1F7F6 /* Router.swift in Sources */,
 				7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */,
-				815380B62497C68800E1F7F6 /* MyListViewController.swift in Sources */,
 				815380BC2497C77400E1F7F6 /* CategoriesTableViewCell.swift in Sources */,
 				77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */,
+				815380D12497E5D200E1F7F6 /* MyListViewController.swift in Sources */,
 				A7ADBEDB2492760A00D00702 /* RecoCollectionView.swift in Sources */,
 				A7ADBED9249274AD00D00702 /* ZoomAndSnapFlowLayout.swift in Sources */,
 				814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */,
@@ -423,11 +434,11 @@
 				A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
 				A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */,
-				814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */,
 				A7825C9B249717B30026E899 /* Movie.swift in Sources */,
 				A7ADBEDF24968E3100D00702 /* NewCollectionView.swift in Sources */,
 				814E1DD72491B934006ADFCB /* MyListCollectionViewCell.swift in Sources */,
 				815380C12497C81700E1F7F6 /* HeaderTableView.swift in Sources */,
+				815380D32497ECBB00E1F7F6 /* Trailer.swift in Sources */,
 				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
 				815380B82497C71B00E1F7F6 /* CategoriesViewController.swift in Sources */,
 				814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */,
