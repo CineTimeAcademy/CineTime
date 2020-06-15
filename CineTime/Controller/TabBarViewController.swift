@@ -22,8 +22,7 @@ class TabBarViewController: UITabBarController {
         self.tabBar.barTintColor = .black
         
         let recommendationsVC = RecommendationsViewController()
-        recommendationsVC.tabBarItem = UITabBarItem(tabBarSystemItem: .more, tag: 0)
-
+        recommendationsVC.tabBarItem = UITabBarItem(title: "Recomendações", image: UIImage(named: "rolinho"), tag: 0)
         let categoriesVC = CategoriesViewController()
         categoriesVC.tabBarItem = UITabBarItem(title: "Buscar", image: UIImage(named: "buscar"), tag: 1)
         
