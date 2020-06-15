@@ -5,11 +5,9 @@
 //  Created by Vinicius Mesquita on 09/06/20.
 //  Copyright © 2020 Beatriz Carlos. All rights reserved.
 //
-
 import UIKit
 
 // sectionHeaderHeight & sectionHeaderWidth
-
 class MyListViewController: UITableViewController {
     
     // Child View Controller
