@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32B248FEE0000A6E07D /* UIColor.swift */; };
+		7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32D248FEE1900A6E07D /* Constraints.swift */; };
 		77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC18248FB37300BB50A1 /* AppDelegate.swift */; };
 		77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */; };
 		77E0FC22248FB37800BB50A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC21248FB37800BB50A1 /* Assets.xcassets */; };
@@ -17,6 +19,11 @@
 		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
 		814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */; };
 		814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */; };
+		814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */; };
+		814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */; };
+		814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */; };
+		814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */; };
+		814E1DD72491B934006ADFCB /* MyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7713F32B248FEE0000A6E07D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		7713F32D248FEE1900A6E07D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		77E0FC15248FB37300BB50A1 /* CineTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E0FC18248FB37300BB50A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +62,11 @@
 		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
 		814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListViewController.swift; sourceTree = "<group>"; };
+		814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChildViewController.swift; sourceTree = "<group>"; };
+		814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListHeaderView.swift; sourceTree = "<group>"; };
+		814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
+		814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
+		814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7713F32A248FEDE900A6E07D /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7713F32B248FEE0000A6E07D /* UIColor.swift */,
+				7713F32D248FEE1900A6E07D /* Constraints.swift */,
+				814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		77E0FC0C248FB37300BB50A1 = {
 			isa = PBXGroup;
 			children = (
@@ -103,12 +127,13 @@
 		77E0FC17248FB37300BB50A1 /* CineTime */ = {
 			isa = PBXGroup;
 			children = (
-				77E0FC26248FB37800BB50A1 /* Info.plist */,
+				818BDC802493097E0055C814 /* Service */,
+				7713F32A248FEDE900A6E07D /* Extension */,
 				814E1DB3248FBC12006ADFCB /* Config */,
-				814E1DB2248FBB5D006ADFCB /* Extensions */,
 				814E1DB1248FBB56006ADFCB /* Controller */,
 				814E1DB0248FBB50006ADFCB /* View */,
 				814E1DAF248FBB43006ADFCB /* Model */,
+				77E0FC26248FB37800BB50A1 /* Info.plist */,
 			);
 			path = CineTime;
 			sourceTree = "<group>";
@@ -143,6 +168,9 @@
 			children = (
 				814E1DB4248FBC88006ADFCB /* Storyboard */,
 				77E0FC21248FB37800BB50A1 /* Assets.xcassets */,
+				814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */,
+				814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */,
+				814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -150,19 +178,13 @@
 		814E1DB1248FBB56006ADFCB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				814E1DCD2491AC3F006ADFCB /* Child */,
 				814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */,
 				814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */,
 				814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */,
 				814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		814E1DB2248FBB5D006ADFCB /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		814E1DB3248FBC12006ADFCB /* Config */ = {
@@ -180,6 +202,21 @@
 				77E0FC23248FB37800BB50A1 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		814E1DCD2491AC3F006ADFCB /* Child */ = {
+			isa = PBXGroup;
+			children = (
+				814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */,
+			);
+			path = Child;
+			sourceTree = "<group>";
+		};
+		818BDC802493097E0055C814 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,12 +349,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */,
 				814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */,
+				7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */,
 				77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */,
+				814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */,
 				814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */,
+				7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */,
 				814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
 				814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */,
+				814E1DD72491B934006ADFCB /* MyListCollectionViewCell.swift in Sources */,
+				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
+				814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
