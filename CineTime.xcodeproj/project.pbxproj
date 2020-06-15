@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77509E67249701770041C50B /* CategoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77509E66249701770041C50B /* CategoriesTableViewCell.swift */; };
+		77509E69249701AE0041C50B /* RowTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77509E68249701AE0041C50B /* RowTableViewCollectionViewCell.swift */; };
+		77509E6C249702760041C50B /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77509E6B249702760041C50B /* DescriptionViewController.swift */; };
+		77509E6F249702F40041C50B /* HeaderTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77509E6E249702F40041C50B /* HeaderTableView.swift */; };
+		77509E71249703960041C50B /* CategoriesAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77509E70249703960041C50B /* CategoriesAutoLayout.swift */; };
 		7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32B248FEE0000A6E07D /* UIColor.swift */; };
 		7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32D248FEE1900A6E07D /* Constraints.swift */; };
 		77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC18248FB37300BB50A1 /* AppDelegate.swift */; };
@@ -44,6 +49,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		77509E66249701770041C50B /* CategoriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesTableViewCell.swift; sourceTree = "<group>"; };
+		77509E68249701AE0041C50B /* RowTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
+		77509E6B249702760041C50B /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
+		77509E6E249702F40041C50B /* HeaderTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableView.swift; sourceTree = "<group>"; };
+		77509E70249703960041C50B /* CategoriesAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoriesAutoLayout.swift; path = CineTime/View/Categories/CategoriesAutoLayout.swift; sourceTree = SOURCE_ROOT; };
 		7713F32B248FEE0000A6E07D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		7713F32D248FEE1900A6E07D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		77E0FC15248FB37300BB50A1 /* CineTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +104,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77509E65249700D60041C50B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */,
+				77509E66249701770041C50B /* CategoriesTableViewCell.swift */,
+				77509E68249701AE0041C50B /* RowTableViewCollectionViewCell.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		77509E6A249702070041C50B /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				77509E6B249702760041C50B /* DescriptionViewController.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
+		77509E6D249702CA0041C50B /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				77509E6E249702F40041C50B /* HeaderTableView.swift */,
+			);
+			path = Categories;
+
 		7713F32A248FEDE900A6E07D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +137,7 @@
 				814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */,
 			);
 			path = Extension;
+
 			sourceTree = "<group>";
 		};
 		77E0FC0C248FB37300BB50A1 = {
@@ -166,6 +202,7 @@
 		814E1DB0248FBB50006ADFCB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				77509E6D249702CA0041C50B /* Categories */,
 				814E1DB4248FBC88006ADFCB /* Storyboard */,
 				77E0FC21248FB37800BB50A1 /* Assets.xcassets */,
 				814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */,
@@ -178,13 +215,23 @@
 		814E1DB1248FBB56006ADFCB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+
+				77509E6A249702070041C50B /* Description */,
+				77509E65249700D60041C50B /* Categories */,
 				814E1DCD2491AC3F006ADFCB /* Child */,
 				814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */,
 				814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */,
-				814E1DBA248FBE00006ADFCB /* CategoriesViewController.swift */,
 				814E1DBC248FBE1A006ADFCB /* MyListViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		814E1DB2248FBB5D006ADFCB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				77509E70249703960041C50B /* CategoriesAutoLayout.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		814E1DB3248FBC12006ADFCB /* Config */ = {
@@ -351,13 +398,18 @@
 			files = (
 				814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */,
 				814E1DBD248FBE1A006ADFCB /* MyListViewController.swift in Sources */,
+				77509E69249701AE0041C50B /* RowTableViewCollectionViewCell.swift in Sources */,
 				7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */,
 				77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */,
 				814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */,
 				814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */,
 				7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */,
 				814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */,
+				77509E71249703960041C50B /* CategoriesAutoLayout.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
+				77509E6F249702F40041C50B /* HeaderTableView.swift in Sources */,
+				77509E6C249702760041C50B /* DescriptionViewController.swift in Sources */,
+				77509E67249701770041C50B /* CategoriesTableViewCell.swift in Sources */,
 				814E1DBB248FBE00006ADFCB /* CategoriesViewController.swift in Sources */,
 				814E1DD72491B934006ADFCB /* MyListCollectionViewCell.swift in Sources */,
 				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
