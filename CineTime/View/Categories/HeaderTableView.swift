@@ -26,6 +26,7 @@ class HeaderTableView: UIView {
         return button
     }()
     
+    
     func configureConstraintsButton() {
         NSLayoutConstraint.activate([
             button.topAnchor.constraint(equalTo: self.topAnchor),
@@ -42,7 +43,6 @@ class HeaderTableView: UIView {
         self.backgroundColor = .black
         addSubview(button)
         configureConstraintsButton()
-
     }
     
     required init?(coder: NSCoder) {
