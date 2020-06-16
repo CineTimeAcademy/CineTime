@@ -27,6 +27,7 @@ class RecommendationsViewController: UIViewController {
 //        let reco = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
 //        reco.backgroundColor = .red
         
+        
         let sizeMinCollection: CGFloat = 256
         let indicationColletion = RecoCollectionView(frame: CGRect(x: 0, y: 0 , width: view.frame.width, height: view.frame.height - sizeMinCollection), collectionViewLayout: ZoomAndSnapFlowLayout())
         

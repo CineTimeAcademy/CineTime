@@ -21,7 +21,7 @@ class NewsPosterCell: UICollectionViewCell {
     }
     
     private let posterImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "player_one"))
+        let imageView = UIImageView(image: UIImage(named: "1"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView

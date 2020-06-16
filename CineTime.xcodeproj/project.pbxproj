@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		771174302498F502005AC1CF /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711742F2498F502005AC1CF /* SearchCollectionViewController.swift */; };
+		771174322498F574005AC1CF /* TitlesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771174312498F574005AC1CF /* TitlesCollectionViewCell.swift */; };
+		77117434249905FE005AC1CF /* UISearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77117433249905FE005AC1CF /* UISearch.swift */; };
 		7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32B248FEE0000A6E07D /* UIColor.swift */; };
 		7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32D248FEE1900A6E07D /* Constraints.swift */; };
 		77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC18248FB37300BB50A1 /* AppDelegate.swift */; };
@@ -59,6 +62,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7711742F2498F502005AC1CF /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
+		771174312498F574005AC1CF /* TitlesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesCollectionViewCell.swift; sourceTree = "<group>"; };
+		77117433249905FE005AC1CF /* UISearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISearch.swift; sourceTree = "<group>"; };
 		7713F32B248FEE0000A6E07D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		7713F32D248FEE1900A6E07D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
 		77E0FC15248FB37300BB50A1 /* CineTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +130,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7711742A2498F2B2005AC1CF /* MyList */ = {
+			isa = PBXGroup;
+			children = (
+				814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */,
+				814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */,
+				814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */,
+			);
+			path = MyList;
+			sourceTree = "<group>";
+		};
+		7711742B2498F309005AC1CF /* Recommendation */ = {
+			isa = PBXGroup;
+			children = (
+				A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */,
+				A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */,
+				A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */,
+				A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */,
+				A7825C98249692070026E899 /* HorizontalFlowLayout.swift */,
+				A7825C9C249722F00026E899 /* NewsPosterCell.swift */,
+			);
+			path = Recommendation;
+			sourceTree = "<group>";
+		};
+		7711742C2498F39C005AC1CF /* Recommendation */ = {
+			isa = PBXGroup;
+			children = (
+				814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */,
+			);
+			path = Recommendation;
+			sourceTree = "<group>";
+		};
+		7711742D2498F420005AC1CF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				771174312498F574005AC1CF /* TitlesCollectionViewCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		7711742E2498F432005AC1CF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7711742F2498F502005AC1CF /* SearchCollectionViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		7713F32A248FEDE900A6E07D /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +184,7 @@
 				7713F32D248FEE1900A6E07D /* Constraints.swift */,
 				814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */,
 				815380B32497C5A000E1F7F6 /* CategoriesAutoLayout.swift */,
+				77117433249905FE005AC1CF /* UISearch.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -199,18 +253,12 @@
 		814E1DB0248FBB50006ADFCB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7711742D2498F420005AC1CF /* Search */,
+				7711742B2498F309005AC1CF /* Recommendation */,
+				7711742A2498F2B2005AC1CF /* MyList */,
 				815380AE2497C26A00E1F7F6 /* Categories */,
 				814E1DB4248FBC88006ADFCB /* Storyboard */,
 				77E0FC21248FB37800BB50A1 /* Assets.xcassets */,
-				A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */,
-				A7ADBED8249274AD00D00702 /* ZoomAndSnapFlowLayout.swift */,
-				A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */,
-				A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */,
-				A7825C98249692070026E899 /* HorizontalFlowLayout.swift */,
-				A7825C9C249722F00026E899 /* NewsPosterCell.swift */,
-				814E1DD02491AC89006ADFCB /* MyListHeaderView.swift */,
-				814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */,
-				814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,10 +266,11 @@
 		814E1DB1248FBB56006ADFCB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7711742E2498F432005AC1CF /* Search */,
+				7711742C2498F39C005AC1CF /* Recommendation */,
 				815380BD2497C7B300E1F7F6 /* MyList */,
 				815380A32497C20500E1F7F6 /* Categories */,
 				814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */,
-				814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -418,6 +467,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				771174302498F502005AC1CF /* SearchCollectionViewController.swift in Sources */,
+				77117434249905FE005AC1CF /* UISearch.swift in Sources */,
 				A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */,
 				815380DE249805FB00E1F7F6 /* Service.swift in Sources */,
 				814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */,
@@ -435,6 +486,7 @@
 				814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */,
 				7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */,
 				814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */,
+				771174322498F574005AC1CF /* TitlesCollectionViewCell.swift in Sources */,
 				A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
 				A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */,
