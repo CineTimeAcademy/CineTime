@@ -19,6 +19,8 @@ class CategoriesViewController: UIViewController {
     // Collection header names.
     let sectionsHeader : [String] = ["Ação", "Aventura", "Animação", "Comédia", "Crime", "Documentário", "Drama", "Fantasia", "Horror", "Musical", "Mistério", "Romance", "Ficção cientifica", "Suspense", "Séries", "Guerra", "Faroeste"]
     
+    let searchController = UISearchController(searchResultsController: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
@@ -26,14 +28,33 @@ class CategoriesViewController: UIViewController {
         configureNavBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        // Changing status bar color
-        navigationController?.navigationBar.barStyle  = .black
-    }
-    
-    // configure navigation bar.
     func configureNavBar() {
-        navigationItem.title = "Categorias"
+        navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.viewControllers.first?.navigationItem.title = "Buscar"
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // Place the search bar in the navigation item's title view.
+        self.navigationController?.viewControllers.first?.navigationItem.searchController = searchController
+        self.navigationController?.viewControllers.first?.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        // Don't hide the navigation bar because the search bar is in it.
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        searchController.searchBar.set(textColor: .white)
+        searchController.searchBar.setTextField(color: .actionColor)
+        searchController.searchBar.setPlaceholder(textColor: .white)
+        searchController.searchBar.setSearchImage(color: .white)
+        searchController.searchBar.setClearButton(color: .white)
+        searchController.searchBar.delegate = self
+        
+        
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.backgroundColor = .systemYellow
+        }
+        
+        view.addSubview(searchController.searchBar)
     }
     
     // configure table view.
@@ -79,7 +100,17 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 // Custom delegate to push the description screen.
 extension CategoriesViewController: DelegatePushDescriptionViewController {
     func didSelectItem() {
-//        let destination = DescriptionViewController()
-//        navigationController?.pushViewController(destination, animated: true)
+        //        let destination = DescriptionViewController()
+        //        navigationController?.pushViewController(destination, animated: true)
+    }
+}
+
+extension CategoriesViewController: UISearchBarDelegate {
+    
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        let destination = SearchViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(destination, animated: true)
+        searchBar.setShowsCancelButton(false, animated: true)
+        return false
     }
 }

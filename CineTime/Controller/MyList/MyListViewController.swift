@@ -16,26 +16,6 @@ class MyListViewController: UITableViewController {
     // Itens there are displayed, variable used to switch when click on Segmented Control
     lazy var rowToDisplay = assistidos
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        // Changing status bar color
-        navigationController?.navigationBar.barStyle  = .black
-        
-        // Allows large title
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        view.backgroundColor = .black
-        
-        // Change title from rootViewController
-        self.navigationController?.viewControllers.first?.navigationItem.title = "Minha Lista"
-        
-        // Change large title color from rootViewController
-        self.navigationController?.viewControllers.first?
-            .navigationController?.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor : UIColor.white
-        ]
-    }
-    
     // Action when click on segmented item
     @objc fileprivate func handleSegmentChange() {
         
@@ -70,6 +50,8 @@ class MyListViewController: UITableViewController {
         
         // Teste de chamada
         callApi()
+        
+        configureNavBar()
     }
     
     func callApi() {
@@ -98,6 +80,25 @@ class MyListViewController: UITableViewController {
         tableView.register(MyListTableViewCell.self, forCellReuseIdentifier: MyListTableViewCell.identifier)
         tableView.separatorStyle = .none
         tableView.tableHeaderView = header.view
+    }
+    
+    private func configureNavBar(){
+        // Changing status bar color
+        navigationController?.navigationBar.barStyle  = .black
+        
+        // Allows large title
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        view.backgroundColor = .black
+        
+        // Change title from rootViewController
+        self.navigationController?.viewControllers.first?.navigationItem.title = "Minha Lista"
+        
+        // Change large title color from rootViewController
+        self.navigationController?.viewControllers.first?
+            .navigationController?.navigationBar.largeTitleTextAttributes = [
+                NSAttributedString.Key.foregroundColor : UIColor.white
+        ]
     }
     
     override func viewWillLayoutSubviews() {

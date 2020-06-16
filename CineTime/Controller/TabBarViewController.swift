@@ -21,13 +21,14 @@ class TabBarViewController: UITabBarController {
         self.tabBar.tintColor = .actionColor
         self.tabBar.barTintColor = .black
         
-        let recommendationsVC = RecommendationsViewController()
+        let recommendationsVC = UINavigationController(rootViewController: RecommendationsViewController())
         recommendationsVC.tabBarItem = UITabBarItem(title: "Recomendações", image: UIImage(named: "rolinho"), tag: 0)
-        let categoriesVC = CategoriesViewController()
         
-        categoriesVC.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 1)
+//        let categoriesVC = SearchViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let categoriesVC = UINavigationController(rootViewController: CategoriesViewController())
+        categoriesVC.tabBarItem = UITabBarItem(title: "Buscar", image: UIImage(named: "buscar"), tag: 1)
         
-        let myListVC = MyListViewController()
+        let myListVC = UINavigationController(rootViewController: MyListViewController())
         myListVC.tabBarItem = UITabBarItem(title: "Minha Lista", image: UIImage(named: "line.horizontal.3"), tag: 2)
         
         viewControllers = [recommendationsVC, categoriesVC, myListVC]
