@@ -16,8 +16,8 @@ class Service {
         
         guard let url = api.url else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
+        
+        HTTP.get.request(url: url) { (data, response, error) in
             guard let data = data else { return }
             
             do {
@@ -28,7 +28,20 @@ class Service {
                 print(error)
             }
             
-        }.resume()
+        }
+//        URLSession.shared.dataTask(with: url) { (data, response, error) in
+//
+//            guard let data = data else { return }
+//
+//            do {
+//                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+//                let films = results.results
+//                completion(films)
+//            } catch {
+//                print(error)
+//            }
+//
+//        }.resume()
         
     }
     
@@ -53,6 +66,47 @@ class Service {
             
         }.resume()
         
+    }
+    
+    func getRecomendations(filmId: String, completion: @escaping ([Film]?) -> Void) {
+        
+        let api = FilmsAPI(route: .recommendations(id: filmId))
+        
+        guard let url = api.url else { return }
+        
+        HTTP.get.request(url: url) { (data, response, error) in
+            guard let data = data else { return }
+            
+            do {
+                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let films = results.results
+                completion(films)
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
+    func getTrendings(completion: @escaping ([Film]?) -> Void) {
+        
+        let api = FilmsAPI(route: .trending)
+        
+        guard let url = api.url else { return }
+        
+        
+        HTTP.get.request(url: url) { (data, response, error) in
+            guard let data = data else { return }
+            
+            do {
+                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let films = results.results
+                completion(films)
+            } catch {
+                print(error)
+            }
+            
+        }
     }
     
     
