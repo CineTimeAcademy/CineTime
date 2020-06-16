@@ -67,23 +67,8 @@ class MyListViewController: UITableViewController {
         
         // TableView delegates and setting TableViewHeader
         setupTableView()
-        
-        // Teste de chamada
-        callApi()
     }
-    
-    func callApi() {
-        
-        Service().findFilmByGenre(with: ["28", "12"]) { films in
-            
-            guard let films = films else { return }
-            print(films)
-            
-            
-        }
-        
-    }
-    
+   
     func setupHeader() {
         header
             .headerView
