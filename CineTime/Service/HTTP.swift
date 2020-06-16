@@ -42,6 +42,5 @@ enum HTTP {
             }.resume()
             
         }
-            
     }
 }

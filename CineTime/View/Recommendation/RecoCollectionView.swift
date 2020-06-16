@@ -11,6 +11,7 @@ import UIKit
 class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
     
     let flowLayout = ZoomAndSnapFlowLayout()
+    var context = CIContext(options: nil)
 
     private let movies: [Movie] = [Movie(posterName: "1"), Movie(posterName: "2"), Movie(posterName: "3")]
     
@@ -27,20 +28,20 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
         self.isPagingEnabled = false
         self.showsHorizontalScrollIndicator = false
         self.contentOffset.x = flowLayout.itemSize.width + flowLayout.minimumLineSpacing
-//        self.backgroundView = UIImageView(image: UIImage(named: movies[1].posterName))
         
+        let image1 = UIImageView()
+        self.backgroundView = image1
+        image1.image = UIImage(named: movies[1].posterName)
+        image1.alpha = 0.3
+        image1.contentMode = .scaleAspectFill
+        blurEffect(bg: image1, context: context)
+
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-//extension RecoCollectionView: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 50, height: 50)
-//    }
-//}
 
 extension RecoCollectionView: UICollectionViewDataSource {
     
@@ -57,6 +58,10 @@ extension RecoCollectionView: UICollectionViewDataSource {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let center = CGPoint(x: self.center.x + self.contentOffset.x, y: self.center.y + self.contentOffset.y)
         let indexPath = indexPathForItem(at: center)
-//        self.backgroundView = UIImageView(image: UIImage(named: movies[indexPath!.item].posterName))
+        let image =  UIImageView(image: UIImage(named: movies[indexPath!.item].posterName))
+        self.backgroundView = image
+        image.alpha = 0.3
+        image.contentMode = .scaleAspectFill
+        blurEffect(bg: image, context: context)
     }
 }

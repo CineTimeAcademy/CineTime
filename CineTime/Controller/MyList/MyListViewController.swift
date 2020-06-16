@@ -35,7 +35,7 @@ class MyListViewController: UITableViewController {
     }
     
     // My TableView Data Source
-    let assistidos = [String]()
+    let assistidos : [String] = ["Teoria de tudo", "Senhor do anéis: A origem.", "Batman: O Cavaleiro das trevas."]
     
     let paraAssistir = [String]()
     

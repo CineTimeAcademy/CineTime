@@ -25,7 +25,7 @@ class Service {
                 let films = results.results
                 completion(films)
             } catch {
-                print(error)
+                //print(error)
             }
             
         }

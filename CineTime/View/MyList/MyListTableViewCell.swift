@@ -15,7 +15,7 @@ class MyListTableViewCell: UITableViewCell {
     lazy var imageFilm: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "star_wars")
+        imageView.image = UIImage(named: "1")
         return imageView
     }()
     

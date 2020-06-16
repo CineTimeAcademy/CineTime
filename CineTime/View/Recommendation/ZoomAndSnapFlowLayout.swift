@@ -33,13 +33,13 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
         let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
         let horizontalInsets = (collectionView.frame.width - itemSize.width) / 2
         
-        print("ItemSize \(itemSize.height)")
-        print("CollectionVire Height \(collectionView.frame.height)")
-        print("adjustedContentInset top \(collectionView.adjustedContentInset.top)")
-        print("adjustedContentInset bottom \(collectionView.adjustedContentInset.bottom)")
-        print("Vertical \(verticalInsets)")
-        print("ColletionView Width \(collectionView.frame.width)")
-        print("Horizontal \(horizontalInsets)")
+//        print("ItemSize \(itemSize.height)")
+//        print("CollectionVire Height \(collectionView.frame.height)")
+//        print("adjustedContentInset top \(collectionView.adjustedContentInset.top)")
+//        print("adjustedContentInset bottom \(collectionView.adjustedContentInset.bottom)")
+//        print("Vertical \(verticalInsets)")
+//        print("ColletionView Width \(collectionView.frame.width)")
+//        print("Horizontal \(horizontalInsets)")
         sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
 
         super.prepare()
@@ -58,7 +58,7 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
 
             if distance.magnitude < activeDistance {
                 let zoom = 1 + zoomFactor * (1 - normalizedDistance.magnitude)
-                print(zoom)
+                //print(zoom)
                 attributes.transform3D = CATransform3DMakeScale(zoom, zoom, 1)
                 attributes.zIndex = Int(zoom.rounded())
             }

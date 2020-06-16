@@ -26,7 +26,8 @@ class RecommendationsViewController: UIViewController {
         
 //        let reco = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height / 2))
 //        reco.backgroundColor = .red
-        
+        navigationController?.navigationBar.barStyle  = .black
+
         
         let sizeMinCollection: CGFloat = 256
         let indicationColletion = RecoCollectionView(frame: CGRect(x: 0, y: 0 , width: view.frame.width, height: view.frame.height - sizeMinCollection), collectionViewLayout: ZoomAndSnapFlowLayout())
@@ -44,7 +45,7 @@ class RecommendationsViewController: UIViewController {
             let label = UILabel(frame: CGRect(x: 16, y: view.frame.height - sizeMinCollection, width: 170, height: 34))
             label.textAlignment = .left
             label.text = "Lançamentos"
-            label.font = UIFont.preferredFont(forTextStyle: .title2)
+            label.font = UIFont.boldSystemFont(ofSize: 20.0)
             label.textColor = .white
             return label
         }()
