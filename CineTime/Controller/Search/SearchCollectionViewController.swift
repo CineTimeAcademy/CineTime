@@ -24,32 +24,31 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     func configureNavBar() {
-        navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.viewControllers.first?.navigationItem.title = "Buscar"
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
         // Place the search bar in the navigation item's title view.
-        self.navigationController?.viewControllers.first?.navigationItem.searchController = searchController
-        self.navigationController?.viewControllers.first?.navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+        navigationItem.searchController = searchController
+        
+        navigationItem.hidesSearchBarWhenScrolling = false
         
         // Don't hide the navigation bar because the search bar is in it.
-        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = true
         searchController.searchBar.placeholder = "Buscar"
         searchController.searchBar.set(textColor: .white)
         searchController.searchBar.setTextField(color: .actionColor)
         searchController.searchBar.setPlaceholder(textColor: .white)
         searchController.searchBar.setSearchImage(color: .white)
         searchController.searchBar.setClearButton(color: .white)
+       // searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
         searchController.isActive = true
 
-        
         if #available(iOS 13.0, *) {
             searchController.searchBar.searchTextField.backgroundColor = .systemYellow
         }
         
-        collectionView.addSubview(searchController.searchBar)
+        //collectionView.addSubview(searchController.searchBar)
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -69,4 +68,23 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
+}
+
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("\(searchText)")
+    }
+    
+    func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        return true
+    }
+    
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+  func updateSearchResults(for searchController: UISearchController) {
+    print(searchController.searchBar.text)
+  }
 }

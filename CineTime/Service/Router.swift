@@ -15,6 +15,7 @@ enum Router {
     case trending
     case find(imdbId: String)
     case recommendations(id: String)
+    case searchByName(name: String)
     
 }
 
@@ -41,7 +42,9 @@ struct FilmsAPI {
                 return URL(string: "\(hostname)/movie/\(id)/recommendations?api_key=\(key)&\(language)&page=\(page)")
             case .trending:
                 return URL(string: "\(hostname)/trending/movie/week?api_key=\(key)&\(language)")
-                
+            
+            case .searchByName(let name):
+                return URL(string: "\(hostname)/search/movie?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
             }
         }
         
@@ -63,6 +66,10 @@ struct FilmsAPI {
          
          Example trainding request:
          https://api.themoviedb.org/3/trending/movie/week?api_key=a1d23d9e0cc08e49e4703408659fe47c
+         
+         Example search by name:
+         
+         https://api.themoviedb.org/3/search/movie?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR&query=Vingadores&page=1
          */
     }
 }
