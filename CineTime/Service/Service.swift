@@ -10,6 +10,10 @@ import Foundation
 
 class Service {
     
+    static let shared = Service()
+    
+    private init() { }
+    
     func findFilmByGenre(with genresId: [String], completion: @escaping ([Film]?) -> Void) {
         
         let api = FilmsAPI(route: .genre(id: genresId))
@@ -31,7 +35,6 @@ class Service {
         }
         
     }
-    
     
     func getTrailer(filmId: String,  completion: @escaping ([Trailer]?) -> Void) {
         
@@ -77,7 +80,7 @@ class Service {
     
     func getTrendings(completion: @escaping ([Film]?) -> Void) {
         
-        let api = FilmsAPI(route: .trending)
+        let api = FilmsAPI(route: .latest)
         
         guard let url = api.url else { return }
         
@@ -116,6 +119,10 @@ class Service {
             }
             
         }
+        
+    }
+    
+    func createList(list: FilmList) {
         
     }
     
