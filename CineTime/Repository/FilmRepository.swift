@@ -10,7 +10,11 @@ import Foundation
 
 class FilmRepository: Repository {
     
-    let plist = PlistManager<Film>(plistName: "FilmPlist")
+    var plist = PlistManager<Film>(plistName: "FilmPlist")
+    
+    init(with plistName: String) {
+        plist = PlistManager<Film>(plistName: plistName)
+    }
     
     func getAll() -> [Film] {
         
