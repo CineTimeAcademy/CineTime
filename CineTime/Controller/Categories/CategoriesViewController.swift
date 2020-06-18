@@ -100,8 +100,8 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 // Custom delegate to push the description screen.
 extension CategoriesViewController: DelegatePushDescriptionViewController {
     func didSelectItem() {
-        //        let destination = DescriptionViewController()
-        //        navigationController?.pushViewController(destination, animated: true)
+        let destination = DescriptionViewController()
+        navigationController?.pushViewController(destination, animated: true)
     }
 }
 
@@ -110,7 +110,6 @@ extension CategoriesViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         let destination = SearchViewController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(destination, animated: true)
-        searchBar.setShowsCancelButton(false, animated: true)
         return false
     }
 }
