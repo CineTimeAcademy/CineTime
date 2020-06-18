@@ -18,7 +18,7 @@ class DescriptionViewController: UIViewController, WKUIDelegate, UIWebViewDelega
     }()
 
     lazy var viewDescription: UIView = {
-        let viewDescription = Description(frame: .zero)
+        let viewDescription = DescriptionView(frame: .zero)
         return viewDescription
     }()
     

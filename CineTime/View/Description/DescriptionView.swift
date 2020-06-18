@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Description: UIView {
+class DescriptionView: UIView {
     lazy var titleLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.textColor = .white
