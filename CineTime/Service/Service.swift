@@ -25,23 +25,10 @@ class Service {
                 let films = results.results
                 completion(films)
             } catch {
-                //print(error)
+                
             }
             
         }
-//        URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//            guard let data = data else { return }
-//
-//            do {
-//                let results = try JSONDecoder().decode(FilmResult.self, from: data)
-//                let films = results.results
-//                completion(films)
-//            } catch {
-//                print(error)
-//            }
-//
-//        }.resume()
         
     }
     
@@ -110,5 +97,26 @@ class Service {
     }
     
     
+    func searchByName(name: String, completion: @escaping ([Film]?) -> Void) {
+        
+        let api = FilmsAPI(route: .searchByName(name: name))
+        
+        guard let url = api.url else { return }
+        
+        
+        HTTP.get.request(url: url) { (data, response, error) in
+            guard let data = data else { return }
+            
+            do {
+                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let films = results.results
+                completion(films)
+            } catch {
+                print(error)
+            }
+            
+        }
+        
+    }
     
 }
