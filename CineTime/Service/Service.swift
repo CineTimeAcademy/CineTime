@@ -10,12 +10,6 @@ import Foundation
 
 class Service {
     
-    private let repository: FilmRepository
-    
-    init(repository: FilmRepository) {
-        self.repository = repository
-    }
-    
     func findFilmByGenre(with genresId: [String], completion: @escaping ([Film]?) -> Void) {
         
         let api = FilmsAPI(route: .genre(id: genresId))
