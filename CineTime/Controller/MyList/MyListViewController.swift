@@ -52,13 +52,13 @@ class MyListViewController: UITableViewController {
         configureNavBar()
         
         // Call Api
-        callApi()
+        fetchData()
     }
     
     
-    func callApi() {
+    func fetchData() {
         
-        Service().searchByName(name: "Vingadores") { films in
+        Service(repository: FilmRepository()).searchByName(name: "Vingadores") { films in
             films?.forEach({ film in
                 print(film)
             })
