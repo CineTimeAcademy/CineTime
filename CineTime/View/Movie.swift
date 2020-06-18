@@ -21,7 +21,7 @@ struct FilmResult: Decodable {
     
 }
 
-struct Film: Decodable {
+struct Film: Codable {
     
     let id: Int
     let title: String

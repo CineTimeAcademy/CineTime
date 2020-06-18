@@ -35,8 +35,7 @@ class MyListViewController: UITableViewController {
     }
     
     // My TableView Data Source
-    let assistidos : [String] = ["Teoria de tudo", "Senhor do anéis: A origem.", "Batman: O Cavaleiro das trevas."]
-    
+    let assistidos = [String]()
     let paraAssistir = [String]()
     
     override func viewDidLoad() {
@@ -48,20 +47,21 @@ class MyListViewController: UITableViewController {
         // TableView delegates and setting TableViewHeader
         setupTableView()
 
-        
         configureNavBar()
         
-        // Call Api
         fetchData()
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        // saveFilms()
+    }
+    
     func fetchData() {
+        let films = FilmRepository().getAll()
         
-        Service(repository: FilmRepository()).searchByName(name: "Vingadores") { films in
-            films?.forEach({ film in
-                print(film)
-            })
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
         
     }
