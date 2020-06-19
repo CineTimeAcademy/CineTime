@@ -13,12 +13,14 @@
 		7711743624994E67005AC1CF /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711743524994E67005AC1CF /* UIView+Blur.swift */; };
 		7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32B248FEE0000A6E07D /* UIColor.swift */; };
 		7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7713F32D248FEE1900A6E07D /* Constraints.swift */; };
+		77551AE2249A4D53008A51C1 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77551AE1249A4D53008A51C1 /* DescriptionView.swift */; };
 		77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC18248FB37300BB50A1 /* AppDelegate.swift */; };
 		77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */; };
 		77E0FC22248FB37800BB50A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC21248FB37800BB50A1 /* Assets.xcassets */; };
 		77E0FC25248FB37800BB50A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC23248FB37800BB50A1 /* LaunchScreen.storyboard */; };
 		77E0FC30248FB37900BB50A1 /* CineTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC2F248FB37900BB50A1 /* CineTimeTests.swift */; };
 		77E0FC3B248FB37900BB50A1 /* CineTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */; };
+		77E6F34B249A4C0000376528 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E6F34A249A4C0000376528 /* DescriptionViewController.swift */; };
 		814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */; };
 		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
 		814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */; };
@@ -75,6 +77,7 @@
 		7711743524994E67005AC1CF /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		7713F32B248FEE0000A6E07D /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		7713F32D248FEE1900A6E07D /* Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraints.swift; sourceTree = "<group>"; };
+		77551AE1249A4D53008A51C1 /* DescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		77E0FC15248FB37300BB50A1 /* CineTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CineTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E0FC18248FB37300BB50A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 		77E0FC36248FB37900BB50A1 /* CineTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineTimeUITests.swift; sourceTree = "<group>"; };
 		77E0FC3C248FB37900BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		77E6F34A249A4C0000376528 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
 		814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChildViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +209,14 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		77551AE0249A4D2F008A51C1 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				77551AE1249A4D53008A51C1 /* DescriptionView.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
 		77E0FC0C248FB37300BB50A1 = {
 			isa = PBXGroup;
 			children = (
@@ -259,6 +271,14 @@
 			path = CineTimeUITests;
 			sourceTree = "<group>";
 		};
+		77E6F34C249A4C1200376528 /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				77E6F34A249A4C0000376528 /* DescriptionViewController.swift */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
 		814E1DAF248FBB43006ADFCB /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +292,7 @@
 		814E1DB0248FBB50006ADFCB /* View */ = {
 			isa = PBXGroup;
 			children = (
+				77551AE0249A4D2F008A51C1 /* Description */,
 				7711742D2498F420005AC1CF /* Search */,
 				7711742B2498F309005AC1CF /* Recommendation */,
 				7711742A2498F2B2005AC1CF /* MyList */,
@@ -285,6 +306,7 @@
 		814E1DB1248FBB56006ADFCB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				77E6F34C249A4C1200376528 /* Description */,
 				7711742E2498F432005AC1CF /* Search */,
 				7711742C2498F39C005AC1CF /* Recommendation */,
 				815380BD2497C7B300E1F7F6 /* MyList */,
@@ -513,6 +535,7 @@
 				815380B42497C5A000E1F7F6 /* CategoriesAutoLayout.swift in Sources */,
 				815380E02498062100E1F7F6 /* Router.swift in Sources */,
 				7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */,
+				77551AE2249A4D53008A51C1 /* DescriptionView.swift in Sources */,
 				815380BC2497C77400E1F7F6 /* CategoriesTableViewCell.swift in Sources */,
 				77E0FC19248FB37300BB50A1 /* AppDelegate.swift in Sources */,
 				815380D12497E5D200E1F7F6 /* MyListViewController.swift in Sources */,
@@ -540,6 +563,7 @@
 				815380D32497ECBB00E1F7F6 /* Trailer.swift in Sources */,
 				818B71D5249B977D00D217EE /* FilmList.swift in Sources */,
 				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
+				77E6F34B249A4C0000376528 /* DescriptionViewController.swift in Sources */,
 				815380B82497C71B00E1F7F6 /* CategoriesViewController.swift in Sources */,
 				814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */,
 			);
