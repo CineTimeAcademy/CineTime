@@ -42,6 +42,7 @@
 		818B71D5249B977D00D217EE /* FilmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D4249B977D00D217EE /* FilmList.swift */; };
 		818B71D7249B994800D217EE /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D6249B994800D217EE /* FilmViewModel.swift */; };
 		818B71DA249B9C9700D217EE /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D9249B9C9700D217EE /* PlistManager.swift */; };
+		818B71DC249CEB9E00D217EE /* Streaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71DB249CEB9E00D217EE /* Streaming.swift */; };
 		A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C98249692070026E899 /* HorizontalFlowLayout.swift */; };
 		A7825C9B249717B30026E899 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9A249717B30026E899 /* Movie.swift */; };
 		A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9C249722F00026E899 /* NewsPosterCell.swift */; };
@@ -110,6 +111,7 @@
 		818B71D4249B977D00D217EE /* FilmList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmList.swift; path = CineTime/Repository/FilmList.swift; sourceTree = SOURCE_ROOT; };
 		818B71D6249B994800D217EE /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 		818B71D9249B9C9700D217EE /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
+		818B71DB249CEB9E00D217EE /* Streaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Streaming.swift; path = CineTime/Controller/MyList/Streaming.swift; sourceTree = SOURCE_ROOT; };
 		A7825C98249692070026E899 /* HorizontalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowLayout.swift; sourceTree = "<group>"; };
 		A7825C9A249717B30026E899 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = CineTime/View/Movie.swift; sourceTree = SOURCE_ROOT; };
 		A7825C9C249722F00026E899 /* NewsPosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPosterCell.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				A7825C9A249717B30026E899 /* Movie.swift */,
 				815380D22497ECBB00E1F7F6 /* Trailer.swift */,
 				818B71D4249B977D00D217EE /* FilmList.swift */,
+				818B71DB249CEB9E00D217EE /* Streaming.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -311,14 +314,6 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		814E1DCD2491AC3F006ADFCB /* Child */ = {
-			isa = PBXGroup;
-			children = (
-				814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */,
-			);
-			path = Child;
-			sourceTree = "<group>";
-		};
 		815380A32497C20500E1F7F6 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +335,7 @@
 		815380BD2497C7B300E1F7F6 /* MyList */ = {
 			isa = PBXGroup;
 			children = (
-				814E1DCD2491AC3F006ADFCB /* Child */,
+				814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */,
 				815380D02497E5D200E1F7F6 /* MyListViewController.swift */,
 			);
 			path = MyList;
@@ -523,6 +518,7 @@
 				A7ADBED9249274AD00D00702 /* ZoomAndSnapFlowLayout.swift in Sources */,
 				818B71D1249A9F7100D217EE /* FilmRepository.swift in Sources */,
 				814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */,
+				818B71DC249CEB9E00D217EE /* Streaming.swift in Sources */,
 				815380BA2497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift in Sources */,
 				814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */,
 				7713F32E248FEE1900A6E07D /* Constraints.swift in Sources */,
