@@ -44,7 +44,8 @@ struct FilmsAPI {
                 return URL(string: "\(hostname)/movie/latest?api_key=\(key)&\(language)")
             
             case .searchByName(let name):
-                return URL(string: "\(hostname)/search/movie?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
+                return URL(string: "\(hostname)/search/multi?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
+                //https://api.themoviedb.org/3/search/multi?api_key=<<api_key>>&language=pt-BR&query=entre%20facas%20e%20segredos&page=1&include_adult=false
             }
         }
         
@@ -65,7 +66,7 @@ struct FilmsAPI {
          https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
          
          Example search by name:
-         https://api.themoviedb.org/3/search/movie?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR&query=Vingadores&page=1
+        https://api.themoviedb.org/3/search/multi?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR&query=entre%20facas%20e%20segredos&page=1
          */
     }
 }

@@ -24,6 +24,19 @@ struct FilmResult: Decodable {
 struct Film: Decodable {
     
     let id: Int
+    let title: String?
+    let poster_path: String?
+    let genre_ids: [Int]?
+    let video: Bool = false
+    let overview: String?
+    let release_date: String?
+    let vote_average: Double?
+    let media_type: String?
+
+}
+
+struct SearchResult: Decodable {
+    let id: Int
     let title: String
     let poster_path: String
     let genre_ids: [Int]
@@ -31,5 +44,7 @@ struct Film: Decodable {
     let overview: String
     let release_date: String
     let vote_average: Double
-
+    let media_type: String
+    
 }
+

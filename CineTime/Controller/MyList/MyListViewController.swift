@@ -52,19 +52,19 @@ class MyListViewController: UITableViewController {
         configureNavBar()
         
         // Call Api
-        fetchData()
+//        fetchData()
     }
     
     
-    func fetchData() {
-        
-        Service(repository: FilmRepository()).searchByName(name: "Vingadores") { films in
-            films?.forEach({ film in
-                print(film)
-            })
-        }
-        
-    }
+//    func fetchData() {
+//
+//        Service().searchByName(name: "Vingadores") { films in
+//            films?.forEach({ film in
+//                print(film)
+//            })
+//        }
+//
+//    }
    
     func setupHeader() {
         header

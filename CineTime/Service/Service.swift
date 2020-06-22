@@ -77,7 +77,7 @@ class Service {
     
     func getTrendings(completion: @escaping ([Film]?) -> Void) {
         
-        let api = FilmsAPI(route: .trending)
+        let api = FilmsAPI(route: .latest)
         
         guard let url = api.url else { return }
         
