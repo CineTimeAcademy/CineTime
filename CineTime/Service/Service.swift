@@ -7,8 +7,12 @@
 //
 
 import Foundation
+import UIKit
 
 class Service {
+    static let shared = Service()
+    
+    private init() { }
     
     func findFilmByGenre(with genresId: [String], completion: @escaping ([Film]?) -> Void) {
         
@@ -31,7 +35,6 @@ class Service {
         }
         
     }
-    
     
     func getTrailer(filmId: String,  completion: @escaping ([Trailer]?) -> Void) {
         
@@ -96,6 +99,32 @@ class Service {
         }
     }
     
+    func nowPlaying(completion: @escaping ([Film]?) -> Void) {
+        
+        let api = FilmsAPI(route: .nowPlaying)
+        
+        guard let url = api.url else { return }
+        
+        
+        HTTP.get.request(url: url) { (data, response, error) in
+            guard let data = data else {
+                completion(nil)
+                return
+                
+            }
+            
+            do {
+                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let films = results.results
+                completion(films)
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
+    
+    
     
     func searchByName(name: String, completion: @escaping ([Film]?) -> Void) {
         
@@ -116,6 +145,11 @@ class Service {
             }
             
         }
+        
+    }
+    
+    
+    func createList(list: FilmList) {
         
     }
     

@@ -6,12 +6,17 @@
 //  Copyright © 2020 Beatriz Carlos. All rights reserved.
 //
 
-protocol FilmRepository: class {
+protocol Repository {
     
-  func getAll() -> [Film]
-  func get(id: Int) -> Film?
-  func create(object: Film) -> Bool
-  func update(object: Film) -> Bool
-  func delete(object: Film) -> Bool
-  
+    func getAll() -> [Film]
+    func get(id: Int) -> Film?
+    func add(object: Film)
+    func update(object: Film)
+    func delete(object: Film)
+    
+}
+
+protocol RepositoryList {
+    func createList(object: FilmMyList)
+    func addToList(object: Film)
 }

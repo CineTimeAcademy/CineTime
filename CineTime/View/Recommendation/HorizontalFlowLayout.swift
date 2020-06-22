@@ -31,7 +31,7 @@ class HorizontalFlowLayout: UICollectionViewFlowLayout {
         
         let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 3
 
-        sectionInset = UIEdgeInsets(top: verticalInsets + 30, left: 16, bottom: verticalInsets, right: 0)
+        sectionInset = UIEdgeInsets(top: verticalInsets + 26, left: 16, bottom: verticalInsets, right: 0)
 
         super.prepare()
     }

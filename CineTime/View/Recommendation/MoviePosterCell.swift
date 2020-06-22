@@ -16,7 +16,6 @@ class MoviePosterCell: UICollectionViewCell {
             guard let unwrappedMovie = movie else {return}
             
             posterImageView.image = UIImage(named: unwrappedMovie.posterName)
-
         }
     }
     

@@ -29,6 +29,7 @@
                             <constraint firstItem="cbX-3L-hPg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="eS7-o0-FI8"/>
                             <constraint firstItem="cbX-3L-hPg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="owd-Tz-F9U"/>
                         </constraints>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>

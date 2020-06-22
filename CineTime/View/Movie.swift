@@ -18,10 +18,9 @@ struct FilmResult: Decodable {
     let total_results: Int
     let total_pages: Int
     let results: [Film]
-    
 }
 
-struct Film: Decodable {
+struct Film: Codable {
     
     let id: Int
     let title: String?
