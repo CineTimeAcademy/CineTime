@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 
 class Service {
+    static let shared = Service()
     
-    
+    private init() { }
     
     func findFilmByGenre(with genresId: [String], completion: @escaping ([Film]?) -> Void) {
         
@@ -34,7 +35,6 @@ class Service {
         }
         
     }
-    
     
     func getTrailer(filmId: String,  completion: @escaping ([Trailer]?) -> Void) {
         
@@ -147,6 +147,10 @@ class Service {
         }
         
     }
-
+    
+    
+    func createList(list: FilmList) {
+        
+    }
     
 }

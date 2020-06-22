@@ -16,39 +16,25 @@ class MyListViewController: UITableViewController {
     // Itens there are displayed, variable used to switch when click on Segmented Control
     lazy var rowToDisplay = assistidos
     
-    // Action when click on segmented item
-    @objc fileprivate func handleSegmentChange() {
-        
-        switch header.headerView.segmentedControl.selectedSegmentIndex {
-        case 0:
-            rowToDisplay = assistidos
-            tableView.sectionHeaderHeight = 0
-            updateHeaderViewHeight(for: tableView.tableHeaderView)
-        case 1:
-            rowToDisplay = paraAssistir
-            tableView.sectionHeaderHeight = 20
-            updateHeaderViewHeight(for: tableView.tableHeaderView)
-        default:
-            rowToDisplay = assistidos
-        }
-        tableView.reloadData()
+    // MARK: - TableView DataSource
+    var assistidos: [Film] {
+        return FilmRepository(with: "FilmPlist").getAll()
     }
     
-    // My TableView Data Source
-    let assistidos : [String] = ["Teoria de tudo", "Senhor do anéis: A origem.", "Batman: O Cavaleiro das trevas."]
-    
-    let paraAssistir = [String]()
+    var paraAssistir: [Film] {
+        return FilmRepository(with: "PlistParaAssistir").getAll()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Adding the Child ViewController
+        // Add the Child ViewController
         setupHeader()
         
         // TableView delegates and setting TableViewHeader
         setupTableView()
 
-        
+        // Change color and large title from Navbar
         configureNavBar()
         
         // Call Api
@@ -58,15 +44,17 @@ class MyListViewController: UITableViewController {
     
     func fetchData() {
         
-        Service().searchByName(name: "Vingadores") { films in
+        Service.shared.searchByName(name: "Vingadores") { films in
             films?.forEach({ film in
                 print(film)
             })
         }
-        
     }
+
    
     func setupHeader() {
+        
+        // Add to header click actions
         header
             .headerView
             .segmentedControl
@@ -82,7 +70,8 @@ class MyListViewController: UITableViewController {
         tableView.tableHeaderView = header.view
     }
     
-    private func configureNavBar(){
+    private func configureNavBar() {
+        
         // Changing status bar color
         navigationController?.navigationBar.barStyle  = .black
         
@@ -123,9 +112,27 @@ class MyListViewController: UITableViewController {
         }
     }
     
+    // Action when click on segmented item
+    @objc fileprivate func handleSegmentChange() {
+        
+        switch header.headerView.segmentedControl.selectedSegmentIndex {
+        case 0:
+            rowToDisplay = assistidos
+            tableView.sectionHeaderHeight = 0
+            updateHeaderViewHeight(for: tableView.tableHeaderView)
+        case 1:
+            rowToDisplay = paraAssistir
+            tableView.sectionHeaderHeight = 20
+            updateHeaderViewHeight(for: tableView.tableHeaderView)
+        default:
+            rowToDisplay = assistidos
+        }
+        tableView.reloadData()
+    }
+    
 }
 
-// Implementation Of TableView
+// MARK: - TableView Implementation
 extension MyListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -135,7 +142,7 @@ extension MyListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyListTableViewCell.identifier) as! MyListTableViewCell
         cell.selectionStyle = .none
-        cell.title.text = rowToDisplay[indexPath.row]
+        cell.film = rowToDisplay[indexPath.row]
         return cell
     }
     

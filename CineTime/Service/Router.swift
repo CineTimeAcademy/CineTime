@@ -17,19 +17,18 @@ enum Router {
     case find(imdbId: String)
     case recommendations(id: String)
     case searchByName(name: String)
-    
     case getImageFilm(name: String)
-    
+    case createList
 }
 
 struct FilmsAPI {
     
     let hostname: String = "https://api.themoviedb.org/3"
     let imageHostnane: String = "https://image.tmdb.org"
-    
     var language: String = "language=pt-BR"
     let key: String = "a1d23d9e0cc08e49e4703408659fe47c"
     var page: Int = 1
+    
     var route: Router
     
     var url: URL? {
@@ -51,6 +50,8 @@ struct FilmsAPI {
                 return URL(string: "\(hostname)/search/movie?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
             case .getImageFilm(let name):
                 return URL(string: "\(imageHostnane)/t/p/w500\(name)")
+            case .createList:
+                return URL(string: "\(hostname)/list?api_key=\(key)")
             }
         }
         

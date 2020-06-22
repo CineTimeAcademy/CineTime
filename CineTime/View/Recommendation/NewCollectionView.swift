@@ -36,7 +36,7 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     }
     
     func getNewMovies() {
-        Service().nowPlaying() { films in
+        Service.shared.nowPlaying() { films in
             films?.forEach({ film in
                 self.moviesAPI.append(film)
             })

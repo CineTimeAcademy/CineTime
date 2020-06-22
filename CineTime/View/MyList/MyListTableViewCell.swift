@@ -12,6 +12,14 @@ class MyListTableViewCell: UITableViewCell {
     
     static let identifier = "myCell"
     
+    var film: Film? {
+        didSet {
+            self.imageView?.image = UIImage(named: "\(film?.poster_path ?? "nil")")
+            self.title.text = film?.title
+            self.category.text = "\(film?.genre_ids ?? [12])"
+        }
+    }
+    
     lazy var imageFilm: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
