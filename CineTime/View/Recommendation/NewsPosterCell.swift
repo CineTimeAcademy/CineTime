@@ -13,15 +13,34 @@ class NewsPosterCell: UICollectionViewCell {
     var movie: Movie? {
         didSet {
             
-            guard let unwrappedMovie = movie else {return}
+//            guard let unwrappedMovie = movie else {return}
             
-            posterImageView.image = UIImage(named: unwrappedMovie.posterName)
+//            posterImageView.image = UIImage(named: unwrappedMovie.posterName)
 
         }
     }
     
-    private let posterImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "1"))
+    var film: Film? {
+        didSet {
+            
+            
+            
+            guard let unwrappedFilm = film else { return }
+
+
+            let name = unwrappedFilm.poster_path
+
+            let api = FilmsAPI(route: .getImageFilm(name: name))
+
+            guard let url = api.url else { return }
+
+            posterImageView.downloaded(from: url.absoluteString)
+            
+        }
+    }
+    
+    let posterImageView: UIImageView = {
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -29,8 +48,6 @@ class NewsPosterCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
-        
         contentView.backgroundColor = .white
         
         setupPoster()
@@ -46,7 +63,7 @@ class NewsPosterCell: UICollectionViewCell {
         posterImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
 //        posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         posterImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        posterImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.8).isActive = true
+        posterImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.88).isActive = true
         posterImageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
         
     }

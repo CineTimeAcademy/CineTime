@@ -36,6 +36,19 @@ class MyListViewController: UITableViewController {
 
         // Change color and large title from Navbar
         configureNavBar()
+        
+        // Call Api
+        fetchData()
+    }
+    
+    
+    func fetchData() {
+        
+        Service.shared.searchByName(name: "Vingadores") { films in
+            films?.forEach({ film in
+                print(film)
+            })
+        }
     }
 
    
