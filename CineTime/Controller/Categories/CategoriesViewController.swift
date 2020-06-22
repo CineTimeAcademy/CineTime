@@ -62,8 +62,6 @@ class CategoriesViewController: UIViewController {
         if #available(iOS 13.0, *) {
             searchController.searchBar.searchTextField.backgroundColor = .systemYellow
         }
-        
-//        view.addSubview(searchController.searchBar)
     }
     
     // configure table view.
