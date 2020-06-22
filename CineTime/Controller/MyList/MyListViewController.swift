@@ -58,7 +58,7 @@ class MyListViewController: UITableViewController {
     
     func fetchData() {
         
-        Service(repository: FilmRepository()).searchByName(name: "Vingadores") { films in
+        Service().searchByName(name: "Vingadores") { films in
             films?.forEach({ film in
                 print(film)
             })

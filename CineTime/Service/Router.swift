@@ -13,9 +13,12 @@ enum Router {
     case trailer(id: String)
     case genre(id: [String])
     case latest
+    case nowPlaying
     case find(imdbId: String)
     case recommendations(id: String)
     case searchByName(name: String)
+    
+    case getImageFilm(name: String)
     
 }
 
@@ -42,9 +45,12 @@ struct FilmsAPI {
                 return URL(string: "\(hostname)/movie/\(id)/recommendations?api_key=\(key)&\(language)&page=\(page)")
             case .latest:
                 return URL(string: "\(hostname)/movie/latest?api_key=\(key)&\(language)")
-            
+            case .nowPlaying:
+                return URL(string: "\(hostname)/movie/now_playing?api_key=\(key)&\(language)%3DBR&page=1")
             case .searchByName(let name):
                 return URL(string: "\(hostname)/search/movie?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
+            case .getImageFilm(let name):
+                return URL(string: "\(imageHostnane)/t/p/w500\(name)")
             }
         }
         

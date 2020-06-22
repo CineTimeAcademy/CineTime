@@ -11,7 +11,7 @@ import Foundation
 class LocalFilmRepository: FilmRepository {
     
     func getAll() -> [Film] {
-        var films = [Film]()
+        let films = [Film]()
         return films
     }
     
