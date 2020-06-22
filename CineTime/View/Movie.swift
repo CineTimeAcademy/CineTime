@@ -12,6 +12,9 @@ struct Movie {
     let posterName: String
 }
 
+protocol Networking {
+    var streaming: String { get set }
+}
 
 struct FilmResult: Decodable {
     let page: Int
@@ -21,7 +24,6 @@ struct FilmResult: Decodable {
 }
 
 struct Film: Codable {
-    
     let id: Int
     let title: String
     let poster_path: String
@@ -30,5 +32,17 @@ struct Film: Codable {
     let overview: String
     let release_date: String
     let vote_average: Double
+    let media_type: String?
+}
 
+extension Film: Networking {
+    
+    var streaming: String {
+        get {
+            return "Netflix"
+        }
+        set {
+            
+        }
+    }
 }

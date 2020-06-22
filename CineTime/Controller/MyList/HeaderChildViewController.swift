@@ -8,14 +8,19 @@
 
 import UIKit
 
+protocol FilterDelegate: class {
+    func didStartFilter(with streamings: [Streaming])
+}
+
+
 class HeaderChildViewController: UIViewController {
     
     var streamings = [
-        (name: "Prime Video", selected: false),
-        (name: "Netflix", selected: false),
-        (name: "Disney Plus", selected: false),
-        (name: "Apple TV+", selected: false),
-        (name: "Telecine", selected: false)
+        Streaming(name: "Prime Video"),
+        Streaming(name: "Netflix"),
+        Streaming(name: "Disney Plus"),
+        Streaming(name: "Apple TV+"),
+        Streaming(name: "Telecine")
     ]
     
     lazy var headerView: MyListHeaderView = {
@@ -25,6 +30,8 @@ class HeaderChildViewController: UIViewController {
         header.collectionView.dataSource = self
         return header
     }()
+    
+    weak var delegate: FilterDelegate?
     
     override func viewDidLoad() {
         self.view = headerView
@@ -60,6 +67,7 @@ extension HeaderChildViewController: UICollectionViewDelegate, UICollectionViewD
         if let cell = collectionView.cellForItem(at: indexPath) as? MyListCollectionViewCell {
             streamings[indexPath.row].selected = !streamings[indexPath.row].selected
             cell.switchStateWhenSelected()
+            delegate?.didStartFilter(with: streamings)
         }
         
     }

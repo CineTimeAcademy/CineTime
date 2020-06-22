@@ -10,7 +10,7 @@ import Foundation
 
 class FilmRepository: Repository {
     
-    var plist = PlistManager<Film>(plistName: "FilmPlist")
+    var plist: PlistManager<Film>
     
     init(with plistName: String) {
         plist = PlistManager<Film>(plistName: plistName)
@@ -42,7 +42,6 @@ class FilmRepository: Repository {
     }
     
     func delete(object: Film) {
-        
         
         // deleting from plist
         if var plist = plist.readPlist() {

@@ -8,6 +8,24 @@
 import UIKit
 
 // sectionHeaderHeight & sectionHeaderWidth
+extension MyListViewController {
+    
+    private enum CollectionViewSize: CGFloat {
+        case height = 52.0
+    }
+    
+    private enum HeaderSize: CGFloat {
+        case height = 20.0
+        case width = 24.0
+    }
+    
+    private enum PlistNames: String {
+        case watched = "FilmPlist"
+        case toWatch = "PlistParaAssistir"
+    }
+    
+}
+
 class MyListViewController: UITableViewController {
     
     // Child View Controller
@@ -18,11 +36,11 @@ class MyListViewController: UITableViewController {
     
     // MARK: - TableView DataSource
     var assistidos: [Film] {
-        return FilmRepository(with: "FilmPlist").getAll()
+        return FilmRepository(with: PlistNames.watched.rawValue).getAll()
     }
     
     var paraAssistir: [Film] {
-        return FilmRepository(with: "PlistParaAssistir").getAll()
+        return FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
     }
     
     override func viewDidLoad() {
@@ -54,6 +72,7 @@ class MyListViewController: UITableViewController {
    
     func setupHeader() {
         
+        header.delegate = self
         // Add to header click actions
         header
             .headerView
@@ -71,6 +90,7 @@ class MyListViewController: UITableViewController {
     }
     
     private func configureNavBar() {
+        view.backgroundColor = .black
         
         // Changing status bar color
         navigationController?.navigationBar.barStyle  = .black
@@ -78,14 +98,16 @@ class MyListViewController: UITableViewController {
         // Allows large title
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        view.backgroundColor = .black
-        
         // Change title from rootViewController
-        self.navigationController?.viewControllers.first?.navigationItem.title = "Minha Lista"
+        navigationItem.title = "Minha Lista"
         
-        // Change large title color from rootViewController
-        self.navigationController?.viewControllers.first?
-            .navigationController?.navigationBar.largeTitleTextAttributes = [
+        // Change large title color
+         navigationController?.navigationBar.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
+        
+        // Change title color
+        navigationController?.navigationBar.largeTitleTextAttributes = [
                 NSAttributedString.Key.foregroundColor : UIColor.white
         ]
     }
@@ -98,10 +120,11 @@ class MyListViewController: UITableViewController {
     func updateHeaderViewHeight(for header: UIView?) {
         guard let header = header else { return }
         
-        let headerHeight = header
-            .systemLayoutSizeFitting(CGSize(width: view.bounds.width - 32, height: 0)).height + 52
+        let collectionHeight = CollectionViewSize.height.rawValue
         
-        let collectionHeight = CGFloat(52.0)
+        let headerHeight = header
+            .systemLayoutSizeFitting(CGSize(width: view.bounds.width, height: 0)).height + collectionHeight
+        
         switch self.header.headerView.segmentedControl.selectedSegmentIndex {
         case 0:
            header.frame.size.height = headerHeight
@@ -122,7 +145,7 @@ class MyListViewController: UITableViewController {
             updateHeaderViewHeight(for: tableView.tableHeaderView)
         case 1:
             rowToDisplay = paraAssistir
-            tableView.sectionHeaderHeight = 20
+            tableView.sectionHeaderHeight = HeaderSize.height.rawValue
             updateHeaderViewHeight(for: tableView.tableHeaderView)
         default:
             rowToDisplay = assistidos
@@ -147,11 +170,84 @@ extension MyListViewController {
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let height = HeaderSize.height.rawValue
+        let width = HeaderSize.width.rawValue
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         return view
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath.row)
     }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let index = header.headerView.segmentedControl.selectedSegmentIndex
+        let configure: UISwipeActionsConfiguration
+        
+        let alreadyWatch = UIContextualAction(style: .normal, title: nil) { (_, _, success) in
+            self.deleteRowAt(indexPath: indexPath, by: PlistNames.watched.rawValue, to: PlistNames.toWatch.rawValue)
+            success(true)
+        }
+        
+        let notWatched = UIContextualAction(style: .normal, title: nil) { (_, _, success) in
+            self.deleteRowAt(indexPath: indexPath, by: PlistNames.toWatch.rawValue, to:
+            PlistNames.watched.rawValue)
+            success(true)
+        }
+       
+        switch index {
+        case 0:
+            alreadyWatch.backgroundColor = .orange
+            alreadyWatch.title = "Já Assisti"
+            configure = UISwipeActionsConfiguration(actions: [alreadyWatch])
+        case 1:
+            notWatched.backgroundColor = .red
+            notWatched.title = "Remover"
+            configure = UISwipeActionsConfiguration(actions: [notWatched])
+        default:
+            configure = UISwipeActionsConfiguration(actions: [notWatched])
+            alreadyWatch.backgroundColor = .orange
+            
+        }
+        return configure
+    }
+    
+    func deleteRowAt(indexPath: IndexPath, by plistHost: String, to plistReceive: String) {
+        let film = self.rowToDisplay[indexPath.row]
+        tableView.beginUpdates()
+        FilmRepository(with: plistHost).delete(object: film)
+        FilmRepository(with: plistReceive).add(object: film)
+        rowToDisplay.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .right)
+        tableView.endUpdates()
+    }
+}
+
+// Filter table View Delegate
+extension MyListViewController: FilterDelegate {
+    
+    func didStartFilter(with streamings: [Streaming]) {
+        let filteredStreamings = streamings.filter {
+            $0.selected == true
+        }
+        
+        if !filteredStreamings.isEmpty {
+            var filteredMovies = [Film]()
+            
+            filteredStreamings.forEach { streaming in
+                for film in assistidos where film.streaming == streaming.name {
+                    filteredMovies.append(film)
+                }
+            }
+            
+            self.rowToDisplay = filteredMovies
+            self.tableView.reloadData()
+            
+        } else {
+            rowToDisplay = assistidos
+            self.tableView.reloadData()
+        }
+    }
+    
 }
