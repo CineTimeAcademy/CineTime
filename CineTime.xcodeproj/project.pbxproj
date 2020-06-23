@@ -19,7 +19,6 @@
 		77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC1A248FB37300BB50A1 /* SceneDelegate.swift */; };
 		77E0FC22248FB37800BB50A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC21248FB37800BB50A1 /* Assets.xcassets */; };
 		77E0FC25248FB37800BB50A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77E0FC23248FB37800BB50A1 /* LaunchScreen.storyboard */; };
-		77E0FC30248FB37900BB50A1 /* CineTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC2F248FB37900BB50A1 /* CineTimeTests.swift */; };
 		77E0FC3B248FB37900BB50A1 /* CineTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */; };
 		77E6F34B249A4C0000376528 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E6F34A249A4C0000376528 /* DescriptionViewController.swift */; };
 		814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */; };
@@ -46,6 +45,8 @@
 		818B71D7249B994800D217EE /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D6249B994800D217EE /* FilmViewModel.swift */; };
 		818B71DA249B9C9700D217EE /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D9249B9C9700D217EE /* PlistManager.swift */; };
 		818B71DC249CEB9E00D217EE /* Streaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71DB249CEB9E00D217EE /* Streaming.swift */; };
+		818B71DF24A2318300D217EE /* MyListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71DE24A2318300D217EE /* MyListTests.swift */; };
+		818B71E324A23C8100D217EE /* MockRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71E224A23C8100D217EE /* MockRepository.swift */; };
 		A77A068924A039180094927E /* ImageViewDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = A77A068824A039180094927E /* ImageViewDownload.swift */; };
 		A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C98249692070026E899 /* HorizontalFlowLayout.swift */; };
 		A7825C9B249717B30026E899 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7825C9A249717B30026E899 /* Movie.swift */; };
@@ -89,7 +90,6 @@
 		77E0FC24248FB37800BB50A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77E0FC26248FB37800BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E0FC2B248FB37900BB50A1 /* CineTimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		77E0FC2F248FB37900BB50A1 /* CineTimeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineTimeTests.swift; sourceTree = "<group>"; };
 		77E0FC31248FB37900BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E0FC36248FB37900BB50A1 /* CineTimeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CineTimeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CineTimeUITests.swift; sourceTree = "<group>"; };
@@ -119,6 +119,9 @@
 		818B71D6249B994800D217EE /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 		818B71D9249B9C9700D217EE /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		818B71DB249CEB9E00D217EE /* Streaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Streaming.swift; path = CineTime/Controller/MyList/Streaming.swift; sourceTree = SOURCE_ROOT; };
+		818B71DD24A2318200D217EE /* CineTimeTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CineTimeTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		818B71DE24A2318300D217EE /* MyListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTests.swift; sourceTree = "<group>"; };
+		818B71E224A23C8100D217EE /* MockRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRepository.swift; sourceTree = "<group>"; };
 		A77A068824A039180094927E /* ImageViewDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewDownload.swift; sourceTree = "<group>"; };
 		A7825C98249692070026E899 /* HorizontalFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalFlowLayout.swift; sourceTree = "<group>"; };
 		A7825C9A249717B30026E899 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = CineTime/View/Movie.swift; sourceTree = SOURCE_ROOT; };
@@ -264,8 +267,9 @@
 		77E0FC2E248FB37900BB50A1 /* CineTimeTests */ = {
 			isa = PBXGroup;
 			children = (
-				77E0FC2F248FB37900BB50A1 /* CineTimeTests.swift */,
 				77E0FC31248FB37900BB50A1 /* Info.plist */,
+				818B71DE24A2318300D217EE /* MyListTests.swift */,
+				818B71DD24A2318200D217EE /* CineTimeTests-Bridging-Header.h */,
 			);
 			path = CineTimeTests;
 			sourceTree = "<group>";
@@ -385,6 +389,7 @@
 				818B71CE249A9F4F00D217EE /* Repository.swift */,
 				818B71D0249A9F7100D217EE /* FilmRepository.swift */,
 				818B71D6249B994800D217EE /* FilmViewModel.swift */,
+				818B71E224A23C8100D217EE /* MockRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 					};
 					77E0FC2A248FB37900BB50A1 = {
 						CreatedOnToolsVersion = 11.5;
+						LastSwiftMigration = 1150;
 						TestTargetID = 77E0FC14248FB37300BB50A1;
 					};
 					77E0FC35248FB37900BB50A1 = {
@@ -568,6 +574,7 @@
 				818B71D5249B977D00D217EE /* FilmList.swift in Sources */,
 				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
 				77E6F34B249A4C0000376528 /* DescriptionViewController.swift in Sources */,
+				818B71E324A23C8100D217EE /* MockRepository.swift in Sources */,
 				815380B82497C71B00E1F7F6 /* CategoriesViewController.swift in Sources */,
 				814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */,
 			);
@@ -577,7 +584,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77E0FC30248FB37900BB50A1 /* CineTimeTests.swift in Sources */,
+				818B71DF24A2318300D217EE /* MyListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -773,6 +780,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CineTimeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -783,6 +791,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.beatrizcarlos.CineTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CineTimeTests/CineTimeTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CineTime.app/CineTime";
@@ -794,6 +804,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = CineTimeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
@@ -804,6 +815,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.beatrizcarlos.CineTimeTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CineTimeTests/CineTimeTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CineTime.app/CineTime";

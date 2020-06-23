@@ -35,13 +35,21 @@ class MyListViewController: UITableViewController {
     lazy var rowToDisplay = assistidos
     
     // MARK: - TableView DataSource
-    var assistidos: [Film] {
+    var assistidos: [Film]  {
         return FilmRepository(with: PlistNames.watched.rawValue).getAll()
     }
     
-    var paraAssistir: [Film] {
+    var paraAssistir: [Film]  {
         return FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
     }
+    
+//    func setToWatchModel(_ repository: Repository) {
+//        paraAssistir = repository.getAll()
+//    }
+//
+//    func setWatchedModel(_ repository: Repository) {
+//        assistidos = repository.getAll()
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,6 +221,7 @@ extension MyListViewController {
         return configure
     }
     
+    // Testar [ IMPOSSILVEL ! ]
     func deleteRowAt(indexPath: IndexPath, by plistHost: String, to plistReceive: String) {
         let film = self.rowToDisplay[indexPath.row]
         tableView.beginUpdates()
@@ -222,11 +231,13 @@ extension MyListViewController {
         tableView.deleteRows(at: [indexPath], with: .right)
         tableView.endUpdates()
     }
+    
 }
 
 // Filter table View Delegate
 extension MyListViewController: FilterDelegate {
     
+    // Testar
     func didStartFilter(with streamings: [Streaming]) {
         let filteredStreamings = streamings.filter {
             $0.selected == true
