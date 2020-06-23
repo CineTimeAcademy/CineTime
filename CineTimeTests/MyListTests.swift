@@ -1,15 +1,14 @@
 //
-//  CineTimeTests.swift
+//  MyListTests.swift
 //  CineTimeTests
 //
-//  Created by Beatriz Carlos on 09/06/20.
+//  Created by Vinicius Mesquita on 23/06/20.
 //  Copyright © 2020 Beatriz Carlos. All rights reserved.
 //
 
 import XCTest
-@testable import CineTime
 
-class CineTimeTests: XCTestCase {
+class MyListTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
