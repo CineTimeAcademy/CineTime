@@ -18,7 +18,7 @@ enum HTTP {
                  completion: @escaping (Data?, HTTPURLResponse?, String?) -> Void = { data, response, error in }) {
         
         guard let url = url else {
-            completion(nil, nil, "Erou! URL Invalida")
+            completion(nil, nil, "Erro! URL Invalida")
             return
         }
         

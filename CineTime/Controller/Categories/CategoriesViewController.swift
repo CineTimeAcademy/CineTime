@@ -28,45 +28,7 @@ class CategoriesViewController: UIViewController {
         configureNavBar()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        navigationItem.largeTitleDisplayMode = .automatic
-    }
-    
-    func configureNavBar() {
-       
-        navigationController?.navigationBar.barStyle = .black
-        navigationItem.title = "Buscar"
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        // Place the search bar in the navigation item's title view.
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-        
-        // Don't hide the navigation bar because the search bar is in it.
-        searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.placeholder = "Buscar"
-        searchController.searchBar.set(textColor: .white)
-        searchController.searchBar.setTextField(color: .actionColor)
-        searchController.searchBar.setPlaceholder(textColor: .white)
-        searchController.searchBar.setSearchImage(color: .white)
-        searchController.searchBar.setClearButton(color: .white)
-        searchController.searchBar.delegate = self
-        
-        definesPresentationContext = true
-        
-        
-        if #available(iOS 13.0, *) {
-            searchController.searchBar.searchTextField.backgroundColor = .systemYellow
-        }
-        
-//        view.addSubview(searchController.searchBar)
-    }
-    
-    // configure table view.
+    // Configure table view.
     func configureTableView() {
         view.addSubview(tableView) // Add na sub view.
         setTableViewDelegates() // Setando a delegação.
@@ -101,7 +63,6 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CategoriesTableViewCell
         cell.delegate = self
-        
         return cell
     }
 }
@@ -114,11 +75,45 @@ extension CategoriesViewController: DelegatePushDescriptionViewController {
     }
 }
 
+// Configuration search + navigation
 extension CategoriesViewController: UISearchBarDelegate {
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.largeTitleDisplayMode = .automatic
+    }
+    
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         let destination = SearchViewController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(destination, animated: true)
         return false
+    }
+    
+    func configureNavBar() {
+        navigationController?.navigationBar.barStyle = .black
+        navigationItem.title = "Buscar"
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        // Place the search bar in the navigation item's title view.
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        // Don't hide the navigation bar because the search bar is in it.
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.placeholder = "Buscar"
+        searchController.searchBar.set(textColor: .white)
+        searchController.searchBar.setTextField(color: .actionColor)
+        searchController.searchBar.setPlaceholder(textColor: .white)
+        searchController.searchBar.setSearchImage(color: .white)
+        searchController.searchBar.setClearButton(color: .white)
+        searchController.searchBar.delegate = self
+        
+        definesPresentationContext = true
+        
+        if #available(iOS 13.0, *) {
+            searchController.searchBar.searchTextField.backgroundColor = .systemYellow
+        }
     }
 }

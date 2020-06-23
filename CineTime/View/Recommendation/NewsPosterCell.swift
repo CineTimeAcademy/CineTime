@@ -28,7 +28,7 @@ class NewsPosterCell: UICollectionViewCell {
             guard let unwrappedFilm = film else { return }
 
 
-            let name = unwrappedFilm.poster_path
+            let name = unwrappedFilm.poster_path!
 
             let api = FilmsAPI(route: .getImageFilm(name: name))
 
