@@ -19,6 +19,23 @@ class CategoriesViewController: UIViewController {
     // Collection header names.
     let sectionsHeader : [String] = ["Ação", "Aventura", "Animação", "Comédia", "Crime", "Documentário", "Drama", "Fantasia", "Horror", "Musical", "Mistério", "Romance", "Ficção cientifica", "Suspense", "Séries", "Guerra", "Faroeste"]
     
+    // Collection header id.
+    let sectionId : [String] = ["28", "12", "16", "35", "80", "99", "18", "14", "27", "10402", "9648", "10749", "878", "53", "10770", "10752", "37"]
+    
+    var listOfResultsByGenre = [[Film]]() {
+        didSet {
+            print(self.listOfResultsByGenre)
+        }
+    }
+    
+    func callAPI() {
+        sectionId.forEach { (teste) in
+            Service.shared.findFilmByGenre(with: [teste], completion: { films in
+                self.listOfResultsByGenre.append(films!)
+            })
+        }
+    }
+    
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -26,9 +43,10 @@ class CategoriesViewController: UIViewController {
         view.backgroundColor = .black
         configureTableView()
         configureNavBar()
+        callAPI()
     }
     
-    // Configure table view.
+    // configure table view.
     func configureTableView() {
         view.addSubview(tableView) // Add na sub view.
         setTableViewDelegates() // Setando a delegação.
