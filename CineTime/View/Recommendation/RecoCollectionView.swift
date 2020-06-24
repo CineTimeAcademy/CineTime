@@ -73,7 +73,7 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
             DispatchQueue.main.async {
                 let film = self.moviesAPI[1]
                 let path = film.poster_path
-                let api = FilmsAPI(route: .getImageFilm(name: path))
+                let api = FilmsAPI(route: .getImageFilm(name: path!))
 
                 guard let url = api.url else { return }
                 self.image.downloadedBlur(from: url)
@@ -112,7 +112,7 @@ extension RecoCollectionView: UICollectionViewDataSource {
         if let index = indexPath?.item {
             let film = moviesAPI[index]
             let path = film.poster_path
-            let api = FilmsAPI(route: .getImageFilm(name: path))
+            let api = FilmsAPI(route: .getImageFilm(name: path!))
 
             guard let url = api.url else { return }
             image.downloadedBlur(from: url)

@@ -47,7 +47,7 @@ struct FilmsAPI {
             case .nowPlaying:
                 return URL(string: "\(hostname)/movie/now_playing?api_key=\(key)&\(language)%3DBR&page=1")
             case .searchByName(let name):
-                return URL(string: "\(hostname)/search/movie?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
+                return URL(string: "\(hostname)/search/multi?api_key=\(key)&\(language)&query=\(name)&page=\(page)")
             case .getImageFilm(let name):
                 return URL(string: "\(imageHostnane)/t/p/w500\(name)")
             case .createList:

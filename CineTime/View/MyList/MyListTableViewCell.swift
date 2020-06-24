@@ -14,7 +14,9 @@ class MyListTableViewCell: UITableViewCell {
     
     var film: Film? {
         didSet {
-            self.imageView?.image = UIImage(named: "\(film?.poster_path ?? "nil")")
+            
+//            self.imageFilm.image = UIImage(data: film?.imageData ?? Data())
+            self.imageFilm.downloaded(from: "https://image.tmdb.org/t/p/w500/\(film?.poster_path ?? "nil")")
             self.title.text = film?.title
             self.category.text = "\(film?.genre_ids ?? [12])"
         }
@@ -22,8 +24,8 @@ class MyListTableViewCell: UITableViewCell {
     
     lazy var imageFilm: UIImageView = {
         let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "1")
         return imageView
     }()
     
@@ -52,6 +54,10 @@ class MyListTableViewCell: UITableViewCell {
         imageView.image = UIImage(named: "l.square")
         return imageView
     }()
+    
+    override func prepareForReuse() {
+        self.imageFilm.image = nil
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

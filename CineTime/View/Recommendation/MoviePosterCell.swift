@@ -14,7 +14,7 @@ class MoviePosterCell: UICollectionViewCell {
         didSet {
             guard let unwrappedFilm = film else { return }
             let name = unwrappedFilm.poster_path
-            let api = FilmsAPI(route: .getImageFilm(name: name))
+            let api = FilmsAPI(route: .getImageFilm(name: name!))
 
             guard let url = api.url else { return }
             posterImageView.downloaded(from: url.absoluteString)

@@ -10,16 +10,21 @@ import UIKit
 
 class RowTableViewCollectionViewCell: UICollectionViewCell {
     
-    lazy var imageView : UIImageView = {
+    var imageView : UIImageView = {
         var imageView =  UIImageView()
-        imageView.image = UIImage(named: "1")
+        imageView.image = .none
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
     }()
     
+    override func prepareForReuse() {
+        imageView.image = nil
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: .zero)
+        self.addSubview(imageView)
         configureImageViewConstraints()
     }
     
@@ -28,7 +33,6 @@ class RowTableViewCollectionViewCell: UICollectionViewCell {
     }
     
     func configureImageViewConstraints() {
-        contentView.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
