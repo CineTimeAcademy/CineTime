@@ -9,22 +9,9 @@
 import UIKit
 
 class NewsPosterCell: UICollectionViewCell {
-
-    var movie: Movie? {
-        didSet {
-            
-//            guard let unwrappedMovie = movie else {return}
-            
-//            posterImageView.image = UIImage(named: unwrappedMovie.posterName)
-
-        }
-    }
     
     var film: Film? {
         didSet {
-            
-            
-            
             guard let unwrappedFilm = film else { return }
 
 

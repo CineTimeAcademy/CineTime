@@ -10,12 +10,15 @@ import UIKit
 
 class MoviePosterCell: UICollectionViewCell {
 
-    var movie: Movie? {
+    var film: Film? {
         didSet {
+            guard let unwrappedFilm = film else { return }
+            let name = unwrappedFilm.poster_path
+            let api = FilmsAPI(route: .getImageFilm(name: name))
+
+            guard let url = api.url else { return }
+            posterImageView.downloaded(from: url.absoluteString)
             
-            guard let unwrappedMovie = movie else {return}
-            
-            posterImageView.image = UIImage(named: unwrappedMovie.posterName)
         }
     }
     
@@ -31,7 +34,7 @@ class MoviePosterCell: UICollectionViewCell {
         super.init(frame: frame)
 
         
-        contentView.backgroundColor = .red
+        contentView.backgroundColor = .clear
         
         setupPoster()
     }
