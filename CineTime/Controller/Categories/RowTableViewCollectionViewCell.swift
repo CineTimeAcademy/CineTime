@@ -12,7 +12,7 @@ class RowTableViewCollectionViewCell: UICollectionViewCell {
     
     var imageView : UIImageView = {
         var imageView =  UIImageView()
-        imageView.image = UIImage(named: "1")
+        imageView.image = .none
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         return imageView
@@ -33,7 +33,6 @@ class RowTableViewCollectionViewCell: UICollectionViewCell {
     }
     
     func configureImageViewConstraints() {
-        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         imageView.leftAnchor.constraint(equalTo: contentView.leftAnchor).isActive = true
