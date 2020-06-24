@@ -11,8 +11,60 @@ import Foundation
 
 class MockRepository: Repository {
     
+    var films = [
+        
+        Film(id: 0, title: "Teste 1",
+             poster_path: nil,
+             genre_ids: nil,
+             overview: nil,
+             release_date: nil,
+             vote_average: nil,
+             media_type: nil, streaming: "Netflix"),
+        
+        Film(id: 0, title: "Teste 2",
+             poster_path: nil,
+             genre_ids: nil,
+             overview: nil,
+             release_date: nil,
+             vote_average: nil,
+             media_type: nil, streaming: "Netflix"),
+        
+        Film(id: 0, title: "Teste 3",
+             poster_path: nil,
+             genre_ids: nil,
+             overview: nil,
+             release_date: nil,
+             vote_average: nil,
+             media_type: nil, streaming: "Netflix"),
+        
+        Film(id: 0, title: "Teste 4",
+             poster_path: nil,
+             genre_ids: nil,
+             overview: nil,
+             release_date: nil,
+             vote_average: nil,
+             media_type: nil, streaming: "Amazon"),
+        
+        Film(id: 0, title: "Teste 5",
+             poster_path: nil,
+             genre_ids: nil,
+             overview: nil,
+             release_date: nil,
+             vote_average: nil,
+             media_type: nil, streaming: "Amazon"),
+        
+        Film(id: 0, title: "Teste 6",
+             poster_path: nil,
+             genre_ids: nil,
+             overview: nil,
+             release_date: nil,
+             vote_average: nil,
+             media_type: nil, streaming: "Amazon")
+        
+    ]
+    
     func getAll() -> [Film] {
-        return [Film]()
+        return films
     }
     
     func get(id: Int) -> Film? {
