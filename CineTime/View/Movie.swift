@@ -32,6 +32,8 @@ struct Film: Codable {
     let release_date: String?
     let vote_average: Double?
     let media_type: String?
+    var streaming: String? = nil
+    var imageData: Data? = nil
     
 }
 
@@ -48,18 +50,30 @@ struct SearchResult: Codable {
     
 }
 
-protocol Networking {
-    var streaming: String { get set }
-}
 
-extension Film: Networking {
+extension Film {
     
-    var streaming: String {
-        get {
-            return "Netflix"
-        }
-        set {
-            
-        }
+    // ajeitar isso pfvr
+    func saveImage(with path: String) -> Data? {
+        
+        let not = URL(string: path)
+        
+        guard let url = not else { return nil }
+        var teste = Data()
+  
+        return teste
+         
+        
+    }
+    
+    func downloaded(from url: URL, completion: @escaping (Data) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil
+                else { return }
+            completion(data)
+        }.resume()
     }
 }

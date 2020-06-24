@@ -28,4 +28,18 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+    
+    func downloadImage(from url: URL, completion: @escaping (Data) -> Void) {
+        
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            guard let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil
+                else { return }
+            completion(data)
+        }.resume()
+    }
+    
+    
 }

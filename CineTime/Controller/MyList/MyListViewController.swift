@@ -20,8 +20,8 @@ extension MyListViewController {
     }
     
     private enum PlistNames: String {
-        case watched = "FilmPlist"
-        case toWatch = "PlistParaAssistir"
+        case watched = "assistidos"
+        case toWatch = "paraAssistir"
     }
     
 }
@@ -35,13 +35,17 @@ class MyListViewController: UITableViewController {
     lazy var rowToDisplay = assistidos
     
     // MARK: - TableView DataSource
-    var assistidos: [Film] {
-        return FilmRepository(with: PlistNames.watched.rawValue).getAll()
+    var assistidos = [Film]()
+    
+    var paraAssistir = [Film]()
+    
+    func setToWatchModel(_ model: FilmViewModel) {
+        if let films = model.films {
+            rowToDisplay = films
+        }
     }
     
-    var paraAssistir: [Film] {
-        return FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
-    }
+    var filteredStreamings = [Streaming]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,18 +59,24 @@ class MyListViewController: UITableViewController {
         // Change color and large title from Navbar
         configureNavBar()
         
-        // Call Api
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         fetchData()
+        rowToDisplay = paraAssistir
     }
     
     
     func fetchData() {
+        paraAssistir = FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
+        assistidos = FilmRepository(with: PlistNames.watched.rawValue).getAll()
         
-        Service.shared.searchByName(name: "Vingadores") { films in
-            films?.forEach({ film in
-                print(film)
-            })
-        }
+        
+//        Service.shared.findFilmByGenre(with: ["28"]) { films in
+//            films?.forEach({ film in
+//                FilmRepository(with: PlistNames.toWatch.rawValue).add(object: film)
+//            })
+//        }
     }
 
    
@@ -140,11 +150,15 @@ class MyListViewController: UITableViewController {
         
         switch header.headerView.segmentedControl.selectedSegmentIndex {
         case 0:
-            rowToDisplay = assistidos
+            fetchData()
+            if self.filteredStreamings.isEmpty { rowToDisplay = paraAssistir } else {
+                didStartFilter(with: filteredStreamings)
+            }
             tableView.sectionHeaderHeight = 0
             updateHeaderViewHeight(for: tableView.tableHeaderView)
         case 1:
-            rowToDisplay = paraAssistir
+            fetchData()
+            rowToDisplay = assistidos
             tableView.sectionHeaderHeight = HeaderSize.height.rawValue
             updateHeaderViewHeight(for: tableView.tableHeaderView)
         default:
@@ -165,7 +179,27 @@ extension MyListViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyListTableViewCell.identifier) as! MyListTableViewCell
         cell.selectionStyle = .none
-        cell.film = rowToDisplay[indexPath.row]
+        
+        var film = rowToDisplay[indexPath.row]
+        
+        // saving image in plist
+//        if let path = film.poster_path {
+//            guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+//                else { return cell }
+//
+//            if let _ = film.imageData {
+//                cell.film = film
+//                return cell
+//            } else {
+//                film.downloaded(from: url) { data in
+//                    film.imageData = data
+//                    DispatchQueue.main.async() { [weak self] in
+//                        cell.film = film
+//                    }
+//                }
+//            }
+//        }
+        cell.film = film
         return cell
     }
     
@@ -185,12 +219,13 @@ extension MyListViewController {
         let index = header.headerView.segmentedControl.selectedSegmentIndex
         let configure: UISwipeActionsConfiguration
         
-        let alreadyWatch = UIContextualAction(style: .normal, title: nil) { (_, _, success) in
+        let watched = UIContextualAction(style: .normal, title: nil) {
+            (_, _, success) in
             self.deleteRowAt(indexPath: indexPath, by: PlistNames.watched.rawValue, to: PlistNames.toWatch.rawValue)
             success(true)
         }
         
-        let notWatched = UIContextualAction(style: .normal, title: nil) { (_, _, success) in
+        let toWatch = UIContextualAction(style: .normal, title: nil) { (_, _, success) in
             self.deleteRowAt(indexPath: indexPath, by: PlistNames.toWatch.rawValue, to:
             PlistNames.watched.rawValue)
             success(true)
@@ -198,17 +233,16 @@ extension MyListViewController {
        
         switch index {
         case 0:
-            alreadyWatch.backgroundColor = .orange
-            alreadyWatch.title = "Já Assisti"
-            configure = UISwipeActionsConfiguration(actions: [alreadyWatch])
+            toWatch.backgroundColor = .orange
+            toWatch.title = "Já Assisti"
+            configure = UISwipeActionsConfiguration(actions: [toWatch])
         case 1:
-            notWatched.backgroundColor = .red
-            notWatched.title = "Remover"
-            configure = UISwipeActionsConfiguration(actions: [notWatched])
+            watched.backgroundColor = .red
+            watched.title = "Remover"
+            configure = UISwipeActionsConfiguration(actions: [watched])
         default:
-            configure = UISwipeActionsConfiguration(actions: [notWatched])
-            alreadyWatch.backgroundColor = .orange
-            
+            configure = UISwipeActionsConfiguration(actions: [toWatch])
+            toWatch.backgroundColor = .orange
         }
         return configure
     }
@@ -222,21 +256,25 @@ extension MyListViewController {
         tableView.deleteRows(at: [indexPath], with: .right)
         tableView.endUpdates()
     }
+    
 }
 
 // Filter table View Delegate
 extension MyListViewController: FilterDelegate {
     
+    // Testar
     func didStartFilter(with streamings: [Streaming]) {
         let filteredStreamings = streamings.filter {
             $0.selected == true
         }
         
+        self.filteredStreamings = filteredStreamings
+        
         if !filteredStreamings.isEmpty {
             var filteredMovies = [Film]()
             
             filteredStreamings.forEach { streaming in
-                for film in assistidos where film.streaming == streaming.name {
+                for film in rowToDisplay where film.streaming == streaming.name {
                     filteredMovies.append(film)
                 }
             }
@@ -245,7 +283,7 @@ extension MyListViewController: FilterDelegate {
             self.tableView.reloadData()
             
         } else {
-            rowToDisplay = assistidos
+            rowToDisplay = paraAssistir
             self.tableView.reloadData()
         }
     }
