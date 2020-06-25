@@ -13,7 +13,9 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     private let movies: [Movie] = [Movie(posterName: "1"), Movie(posterName: "2"), Movie(posterName: "3"), Movie(posterName: "4"), Movie(posterName: "5"), Movie(posterName: "6"), Movie(posterName: "7"), Movie(posterName: "8"), Movie(posterName: "9"), Movie(posterName: "10")]
     
     var moviesAPI = [Film]()
-    
+    weak var delegatePush: DelegatePushDescriptionViewController?
+
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -68,4 +70,7 @@ extension NewCollectionView: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegatePush?.didSelect(movie: moviesAPI[indexPath.item])
+    }
 }

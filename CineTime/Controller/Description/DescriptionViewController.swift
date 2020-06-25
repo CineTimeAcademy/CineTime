@@ -51,7 +51,9 @@ class DescriptionViewController: UIViewController, WKUIDelegate, UIWebViewDelega
     func loadTrailer(key: String) {
         let url = URL(string: "https://www.youtube.com/embed/\(key)")
         let request = URLRequest(url: url!)
-        webView.load(request)
+        DispatchQueue.main.async {
+            self.webView.load(request)
+        }
     }
     
     func configureWebView(){
