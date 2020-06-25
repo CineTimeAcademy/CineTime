@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DelegatePushDescriptionViewController: NSObjectProtocol {
-    func didSelect(movie: [Film])
+    func didSelect(movie: Film)
 }
 
 class CategoriesTableViewCell: UITableViewCell {
@@ -93,6 +93,6 @@ extension CategoriesTableViewCell : UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.didSelect(movie: [listOfResultsByGenre[indexPath.row]])
+        delegate?.didSelect(movie: listOfResultsByGenre[indexPath.row])
     }
 }

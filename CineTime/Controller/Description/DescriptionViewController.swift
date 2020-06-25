@@ -17,10 +17,11 @@ class DescriptionViewController: UIViewController, WKUIDelegate, UIWebViewDelega
         return webView
     }()
     
-    var dataFilm = [Film]()
+    var dataFilm: Film? = nil
+    
     // Results API category.
     func callAPI() {
-        Service.shared.getTrailer(filmId: String(dataFilm[0].id)) { (result) in
+        Service.shared.getTrailer(filmId: String(dataFilm!.id)) { (result) in
             var keyYT : String = ""
             for trailer in result! {
                 keyYT = trailer.key
@@ -30,7 +31,7 @@ class DescriptionViewController: UIViewController, WKUIDelegate, UIWebViewDelega
     }
     
     lazy var viewDescription: UIView = {
-        let viewDescription = DescriptionView(frame: .zero, data: dataFilm)
+        let viewDescription = DescriptionView(frame: .zero, data: dataFilm!)
         return viewDescription
     }()
     
