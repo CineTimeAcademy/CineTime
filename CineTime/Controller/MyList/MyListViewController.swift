@@ -58,19 +58,16 @@ class MyListViewController: UITableViewController {
 
         // Change color and large title from Navbar
         configureNavBar()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         fetchData()
         rowToDisplay = paraAssistir
     }
-    
-    
+ 
     func fetchData() {
         paraAssistir = FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
         assistidos = FilmRepository(with: PlistNames.watched.rawValue).getAll()
-        
         
 //        Service.shared.findFilmByGenre(with: ["28"]) { films in
 //            films?.forEach({ film in
@@ -183,22 +180,24 @@ extension MyListViewController {
         var film = rowToDisplay[indexPath.row]
         
         // saving image in plist
-//        if let path = film.poster_path {
-//            guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(path)")
-//                else { return cell }
-//
-//            if let _ = film.imageData {
-//                cell.film = film
-//                return cell
-//            } else {
-//                film.downloaded(from: url) { data in
-//                    film.imageData = data
-//                    DispatchQueue.main.async() { [weak self] in
-//                        cell.film = film
-//                    }
-//                }
-//            }
-//        }
+        if let path = film.poster_path {
+            guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(path)")
+                else { return cell }
+
+            // if exist image saved
+            if let _ = film.imageData {
+                cell.film = film
+                return cell
+            } else {
+                film.downloaded(from: url) { data in
+                    film.imageData = data
+                    FilmRepository(with: PlistNames.toWatch.rawValue).update(object: film)
+                    DispatchQueue.main.async() {
+                        cell.film = film
+                    }
+                }
+            }
+        }
         cell.film = film
         return cell
     }
