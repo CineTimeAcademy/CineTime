@@ -30,7 +30,7 @@ struct FilmsAPI {
     var page: Int = 1
     
     var route: Router
-    
+
     var url: URL? {
         get {
             switch route {
@@ -62,8 +62,8 @@ struct FilmsAPI {
          Example image request:
          https://image.tmdb.org/t/p/w500/vfzE3pjE5G7G7kcZWrA3fnbZo7V.jpg
          
-         Example video request:
-         https://api.themoviedb.org/3/movie/454626/videos?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR
+         Example trailer request:
+         https://api.themoviedb.org/3/movie/508439/videos?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR
          
          Example find request:
          https://api.themoviedb.org/3/find/{external_id}?api_key=<<api_key>>&language=en-US&external_source=imdb_id

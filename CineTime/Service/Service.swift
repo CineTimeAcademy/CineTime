@@ -42,20 +42,17 @@ class Service {
         
         guard let url = api.url else { return }
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            
+        HTTP.get.request(url: url) { (data, response, error) in
             guard let data = data else { return }
             
             do {
                 let results = try JSONDecoder().decode(TrailerResult.self, from: data)
-                let trailers = results.result
+                let trailers = results.results
                 completion(trailers)
             } catch {
                 print(error)
             }
-            
-        }.resume()
-        
+        }
     }
     
     func getRecomendations(filmId: String, completion: @escaping ([Film]?) -> Void) {
@@ -154,3 +151,4 @@ class Service {
     }
     
 }
+ 

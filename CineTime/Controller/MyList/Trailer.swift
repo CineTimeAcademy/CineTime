@@ -8,15 +8,18 @@
 
 import Foundation
 
-struct TrailerResult: Decodable {
+struct TrailerResult: Codable {
     let id: Int
-    let result: [Trailer]
+    let results: [Trailer]?
 }
 
-struct Trailer: Decodable {
-    let id: Int
+struct Trailer: Codable {
+    let id: String
+    let iso_639_1: String
+    let iso_3166_1: String
     let key: String
     let name: String
     let site: String
     let size: Int
+    let type: String
 }
