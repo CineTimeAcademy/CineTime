@@ -8,12 +8,14 @@
 
 import Foundation
 
+// Not used
 struct FilmList {
     let name: String
     let description: String
     let language: String? = "pt-BR"
 }
 
+// Not used
 struct FilmMyList: Codable {
     let name: String
     let description: String

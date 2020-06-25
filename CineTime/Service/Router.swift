@@ -54,25 +54,5 @@ struct FilmsAPI {
                 return URL(string: "\(hostname)/list?api_key=\(key)")
             }
         }
-        
-        /*
-         Example genre request:
-         https://api.themoviedb.org/3/discover/movie?with_genres=28&page=1&api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR
-         
-         Example image request:
-         https://image.tmdb.org/t/p/w500/vfzE3pjE5G7G7kcZWrA3fnbZo7V.jpg
-         
-         Example trailer request:
-         https://api.themoviedb.org/3/movie/508439/videos?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR
-         
-         Example find request:
-         https://api.themoviedb.org/3/find/{external_id}?api_key=<<api_key>>&language=en-US&external_source=imdb_id
-         
-         Example recommendations request:
-         https://api.themoviedb.org/3/movie/{movie_id}/recommendations?api_key=<<api_key>>&language=en-US&page=1
-         
-         Example search by name:
-         https://api.themoviedb.org/3/search/movie?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR&query=Vingadores&page=1
-         */
     }
 }

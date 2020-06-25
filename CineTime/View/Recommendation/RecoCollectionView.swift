@@ -15,7 +15,6 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
     let image =  UIImageView()
     
     var moviesAPI = [Film]()
-    private let movies: [Movie] = [Movie(posterName: "1"), Movie(posterName: "2"), Movie(posterName: "3")]
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)

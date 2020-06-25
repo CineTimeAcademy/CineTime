@@ -24,8 +24,9 @@ enum HTTP {
         
         switch self {
         case .get:
-            
-            URLSession.shared.dataTask(with: url) { data, response, error in
+            var urlRequest = URLRequest(url: url)
+            urlRequest.allHTTPHeaderFields = header
+            URLSession.shared.dataTask(with: urlRequest) { data, response, error in
                 completion(data, response as? HTTPURLResponse, error?.localizedDescription)
             }.resume()
             
