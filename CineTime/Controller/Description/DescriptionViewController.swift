@@ -16,26 +16,40 @@ class DescriptionViewController: UIViewController, WKUIDelegate, UIWebViewDelega
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
-
+    
+    var dataFilm: Film? = nil
+    
+    // Results API category.
+    func callAPI() {
+        Service.shared.getTrailer(filmId: String(dataFilm!.id)) { (result) in
+            var keyYT : String = ""
+            for trailer in result! {
+                keyYT = trailer.key
+            }
+            self.loadTrailer(key: keyYT)
+        }
+    }
+    
     lazy var viewDescription: UIView = {
-        let viewDescription = DescriptionView(frame: .zero)
+        let viewDescription = DescriptionView(frame: .zero, data: dataFilm!)
         return viewDescription
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+        callAPI()
     }
     
     func configureView() {
         view.backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
-        loadTrailer()
+        //loadTrailer()
         configureWebView()
         configureViewDescription()
     }
     
-    func loadTrailer() {
-        let url = URL(string: "https://www.youtube.com/embed/u417WmZn65M")
+    func loadTrailer(key: String) {
+        let url = URL(string: "https://www.youtube.com/embed/\(key)")
         let request = URLRequest(url: url!)
         webView.load(request)
     }

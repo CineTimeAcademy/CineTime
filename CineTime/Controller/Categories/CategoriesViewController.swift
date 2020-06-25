@@ -22,28 +22,30 @@ class CategoriesViewController: UIViewController {
     // Collection header id.
     let sectionId : [String] = ["28", "12", "16", "35", "80", "99", "18", "14", "27", "10402", "9648", "10749", "878", "53", "10770", "10752", "37"]
     
-    var listOfResultsByGenre = [[Film]]() {
-        didSet {
-            print(self.listOfResultsByGenre)
-        }
-    }
+    var listOfResultsByGenre = [[Film]]()
     
+    // Results API category.
     func callAPI() {
-        sectionId.forEach { (teste) in
-            Service.shared.findFilmByGenre(with: [teste], completion: { films in
+        for id in sectionId {
+            Service.shared.findFilmByGenre(with: [id], completion: { films in
                 self.listOfResultsByGenre.append(films!)
             })
         }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
+    
     
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        callAPI()
         configureTableView()
         configureNavBar()
-        callAPI()
     }
     
     // configure table view.
@@ -81,14 +83,18 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CategoriesTableViewCell
         cell.delegate = self
+        if listOfResultsByGenre.count - 1 >= indexPath.section {
+            cell.listOfResultsByGenre = listOfResultsByGenre[indexPath.section]
+        }
         return cell
     }
 }
 
 // Custom delegate to push the description screen.
 extension CategoriesViewController: DelegatePushDescriptionViewController {
-    func didSelectItem() {
+    func didSelect(movie: Film) {
         let destination = DescriptionViewController()
+        destination.dataFilm = movie
         navigationController?.pushViewController(destination, animated: true)
     }
 }

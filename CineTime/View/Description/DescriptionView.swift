@@ -9,13 +9,44 @@
 import UIKit
 
 class DescriptionView: UIView {
+    // Collection header names.
+    let sectionsHeader : [String: String] = ["28":"Ação", "12":"Aventura", "16":"Animação", "35":"Comédia", "80":"Crime", "99":"Documentário", "18":"Drama", "14":"Fantasia", "27":"Horror", "10402":"Musical", "9648":"Mistério", "10749":"Romance", "878":"Ficção cientifica", "53":"Suspense", "10770":"Séries", "10752":"Guerra", "37":"Faroeste"]
+    
+    init(frame: CGRect, data: Film) {
+        super.init(frame: frame)
+        print(data.id)
+        result(film: data)
+        addSubviews()
+        configureView()
+        autoLayout()
+    }
+    
+    func result(film: Film) {
+        
+        titleLabel.text = film.title
+        descriptionTextView.text = film.overview
+        captionLabel.text = film.release_date
+        imdbLabel.text = String(format:"%.1f", film.vote_average!)
+        let categoriesId = film.genre_ids!
+        var categories = [String]()
+        for id in categoriesId {
+            categories.append(sectionsHeader[String(id)] ?? "")
+        }
+        categoriesLabel.text = categories.joined(separator: ", ") + "."
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     lazy var titleLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.textColor = .white
         label.numberOfLines = 3
         label.font = UIFont.systemFont(ofSize: 22, weight: UIFont.Weight.bold)
         label.textAlignment = .left
-        label.text = "Spider-Man: Into the Spider-Verse."
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -26,7 +57,7 @@ class DescriptionView: UIView {
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 12)
         label.textAlignment = .left
-        label.text = "Ação, aventura, animação."
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -56,7 +87,7 @@ class DescriptionView: UIView {
         label.backgroundColor = .none
         label.numberOfLines = 100
         label.font = UIFont.systemFont(ofSize: 22)
-        label.text = "O adolescente Miles Morales se torna o Homem-Aranha de sua realidade, cruzando seu caminho com cinco colegas de outras dimensões para impedir uma ameaça para todas as realidades."
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -67,7 +98,7 @@ class DescriptionView: UIView {
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 12, weight: UIFont.Weight.bold)
         label.textAlignment = .left
-        label.text = "12 | 1h 57min | 10 de janeiro de 2019 (Brazil)"
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -82,17 +113,6 @@ class DescriptionView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubviews()
-        configureView()
-        autoLayout()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     func addSubviews() {
         addSubview(titleLabel)

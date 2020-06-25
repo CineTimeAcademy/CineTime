@@ -38,7 +38,11 @@ class FilmRepository: Repository {
     }
     
     func update(object: Film) {
-       
+        
+        // update plist
+        delete(object: object)
+        add(object: object)
+        
     }
     
     func delete(object: Film) {
