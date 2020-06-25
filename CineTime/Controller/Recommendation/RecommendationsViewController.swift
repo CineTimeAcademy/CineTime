@@ -31,13 +31,13 @@ class RecommendationsViewController: UIViewController {
         
         let sizeMinCollection: CGFloat = 256
         let indicationColletion = RecoCollectionView(frame: CGRect(x: 0, y: 0 , width: view.frame.width, height: view.frame.height - sizeMinCollection), collectionViewLayout: ZoomAndSnapFlowLayout())
-        
+        indicationColletion.delegatePush = self
         indicationColletion.backgroundColor = .black
         view.addSubview(indicationColletion)
     
     
         let newsColletion = NewCollectionView(frame: CGRect(x: 0, y: view.frame.height - sizeMinCollection , width: view.frame.width, height: sizeMinCollection), collectionViewLayout: HorizontalFlowLayout())
-        
+        newsColletion.delegatePush = self
         newsColletion.backgroundColor = .black
         view.addSubview(newsColletion)
         
@@ -65,4 +65,13 @@ class RecommendationsViewController: UIViewController {
     }
     */
 
+}
+
+// Custom delegate to push the description screen.
+extension RecommendationsViewController: DelegatePushDescriptionViewController {
+    func didSelect(movie: Film) {
+        let destination = DescriptionViewController()
+        destination.dataFilm = movie
+        navigationController?.pushViewController(destination, animated: true)
+    }
 }
