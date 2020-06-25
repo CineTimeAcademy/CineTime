@@ -92,7 +92,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 
 // Custom delegate to push the description screen.
 extension CategoriesViewController: DelegatePushDescriptionViewController {
-    func didSelect(movie: [Film]) {
+    func didSelect(movie: Film) {
         let destination = DescriptionViewController()
         destination.dataFilm = movie
         navigationController?.pushViewController(destination, animated: true)

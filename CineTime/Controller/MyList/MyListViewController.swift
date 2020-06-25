@@ -210,7 +210,10 @@ extension MyListViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        let movie = rowToDisplay[indexPath.row]
+        let destination = DescriptionViewController()
+        destination.dataFilm = movie
+        navigationController?.pushViewController(destination, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

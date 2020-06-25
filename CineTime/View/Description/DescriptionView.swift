@@ -12,28 +12,28 @@ class DescriptionView: UIView {
     // Collection header names.
     let sectionsHeader : [String: String] = ["28":"Ação", "12":"Aventura", "16":"Animação", "35":"Comédia", "80":"Crime", "99":"Documentário", "18":"Drama", "14":"Fantasia", "27":"Horror", "10402":"Musical", "9648":"Mistério", "10749":"Romance", "878":"Ficção cientifica", "53":"Suspense", "10770":"Séries", "10752":"Guerra", "37":"Faroeste"]
     
-    init(frame: CGRect, data: [Film]) {
+    init(frame: CGRect, data: Film) {
         super.init(frame: frame)
-        print(data[0].id)
-        result(data: data)
+        print(data.id)
+        result(film: data)
         addSubviews()
         configureView()
         autoLayout()
     }
     
-    func result(data: [Film]) {
-        data.forEach { (result) in
-            titleLabel.text = result.title
-            descriptionTextView.text = result.overview
-            captionLabel.text = result.release_date
-            imdbLabel.text = String(format:"%.1f", result.vote_average!)
-            let categoriesId = result.genre_ids!
-            var categories = [String]()
-            for id in categoriesId {
-                categories.append(sectionsHeader[String(id)] ?? "")
-            }
-            categoriesLabel.text = categories.joined(separator: ", ") + "."
+    func result(film: Film) {
+        
+        titleLabel.text = film.title
+        descriptionTextView.text = film.overview
+        captionLabel.text = film.release_date
+        imdbLabel.text = String(format:"%.1f", film.vote_average!)
+        let categoriesId = film.genre_ids!
+        var categories = [String]()
+        for id in categoriesId {
+            categories.append(sectionsHeader[String(id)] ?? "")
         }
+        categoriesLabel.text = categories.joined(separator: ", ") + "."
+        
     }
     
     required init?(coder: NSCoder) {
