@@ -9,7 +9,6 @@
 import UIKit
 
 class RowTableViewCollectionViewCell: UICollectionViewCell {
-    
     var imageView : UIImageView = {
         var imageView =  UIImageView()
         imageView.image = .none
@@ -19,7 +18,7 @@ class RowTableViewCollectionViewCell: UICollectionViewCell {
     }()
     
     override func prepareForReuse() {
-        imageView.image = nil
+        imageView.image = .none
     }
     
     override init(frame: CGRect) {
