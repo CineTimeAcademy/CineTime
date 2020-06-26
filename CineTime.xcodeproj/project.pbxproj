@@ -590,7 +590,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77E0FC30248FB37900BB50A1 /* CineTimeTests.swift in Sources */,
 				E632A72724A4CCA200D376C6 /* RouterTests.swift in Sources */,
 				814D262E24A4375700580C0B /* RouteAPITests.swift in Sources */,
 				818B71DF24A2318300D217EE /* MyListTests.swift in Sources */,

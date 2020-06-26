@@ -73,6 +73,11 @@ struct FilmsAPI {
          
          Example search by name:
          https://api.themoviedb.org/3/search/movie?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR&query=Vingadores&page=1
+         
+         https://api.themoviedb.org/3/movie/157336?api_key=a1d23d9e0cc08e49e4703408659fe47c&append_to_response=videos,images
+         
+         https://api.themoviedb.org/3/discover/movie?with_genres=28&page=1&api_key=a1d23d9e0cc08e49e4703408659fe47c&append_to_response=videos,images&language=pt-BR
          */
+        
     }
 }

@@ -59,7 +59,7 @@ extension Film {
         let not = URL(string: path)
         
         guard let url = not else { return nil }
-        var teste = Data()
+        let teste = Data()
   
         return teste
          
