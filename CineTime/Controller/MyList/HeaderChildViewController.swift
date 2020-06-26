@@ -20,7 +20,8 @@ class HeaderChildViewController: UIViewController {
         Streaming(name: "Netflix"),
         Streaming(name: "Disney Plus"),
         Streaming(name: "Apple TV+"),
-        Streaming(name: "Telecine")
+        Streaming(name: "Telecine"),
+        Streaming(name: "Itunes")
     ]
     
     lazy var headerView: MyListHeaderView = {

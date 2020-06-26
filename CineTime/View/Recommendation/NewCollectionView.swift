@@ -11,7 +11,9 @@ import UIKit
 class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     
     var moviesAPI = [Film]()
-    
+    weak var delegatePush: DelegatePushDescriptionViewController?
+
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -66,4 +68,7 @@ extension NewCollectionView: UICollectionViewDataSource {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegatePush?.didSelect(movie: moviesAPI[indexPath.item])
+    }
 }

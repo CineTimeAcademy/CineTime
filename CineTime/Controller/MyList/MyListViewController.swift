@@ -69,14 +69,11 @@ class MyListViewController: UITableViewController {
         paraAssistir = FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
         assistidos = FilmRepository(with: PlistNames.watched.rawValue).getAll()
         
-        Service.shared.getStreamings(imdb_id: "tt3398228") { streamings in
-            streamings?.forEach({ streaming in
-                print(streaming.display_name)
-            })
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
         }
     }
 
-   
     func setupHeader() {
         
         header.delegate = self

@@ -10,11 +10,11 @@ import Foundation
 
 struct StreamingResults: Decodable {
     let collection: UtellyMovie
-    let id: String
+//    let id: String?
 }
 
 struct UtellyMovie: Decodable {
-    let id: String
+    let id: String?
     let picture: String
     let name: String
     let locations: [Streaming]
