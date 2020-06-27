@@ -9,9 +9,10 @@
 import UIKit
 
 class SearchViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    // UICollectionViewDelegateFlowLayout é um protocolo que define o tamanho dos itens e o espaçamento entre eles no grid
-    
     let cellId = "titleCell"
+    let searchController = UISearchController(searchResultsController: nil)
+    var arrayOfResults = [String]()
+    var resultsOfSearch = 0
     var listOfResults = [Film]() {
         didSet {
             DispatchQueue.main.async {
@@ -20,14 +21,9 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
             }
         }
     }
-    
-    let searchController = UISearchController(searchResultsController: nil)
-    var arrayOfResults = [String]()
-    var resultsOfSearch = 0
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         collectionView.backgroundColor = .black
         configureNavBar()
         collectionView.register(TitlesCollectionCell.self, forCellWithReuseIdentifier: cellId)
@@ -79,7 +75,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = listOfResults[indexPath.row]
+        let movie = listOfResults[indexPath.item]
         let destination = DescriptionViewController()
         destination.dataFilm = movie
         navigationController?.pushViewController(destination, animated: true)
@@ -97,21 +93,22 @@ extension SearchViewController: UISearchBarDelegate {
         Service.shared.searchByName(name: textSearchBar) { films in
             films?.forEach({ film in
                 print(film)
-                if (film.poster_path != nil) {
+                if (film.poster_path != nil && film.overview != nil) {
                     self.listOfResults.append(film)
                 }
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
+                
             })
         }
     }
     
     
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
+        self.searchController.dismiss(animated: true, completion: nil)
         return true
     }
-    
 }
 
 extension SearchViewController: UISearchResultsUpdating {

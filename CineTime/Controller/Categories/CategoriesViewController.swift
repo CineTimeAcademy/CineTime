@@ -18,7 +18,6 @@ class CategoriesViewController: UIViewController {
     
     // Collection header names.
     let sectionsHeader : [String] = ["Ação e aventura", "Animação e fantasia", "Comédia", "Crime", "Drama", "Horror e suspense", "Musical", "Mistério", "Romance", "Ficção cientifica", "Séries"]
-//    let sectionsHeader : [String] = ["Ação e aventura"]
     
     // Collection header id.
     let sectionId : [String] = ["28,12", "16,14", "35", "80", "18", "27,53", "10402", "9648", "10749", "878", "10770"]
@@ -37,7 +36,6 @@ class CategoriesViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
-    
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -59,7 +57,14 @@ class CategoriesViewController: UIViewController {
         tableView.tableAutoLayout(to: view)  // setando as constraints da table view.
     }
     
-    // set delegates table view.
+    @objc func pressed () {
+        let destination = CategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        destination.idSection = "28,12"
+        destination.category = "Ação e aventura"
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
+    // Set delegates table view.
     func setTableViewDelegates() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -73,7 +78,9 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderTableView()
+        header.button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
         header.label.text = sectionsHeader[section]
+        
         return header
     }
     

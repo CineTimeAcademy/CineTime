@@ -17,6 +17,7 @@ struct FilmResult: Codable {
 
 struct Film: Codable, Equatable {
     let id: Int
+    let name: String?
     let title: String?
     let original_name: String? = nil
     let poster_path: String?

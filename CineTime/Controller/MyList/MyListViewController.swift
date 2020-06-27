@@ -68,7 +68,7 @@ class MyListViewController: UITableViewController {
     func fetchData() {
         paraAssistir = FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
         assistidos = FilmRepository(with: PlistNames.watched.rawValue).getAll()
-        
+  
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }

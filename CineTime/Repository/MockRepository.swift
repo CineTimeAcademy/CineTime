@@ -13,7 +13,8 @@ class MockRepository: Repository {
     
     var films = [
         
-        Film(id: 0, title: "Teste 1",
+        Film(id: 0, name: nil,
+             title: "Teste 1",
              poster_path: nil,
              genre_ids: nil,
              overview: nil,
@@ -21,7 +22,8 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Netflix")]),
         
-        Film(id: 0, title: "Teste 2",
+        Film(id: 0, name: nil,
+             title: "Teste 2",
              poster_path: nil,
              genre_ids: nil,
              overview: nil,
@@ -29,7 +31,8 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Netflix")]),
         
-        Film(id: 0, title: "Teste 3",
+        Film(id: 0, name: nil,
+             title: "Teste 3",
              poster_path: nil,
              genre_ids: nil,
              overview: nil,
@@ -37,7 +40,8 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Netflix")]),
         
-        Film(id: 0, title: "Teste 4",
+        Film(id: 0, name: nil,
+             title: "Teste 4",
              poster_path: nil,
              genre_ids: nil,
              overview: nil,
@@ -45,7 +49,8 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Amazon")]),
         
-        Film(id: 0, title: "Teste 5",
+        Film(id: 0, name: nil,
+             title: "Teste 5",
              poster_path: nil,
              genre_ids: nil,
              overview: nil,
@@ -53,7 +58,8 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Amazon")]),
         
-        Film(id: 0, title: "Teste 6",
+        Film(id: 0, name: nil,
+             title: "Teste 6",
              poster_path: nil,
              genre_ids: nil,
              overview: nil,
