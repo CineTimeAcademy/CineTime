@@ -8,6 +8,16 @@
 
 import UIKit
 
+enum DisplayNameApi: String {
+    case netflix = "Netflix"
+    case amazonPrime = "Amazon Prime Video"
+    case amazonInstant = "Amazon Instant Video"
+    case telecine = "Telecine"
+    case disney = "Disney+"
+    case appleTv = "Apple TV Plus"
+}
+
+
 class DescriptionView: UIView {
     // Collection header names.
     
@@ -29,6 +39,35 @@ class DescriptionView: UIView {
         "10752":"Guerra",
         "37":"Faroeste"
     ]
+    
+    var streaming: Streaming = Streaming(name: "") {
+        didSet {
+            switch streaming.display_name! {
+            case DisplayNameApi.netflix.rawValue:
+                DispatchQueue.main.async {
+                    self.stackStreamings.addArrangedSubview(self.netflixImage)
+                }
+            case DisplayNameApi.amazonPrime.rawValue, DisplayNameApi.amazonInstant.rawValue:
+                DispatchQueue.main.async {
+                    self.stackStreamings.addArrangedSubview(self.amazonImage)
+                }
+            case DisplayNameApi.disney.rawValue:
+                DispatchQueue.main.async {
+                    self.stackStreamings.addArrangedSubview(self.disneyImage)
+                }
+            case DisplayNameApi.appleTv.rawValue:
+                DispatchQueue.main.async {
+                    self.stackStreamings.addArrangedSubview(self.appleTvImage)
+                }
+            case DisplayNameApi.telecine.rawValue:
+                DispatchQueue.main.async {
+                    self.stackStreamings.addArrangedSubview(self.telecineImage)
+                }
+            default:
+                print("nada")
+            }
+        }
+    }
     
     init(frame: CGRect, data: Film) {
         super.init(frame: frame)
@@ -159,22 +198,46 @@ class DescriptionView: UIView {
         return stackView
     }()
     
-    lazy var imageStreaming1: UIImageView = {
+    lazy var amazonImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.image = UIImage(named: "amazon")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    lazy var imageStreaming2: UIImageView = {
+    lazy var netflixImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.image = UIImage(named: "netflix")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
-    lazy var imageStreaming3: UIImageView = {
+    lazy var appleTvImage: UIImageView = {
         let imageView = UIImageView()
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.image = UIImage(named: "appletv")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var disneyImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.image = UIImage(named: "disney")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var telecineImage: UIImageView = {
+        let imageView = UIImageView()
+        imageView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 50).isActive = true
         imageView.image = UIImage(named: "telecine")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
@@ -191,9 +254,11 @@ class DescriptionView: UIView {
         addSubview(disponibleLabel)
         addSubview(stackStreamings)
         
-        stackStreamings.addArrangedSubview(imageStreaming1)
-        stackStreamings.addArrangedSubview(imageStreaming2)
-        stackStreamings.addArrangedSubview(imageStreaming3)
+       
+//        stackStreamings.addArrangedSubview(amazonImage)
+//        stackStreamings.addArrangedSubview(appleTvImage)
+//        stackStreamings.addArrangedSubview(telecineImage)
+//        stackStreamings.addArrangedSubview(disneyImage)
     }
     
     func configureView() {
@@ -266,17 +331,6 @@ class DescriptionView: UIView {
             stackStreamings.topAnchor.constraint(equalTo: disponibleLabel.bottomAnchor, constant: 10),
             stackStreamings.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40)
         ])
-        
-        
-        // imageview
-        imageStreaming1.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        imageStreaming1.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        imageStreaming2.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        imageStreaming2.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        imageStreaming3.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        imageStreaming3.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
 }
