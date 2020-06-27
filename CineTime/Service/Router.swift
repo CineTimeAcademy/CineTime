@@ -10,7 +10,7 @@ import Foundation
 
 
 enum Router {
-    case trailer(id: String)
+    case trailer(id: String, mediaType: String)
     case genre(id: [String])
     case latest
     case nowPlaying
@@ -36,8 +36,8 @@ struct FilmsAPI {
             switch route {
             case .genre(let id):
                 return URL(string: "\(hostname)/discover/movie?with_genres=\(id.joined(separator: ","))&page=\(page)&api_key=\(key)&\(language)")
-            case .trailer(let id):
-                return URL(string: "\(hostname)/movie/\(id)/videos?api_key=\(key)&\(language)")
+            case .trailer(let id, let mediaType):
+                return URL(string: "\(hostname)/\(mediaType)/\(id)/videos?api_key=\(key)&\(language)")
             case .find(let id):
                 return URL(string: "\(hostname)/find/\(id)/api_key=\(key)&\(language)&external_source=imdb_id")
             case .recommendations(let id):
@@ -65,6 +65,9 @@ struct FilmsAPI {
          
          Example trailer request:
          https://api.themoviedb.org/3/movie/508439/videos?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR
+         
+         https://api.themoviedb.org/3/tv/70523/videos?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR
+
          
          Example find request:
          https://api.themoviedb.org/3/find/{external_id}?api_key=<<api_key>>&language=en-US&external_source=imdb_id

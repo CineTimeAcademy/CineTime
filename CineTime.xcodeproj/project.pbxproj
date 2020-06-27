@@ -61,7 +61,7 @@
 		A7ADBEDB2492760A00D00702 /* RecoCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */; };
 		A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */; };
 		A7ADBEDF24968E3100D00702 /* NewCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */; };
-		E632A72724A4CCA200D376C6 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E632A72624A4CCA200D376C6 /* RouterTests.swift */; };
+		E632A72924A611CF00D376C6 /* RecomendationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E632A72824A611CF00D376C6 /* RecomendationsUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,7 +143,7 @@
 		A7ADBEDA2492760A00D00702 /* RecoCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoCollectionView.swift; sourceTree = "<group>"; };
 		A7ADBEDC2492770B00D00702 /* MoviePosterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePosterCell.swift; sourceTree = "<group>"; };
 		A7ADBEDE24968E3100D00702 /* NewCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCollectionView.swift; sourceTree = "<group>"; };
-		E632A72624A4CCA200D376C6 /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
+		E632A72824A611CF00D376C6 /* RecomendationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsUITests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -299,7 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				77E0FC31248FB37900BB50A1 /* Info.plist */,
-				E632A72624A4CCA200D376C6 /* RouterTests.swift */,
 				818B71DE24A2318300D217EE /* MyListTests.swift */,
 				814D262D24A4375700580C0B /* RouteAPITests.swift */,
 				818B71DD24A2318200D217EE /* CineTimeTests-Bridging-Header.h */,
@@ -312,6 +311,7 @@
 			children = (
 				77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */,
 				77E0FC3C248FB37900BB50A1 /* Info.plist */,
+				E632A72824A611CF00D376C6 /* RecomendationsUITests.swift */,
 			);
 			path = CineTimeUITests;
 			sourceTree = "<group>";
@@ -626,7 +626,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E632A72724A4CCA200D376C6 /* RouterTests.swift in Sources */,
 				814D262E24A4375700580C0B /* RouteAPITests.swift in Sources */,
 				818B71DF24A2318300D217EE /* MyListTests.swift in Sources */,
 			);
@@ -636,6 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E632A72924A611CF00D376C6 /* RecomendationsUITests.swift in Sources */,
 				77E0FC3B248FB37900BB50A1 /* CineTimeUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
