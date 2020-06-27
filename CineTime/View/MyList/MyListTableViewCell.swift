@@ -14,8 +14,6 @@ class MyListTableViewCell: UITableViewCell {
     
     var film: Film? {
         didSet {
-            
-//            self.imageFilm.image = UIImage(data: film?.imageData ?? Data())
             self.imageFilm.downloaded(from: "https://image.tmdb.org/t/p/w500/\(film?.poster_path ?? "nil")")
             self.title.text = film?.title
             self.category.text = "\(film?.genre_ids ?? [12])"

@@ -18,9 +18,26 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
                 self.navigationItem.title = "\(self.listOfResults.count) resultados"
+                if (self.listOfResults.count == 0) {
+                    self.showEmptyState()
+                } else {
+                    self.hideEmptyState()
+                }
             }
         }
     }
+    
+    lazy var emptyStateMessage: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.text = "Nenhum resgistro encontrado"
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.textColor = .darkGray
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont.systemFont(ofSize: 15)
+        messageLabel.sizeToFit()
+        return messageLabel
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +71,20 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         }
     }
     
+    func showEmptyState() {
+        collectionView.addSubview(emptyStateMessage)
+        NSLayoutConstraint.activate([
+            emptyStateMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptyStateMessage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+
+    func hideEmptyState() {
+        emptyStateMessage.removeFromSuperview()
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listOfResults.count
+        return self.listOfResults.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -92,14 +121,12 @@ extension SearchViewController: UISearchBarDelegate {
         listOfResults = [Film]()
         Service.shared.searchByName(name: textSearchBar) { films in
             films?.forEach({ film in
-                print(film)
                 if (film.poster_path != nil && film.overview != nil) {
                     self.listOfResults.append(film)
                 }
                 DispatchQueue.main.async {
                     self.collectionView.reloadData()
                 }
-                
             })
         }
     }

@@ -8,8 +8,7 @@
 
 import UIKit
 
-class HeaderTableView: UIView {
-    
+class HeaderTableView: UIView { 
     lazy var label : UILabel = {
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: 41))
         label.textColor = .white
