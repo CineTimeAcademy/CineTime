@@ -32,7 +32,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     func configureNavBar() {
         // Place the search bar in the navigation item's title view.
         navigationController?.navigationBar.prefersLargeTitles = false
-        
+        navigationController?.navigationBar.tintColor = .actionColor
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         

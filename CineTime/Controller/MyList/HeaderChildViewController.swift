@@ -16,11 +16,11 @@ protocol FilterDelegate: class {
 class HeaderChildViewController: UIViewController {
     
     var streamings = [
-        Streaming(name: "Prime Video"),
-        Streaming(name: "Netflix"),
-        Streaming(name: "Disney Plus"),
-        Streaming(name: "Apple TV+"),
-        Streaming(name: "Telecine")
+        Streaming(name: "Prime Video", display_name: "Amazon Instant Video"),
+        Streaming(name: "Netflix", display_name: "Netflix"),
+        Streaming(name: "Disney Plus", display_name: "Disney Plus"),
+        Streaming(name: "Apple TV+", display_name: "Apple TV+"),
+        Streaming(name: "Telecine", display_name: "Telecine"),
     ]
     
     lazy var headerView: MyListHeaderView = {
@@ -35,6 +35,9 @@ class HeaderChildViewController: UIViewController {
     
     override func viewDidLoad() {
         self.view = headerView
+
+        
+        
     }
     
 }

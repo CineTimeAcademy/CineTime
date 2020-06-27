@@ -37,6 +37,12 @@ class DescriptionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.roundCorners([.topLeft, .topRight], radius: 15)
+    }
+    
     lazy var titleLabel : UILabel = {
         let label = UILabel(frame: .zero)
         label.textColor = .white
@@ -112,11 +118,42 @@ class DescriptionView: UIView {
         let label = UILabel()
         label.textColor = .white
         label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 18, weight: UIFont.Weight.bold)
         label.textAlignment = .left
         label.text = "Disponível em:"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    
+    lazy var stackStreamings : UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.contentMode = .left
+        stackView.spacing = 10
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    lazy var imageStreaming1: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "amazon")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var imageStreaming2: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "netflix")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    lazy var imageStreaming3: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "telecine")
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
     }()
     
     func addSubviews() {
@@ -128,12 +165,16 @@ class DescriptionView: UIView {
         addSubview(descriptionTextView)
         addSubview(captionLabel)
         addSubview(disponibleLabel)
+        addSubview(stackStreamings)
+        
+        stackStreamings.addArrangedSubview(imageStreaming1)
+        stackStreamings.addArrangedSubview(imageStreaming2)
+        stackStreamings.addArrangedSubview(imageStreaming3)
     }
     
     func configureView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .black
-        self.layer.cornerRadius = 20
     }
     
     func autoLayout() {
@@ -190,7 +231,28 @@ class DescriptionView: UIView {
             disponibleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             disponibleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             disponibleLabel.topAnchor.constraint(equalTo: captionLabel.bottomAnchor, constant: 10),
-            disponibleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+//            disponibleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
+        
+        // stack view
+        
+        NSLayoutConstraint.activate([
+            
+            stackStreamings.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            stackStreamings.topAnchor.constraint(equalTo: disponibleLabel.bottomAnchor, constant: 10),
+            stackStreamings.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -40)
+        ])
+        
+        
+        // imageview
+        imageStreaming1.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageStreaming1.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        imageStreaming2.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageStreaming2.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        imageStreaming3.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        imageStreaming3.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        
     }
 }

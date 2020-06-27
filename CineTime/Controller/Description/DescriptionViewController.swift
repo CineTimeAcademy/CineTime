@@ -10,10 +10,12 @@ import UIKit
 import WebKit
 
 class DescriptionViewController: UIViewController {
+    
     var dataFilm: Film? = nil
     
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
+        scrollView.backgroundColor = .black
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -35,6 +37,7 @@ class DescriptionViewController: UIViewController {
     
     lazy var viewDescription: DescriptionView = {
         let viewDescription = DescriptionView(frame: .zero, data: dataFilm!)
+        viewDescription.backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
         return viewDescription
     }()
     
@@ -49,8 +52,15 @@ class DescriptionViewController: UIViewController {
     }
     
     @objc func pressed() {
-       
-        FilmRepository(with: "paraAssistir").add(object: dataFilm!)
+        
+        guard var dataFilm = dataFilm else { return }
+        
+        Service.shared.getStreamings(tmdb_id: String(dataFilm.id)) { streamings in
+            if let streamings = streamings {
+                dataFilm.streamings = streamings
+                FilmRepository(with: "paraAssistir").add(object: dataFilm)
+            }
+        }
         
     }
     
@@ -64,8 +74,11 @@ class DescriptionViewController: UIViewController {
     
     // Results API category.
     func callAPI() {
-        Service.shared.getTrailer(filmId: String(dataFilm!.id)) { (result) in
+        guard let dataFilm = dataFilm else { return }
+        
+        Service.shared.getTrailer(filmId: String(dataFilm.id)) { (result) in
             var keyYT : String = ""
+
             for trailer in result! {
                 keyYT = trailer.key
             }

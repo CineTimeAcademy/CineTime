@@ -164,8 +164,8 @@ class Service {
 
     }
     
-    func getStreamings(imdb_id: String, completion: @escaping ([Streaming]?) -> Void) {
-        let api = UtellyAPI(route: .idlookup(id: imdb_id))
+    func getStreamings(tmdb_id: String, completion: @escaping ([Streaming]?) -> Void) {
+        let api = UtellyAPI(route: .idlookup(id: tmdb_id))
         
         guard let url = api.url else { return }
         

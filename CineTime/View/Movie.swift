@@ -15,7 +15,7 @@ struct FilmResult: Codable {
     let results: [Film]
 }
 
-struct Film: Codable {
+struct Film: Codable, Equatable {
     let id: Int
     let title: String?
     let poster_path: String?
@@ -25,24 +25,17 @@ struct Film: Codable {
     let release_date: String?
     let vote_average: Double?
     let media_type: String?
-    var streaming: String? = nil
+    var streamings: [Streaming]? = nil
     var imageData: Data? = nil
 }
 
 extension Film {
-    
-    // ajeitar isso pfvr
-    func saveImage(with path: String) -> Data? {
-        
-        let not = URL(string: path)
-        
-        guard let url = not else { return nil }
-        let teste = Data()
-  
-        return teste
-         
-        
+    static func ==(lhs: Film, rhs: Film) -> Bool {
+        return lhs.id == rhs.id
     }
+}
+
+extension Film {
     
     func downloaded(from url: URL, completion: @escaping (Data) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
