@@ -47,21 +47,34 @@ class DescriptionViewController: UIViewController {
         configureAutoLayout()
         callAPI()
         
-        
-        viewDescription.minhaListaButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        viewDescription.myListButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
     }
     
     @objc func pressed() {
+        
+        viewDescription.myListButton.isSelected = !viewDescription.myListButton.isSelected
+        
+        if viewDescription.myListButton.isSelected {
+            print("selected")
+        } else {
+            print("unselected")
+        }
+        
+        
+        
+    }
+    
+    func streamingRequest() {
         
         guard var dataFilm = dataFilm else { return }
         
         Service.shared.getStreamings(tmdb_id: String(dataFilm.id)) { streamings in
             if let streamings = streamings {
                 dataFilm.streamings = streamings
+                // Adding object to p list
                 FilmRepository(with: "paraAssistir").add(object: dataFilm)
             }
         }
-        
     }
     
     func addSubviews() {
