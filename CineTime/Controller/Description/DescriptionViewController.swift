@@ -68,9 +68,6 @@ lazy var viewDescription: DescriptionView = {
         } else {
             repository.delete(object: dataFilm)
         }
-        
-        
-        
     }
     
     func checkMyList() {
@@ -91,9 +88,6 @@ lazy var viewDescription: DescriptionView = {
         Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
             if let streamings = streamings {
                 dataFilm.streamings = streamings
-                
-                
-                FilmRepository(with: "paraAssistir").delete(object: dataFilm)
                 // Adding object to p list
                 self.repository.add(object: dataFilm)
             }
