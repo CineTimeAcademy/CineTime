@@ -222,12 +222,12 @@ extension MyListViewController {
         
         let watched = UIContextualAction(style: .normal, title: nil) {
             (_, _, success) in
-            self.deleteRowAt(indexPath: indexPath, by: PlistNames.watched.rawValue, to: PlistNames.toWatch.rawValue)
+            self.deleteRowAt(with: indexPath.item, by: PlistNames.watched.rawValue, to: PlistNames.toWatch.rawValue)
             success(true)
         }
         
         let toWatch = UIContextualAction(style: .normal, title: nil) { (_, _, success) in
-            self.deleteRowAt(indexPath: indexPath, by: PlistNames.toWatch.rawValue, to:
+            self.deleteRowAt(with: indexPath.item, by: PlistNames.toWatch.rawValue, to:
             PlistNames.watched.rawValue)
             success(true)
         }
@@ -248,12 +248,14 @@ extension MyListViewController {
         return configure
     }
     
-    func deleteRowAt(indexPath: IndexPath, by plistHost: String, to plistReceive: String) {
-        let film = self.rowToDisplay[indexPath.row]
+    func deleteRowAt(with item: Int, by plistHost: String, to plistReceive: String) {
+        let film = self.rowToDisplay[item]
         tableView.beginUpdates()
         FilmRepository(with: plistHost).delete(object: film)
         FilmRepository(with: plistReceive).add(object: film)
-        rowToDisplay.remove(at: indexPath.row)
+        rowToDisplay.remove(at: item)
+        
+        let indexPath = IndexPath(item: item, section: 0)
         tableView.deleteRows(at: [indexPath], with: .right)
         tableView.endUpdates()
     }
@@ -286,7 +288,6 @@ extension MyListViewController: FilterDelegate {
                             if !filteredMovies.contains(film) {
                                filteredMovies.append(film)
                             }
-                           
                             break
                         }
                     }

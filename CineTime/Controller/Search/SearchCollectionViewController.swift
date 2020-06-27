@@ -97,7 +97,7 @@ extension SearchViewController: UISearchBarDelegate {
         Service.shared.searchByName(name: textSearchBar) { films in
             films?.forEach({ film in
                 print(film)
-                if (film.poster_path != nil && film.overview != nil && film.title != nil) {
+                if (film.poster_path != nil) {
                     self.listOfResults.append(film)
                 }
                 DispatchQueue.main.async {
