@@ -92,7 +92,6 @@ extension SearchViewController: UISearchBarDelegate {
         listOfResults = [Film]()
         Service.shared.searchByName(name: textSearchBar) { films in
             films?.forEach({ film in
-                print(film)
                 if (film.poster_path != nil && film.overview != nil) {
                     self.listOfResults.append(film)
                 }
