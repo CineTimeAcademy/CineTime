@@ -24,6 +24,7 @@ struct FilmResult: Codable {
 struct Film: Codable {
     
     let id: Int
+    let name: String?
     let title: String?
     let poster_path: String?
     let genre_ids: [Int]?

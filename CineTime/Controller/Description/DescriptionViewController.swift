@@ -21,7 +21,7 @@ class DescriptionViewController: UIViewController, WKUIDelegate, UIWebViewDelega
     
     // Results API category.
     func callAPI() {
-        Service.shared.getTrailer(filmId: String(dataFilm!.id)) { (result) in
+        Service.shared.getTrailer(filmId: String(dataFilm!.id), mediaType: (dataFilm!.media_type!)) { (result) in
             var keyYT : String = ""
             for trailer in result! {
                 keyYT = trailer.key

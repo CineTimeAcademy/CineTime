@@ -36,9 +36,9 @@ class Service {
         
     }
     
-    func getTrailer(filmId: String,  completion: @escaping ([Trailer]?) -> Void) {
+    func getTrailer(filmId: String, mediaType: String, completion: @escaping ([Trailer]?) -> Void) {
         
-        let api = FilmsAPI(route: .trailer(id: filmId))
+        let api = FilmsAPI(route: .trailer(id: filmId, mediaType:  mediaType))
         
         guard let url = api.url else { return }
         

@@ -79,7 +79,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let movie = listOfResults[indexPath.row]
+        let movie = listOfResults[indexPath.item]
         let destination = DescriptionViewController()
         destination.dataFilm = movie
         navigationController?.pushViewController(destination, animated: true)
