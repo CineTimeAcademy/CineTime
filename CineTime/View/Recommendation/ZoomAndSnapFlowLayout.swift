@@ -27,25 +27,15 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
     override func prepare() {
         guard let collectionView = collectionView else { fatalError() }
         let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
         let horizontalInsets = (collectionView.frame.width - itemSize.width) / 2
-        
-//        print("ItemSize \(itemSize.height)")
-//        print("CollectionVire Height \(collectionView.frame.height)")
-//        print("adjustedContentInset top \(collectionView.adjustedContentInset.top)")
-//        print("adjustedContentInset bottom \(collectionView.adjustedContentInset.bottom)")
-//        print("Vertical \(verticalInsets)")
-//        print("ColletionView Width \(collectionView.frame.width)")
-//        print("Horizontal \(horizontalInsets)")
         sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
 
         super.prepare()
     }
     
-
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         guard let collectionView = collectionView else { return nil }
         let rectAttributes = super.layoutAttributesForElements(in: rect)!.map { $0.copy() as! UICollectionViewLayoutAttributes }
@@ -91,11 +81,4 @@ class ZoomAndSnapFlowLayout: UICollectionViewFlowLayout {
         // Invalidate layout so that every cell get a chance to be zoomed when it reaches the center of the screen
         return true
     }
-
-//    override func invalidationContext(forBoundsChange newBounds: CGRect) -> UICollectionViewLayoutInvalidationContext {
-//        let context = super.invalidationContext(forBoundsChange: newBounds) as! UICollectionViewFlowLayoutInvalidationContext
-//        context.invalidateFlowLayoutDelegateMetrics = newBounds.size != collectionView?.bounds.size
-//        return context
-//    }
-
 }

@@ -47,9 +47,8 @@ class DescriptionView: UIView {
         default:
             titleLabel.text = film.title
         }
-
         descriptionTextView.text = film.overview
-        captionLabel.text = film.release_date
+        captionLabel.text = formatDate(data: film.release_date!)
         imdbLabel.text = String(format:"%.1f", film.vote_average!)
         let categoriesId = film.genre_ids!
         var categories = [String]()
@@ -202,6 +201,21 @@ class DescriptionView: UIView {
     func configureView() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = .black
+    }
+    
+    func formatDate(data: String) -> String {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "dd/MM/yyyy"
+        
+        if let date = dateFormatterGet.date(from: data) {
+            return dateFormatterPrint.string(from: date)
+        } else {
+            print("There was an error decoding the string")
+        }
+        return ""
     }
     
     func autoLayout() {

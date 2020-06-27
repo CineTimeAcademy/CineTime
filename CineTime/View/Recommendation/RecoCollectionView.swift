@@ -32,28 +32,6 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
         self.isPagingEnabled = false
         self.showsHorizontalScrollIndicator = false
         self.contentOffset.x = flowLayout.itemSize.width + flowLayout.minimumLineSpacing
-        
-//        let image1 = UIImageView()
-//        self.backgroundView = image1
-//        image1.image = UIImage(named: movies[1].posterName)
-//        image1.alpha = 0.3
-//        image1.contentMode = .scaleAspectFill
-//        blurEffect(bg: image1, context: context)
-        
-//        let image =  UIImageView()
-//        DispatchQueue.main.async {
-//            let film = self.moviesAPI[1]
-//            let path = film.poster_path
-//            let api = FilmsAPI(route: .getImageFilm(name: path))
-//
-//            guard let url = api.url else { return }
-//            image.downloadedBlur(from: url)
-//            image.alpha = 0.3
-//            image.contentMode = .scaleAspectFill
-//            self.backgroundView = image
-//            self.contentOffset.x = self.flowLayout.itemSize.width + self.flowLayout.minimumLineSpacing
-//        }
-
     }
     
     required init?(coder: NSCoder) {
@@ -66,10 +44,7 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
             for i in 0...2 {
                 self.moviesAPI.append(films![i])
             }
-//            films?.forEach({ film in
-//
-//                self.moviesAPI.append(film)
-//            })
+            
             DispatchQueue.main.async {
                 let film = self.moviesAPI[1]
                 let path = film.poster_path
@@ -90,11 +65,7 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
 extension RecoCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        if moviesAPI.count < 3 {
-//            return moviesAPI.count
-//        }
         return moviesAPI.count
-//        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

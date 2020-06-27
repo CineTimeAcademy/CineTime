@@ -25,7 +25,6 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
         self.decelerationRate = .fast // uncomment if necessary
         self.contentInsetAdjustmentBehavior = .always
         self.register(NewsPosterCell.self, forCellWithReuseIdentifier: "NewsCell")
-//        self.register(<#T##viewClass: AnyClass?##AnyClass?#>, forSupplementaryViewOfKind: <#T##String#>, withReuseIdentifier: <#T##String#>)
         self.isPagingEnabled = false
         self.showsHorizontalScrollIndicator = false
         
@@ -48,13 +47,6 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     
 }
 
-//extension RecoCollectionView: UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 50, height: 50)
-//    }
-//}
-
-
 extension NewCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -63,7 +55,6 @@ extension NewCollectionView: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsPosterCell
-//        cell.movie = movies[indexPath.item]
         cell.film = moviesAPI[indexPath.item]
         return cell
     }
