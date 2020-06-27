@@ -34,8 +34,8 @@ class DescriptionViewController: UIViewController {
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
-    
-    lazy var viewDescription: DescriptionView = {
+
+lazy var viewDescription: DescriptionView = {
         let viewDescription = DescriptionView(frame: .zero, data: dataFilm!)
         viewDescription.backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
         return viewDescription
@@ -55,7 +55,7 @@ class DescriptionViewController: UIViewController {
         
         guard var dataFilm = dataFilm else { return }
         
-        Service.shared.getStreamings(tmdb_id: String(dataFilm.id)) { streamings in
+        Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
             if let streamings = streamings {
                 dataFilm.streamings = streamings
                 FilmRepository(with: "paraAssistir").add(object: dataFilm)
@@ -76,7 +76,7 @@ class DescriptionViewController: UIViewController {
     func callAPI() {
         guard let dataFilm = dataFilm else { return }
         
-        Service.shared.getTrailer(filmId: String(dataFilm.id)) { (result) in
+        Service.shared.getTrailer(filmId: String(dataFilm.id), mediaType: dataFilm.media_type!) { (result) in
             var keyYT : String = ""
 
             for trailer in result! {

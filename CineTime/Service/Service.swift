@@ -36,9 +36,9 @@ class Service {
         
     }
     
-    func getTrailer(filmId: String,  completion: @escaping ([Trailer]?) -> Void) {
+    func getTrailer(filmId: String, mediaType: String, completion: @escaping ([Trailer]?) -> Void) {
         
-        let api = FilmsAPI(route: .trailer(id: filmId))
+        let api = FilmsAPI(route: .trailer(id: filmId, mediaType:  mediaType))
         
         guard let url = api.url else { return }
         
@@ -140,28 +140,6 @@ class Service {
             }
             
         }
-    }
-    
-    func getStreamingsAvailable(filmName: String, completion: @escaping ([Streaming]?) -> Void) {
-
-        let api = UtellyAPI(route: .lookup(term: filmName))
-
-        guard let url = api.url else { return }
-
-        HTTP.get.request(url: url, header: api.headers) { (data, response, error) in
-
-            guard let data = data else { return }
-
-            do {
-//                let results = try JSONDecoder().decode(StreamingResults.self, from: data)
-//                let streamings = results.results.first?.locations
-                completion(nil)
-            } catch {
-                print(error)
-            }
-
-        }
-
     }
     
     func getStreamings(tmdb_id: String, completion: @escaping ([Streaming]?) -> Void) {
