@@ -26,6 +26,8 @@ class RecommendationsViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .automatic
         navigationController?.viewControllers.first?.navigationItem.title = "Recomendações"
         
+        navigationController?.navigationBar.tintColor = .actionColor
+        
         // Change large title color from rootViewController 
         self.navigationController?.viewControllers.first?             .navigationController?.navigationBar.largeTitleTextAttributes = [                 NSAttributedString.Key.foregroundColor : UIColor.white]
     }
@@ -35,7 +37,7 @@ class RecommendationsViewController: UIViewController {
         
         view.backgroundColor = .black
         navigationController?.navigationBar.barStyle  = .black
-        
+    
         indicationColletion.delegatePush = self
         indicationColletion.translatesAutoresizingMaskIntoConstraints = false
         indicationColletion.backgroundColor = .black

@@ -118,6 +118,7 @@ extension CategoriesViewController: UISearchBarDelegate {
         navigationController?.navigationBar.barStyle = .black
         navigationItem.title = "Buscar"
         
+        navigationController?.navigationBar.tintColor = .actionColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController?.navigationBar.prefersLargeTitles = true
         

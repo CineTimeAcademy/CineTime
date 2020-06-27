@@ -19,7 +19,7 @@ class MockRepository: Repository {
              overview: nil,
              release_date: nil,
              vote_average: nil,
-             media_type: nil, streaming: "Netflix"),
+             media_type: nil, streamings: [Streaming(name: "Netflix")]),
         
         Film(id: 0, title: "Teste 2",
              poster_path: nil,
@@ -27,7 +27,7 @@ class MockRepository: Repository {
              overview: nil,
              release_date: nil,
              vote_average: nil,
-             media_type: nil, streaming: "Netflix"),
+             media_type: nil, streamings: [Streaming(name: "Netflix")]),
         
         Film(id: 0, title: "Teste 3",
              poster_path: nil,
@@ -35,7 +35,7 @@ class MockRepository: Repository {
              overview: nil,
              release_date: nil,
              vote_average: nil,
-             media_type: nil, streaming: "Netflix"),
+             media_type: nil, streamings: [Streaming(name: "Netflix")]),
         
         Film(id: 0, title: "Teste 4",
              poster_path: nil,
@@ -43,7 +43,7 @@ class MockRepository: Repository {
              overview: nil,
              release_date: nil,
              vote_average: nil,
-             media_type: nil, streaming: "Amazon"),
+             media_type: nil, streamings: [Streaming(name: "Amazon")]),
         
         Film(id: 0, title: "Teste 5",
              poster_path: nil,
@@ -51,7 +51,7 @@ class MockRepository: Repository {
              overview: nil,
              release_date: nil,
              vote_average: nil,
-             media_type: nil, streaming: "Amazon"),
+             media_type: nil, streamings: [Streaming(name: "Amazon")]),
         
         Film(id: 0, title: "Teste 6",
              poster_path: nil,
@@ -59,7 +59,7 @@ class MockRepository: Repository {
              overview: nil,
              release_date: nil,
              vote_average: nil,
-             media_type: nil, streaming: "Amazon")
+             media_type: nil, streamings: [Streaming(name: "Amazon")])
         
     ]
     

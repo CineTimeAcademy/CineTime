@@ -110,6 +110,8 @@ class MyListViewController: UITableViewController {
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         
+        navigationController?.navigationBar.tintColor = .actionColor
+        
         // Change title color
         navigationController?.navigationBar.largeTitleTextAttributes = [
                 NSAttributedString.Key.foregroundColor : UIColor.white
@@ -271,10 +273,23 @@ extension MyListViewController: FilterDelegate {
         
         if !filteredStreamings.isEmpty {
             var filteredMovies = [Film]()
+            print("Streamings que eu quero filtrar: \(filteredStreamings)")
             
             filteredStreamings.forEach { streaming in
-                for film in rowToDisplay where film.streaming == streaming.name {
-                    filteredMovies.append(film)
+                for film in rowToDisplay {
+                    guard let streamingsArray = film.streamings else { return }
+                    
+                    for filmStreaming in streamingsArray {
+                        
+                        print("Streamings onde o filme está disponivel: \(filmStreaming)")
+                        if filmStreaming.display_name == streaming.display_name {
+                            if !filteredMovies.contains(film) {
+                               filteredMovies.append(film)
+                            }
+                           
+                            break
+                        }
+                    }
                 }
             }
             

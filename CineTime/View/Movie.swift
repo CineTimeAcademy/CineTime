@@ -15,7 +15,7 @@ struct FilmResult: Codable {
     let results: [Film]
 }
 
-struct Film: Codable {
+struct Film: Codable, Equatable {
     let id: Int
     let title: String?
     let poster_path: String?
@@ -25,8 +25,14 @@ struct Film: Codable {
     let release_date: String?
     let vote_average: Double?
     let media_type: String?
-    var streaming: String? = nil
+    var streamings: [Streaming]? = nil
     var imageData: Data? = nil
+}
+
+extension Film {
+    static func ==(lhs: Film, rhs: Film) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 extension Film {
