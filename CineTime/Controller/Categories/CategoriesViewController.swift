@@ -8,14 +8,7 @@
 
 import UIKit
 
-protocol DelegateGenerico: class {
-    func getIndexWhenPressed(films: [Film], categoryName: String)
-}
-
 class CategoriesViewController: UIViewController {
-    
-    weak var delegate: DelegateGenerico?
-    
     // Table view.
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
