@@ -77,6 +77,14 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movie = listOfResults[indexPath.row]
+        let destination = DescriptionViewController()
+        destination.dataFilm = movie
+        navigationController?.pushViewController(destination, animated: true)
+    }
+    
 }
 
 
@@ -89,7 +97,7 @@ extension SearchViewController: UISearchBarDelegate {
         Service.shared.searchByName(name: textSearchBar) { films in
             films?.forEach({ film in
                 print(film)
-                if film.poster_path != nil {
+                if (film.poster_path != nil && film.overview != nil && film.title != nil) {
                     self.listOfResults.append(film)
                 }
                 DispatchQueue.main.async {

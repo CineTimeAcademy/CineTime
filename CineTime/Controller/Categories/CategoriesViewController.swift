@@ -17,10 +17,11 @@ class CategoriesViewController: UIViewController {
     }()
     
     // Collection header names.
-    let sectionsHeader : [String] = ["Ação", "Aventura", "Animação", "Comédia", "Crime", "Documentário", "Drama", "Fantasia", "Horror", "Musical", "Mistério", "Romance", "Ficção cientifica", "Suspense", "Séries", "Guerra", "Faroeste"]
+    let sectionsHeader : [String] = ["Ação e aventura", "Animação e fantasia", "Comédia", "Crime", "Drama", "Horror e suspense", "Musical", "Mistério", "Romance", "Ficção cientifica", "Séries"]
+//    let sectionsHeader : [String] = ["Ação e aventura"]
     
     // Collection header id.
-    let sectionId : [String] = ["28", "12", "16", "35", "80", "99", "18", "14", "27", "10402", "9648", "10749", "878", "53", "10770", "10752", "37"]
+    let sectionId : [String] = ["28,12", "16,14", "35", "80", "18", "27,53", "10402", "9648", "10749", "878", "10770"]
     
     var listOfResultsByGenre = [[Film]]()
     
@@ -84,7 +85,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CategoriesTableViewCell
         cell.delegate = self
         if listOfResultsByGenre.count - 1 >= indexPath.section {
-            cell.listOfResultsByGenre = listOfResultsByGenre[indexPath.section]
+            cell.listOfResultsByGenre = self.listOfResultsByGenre[indexPath.section]
         }
         return cell
     }

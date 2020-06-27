@@ -14,7 +14,6 @@ class DescriptionView: UIView {
     
     init(frame: CGRect, data: Film) {
         super.init(frame: frame)
-        print(data.id)
         result(film: data)
         addSubviews()
         configureView()
@@ -22,7 +21,6 @@ class DescriptionView: UIView {
     }
     
     func result(film: Film) {
-        
         titleLabel.text = film.title
         descriptionTextView.text = film.overview
         captionLabel.text = film.release_date
@@ -33,7 +31,6 @@ class DescriptionView: UIView {
             categories.append(sectionsHeader[String(id)] ?? "")
         }
         categoriesLabel.text = categories.joined(separator: ", ") + "."
-        
     }
     
     required init?(coder: NSCoder) {
@@ -49,6 +46,13 @@ class DescriptionView: UIView {
         label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
+    }()
+    
+    lazy var minhaListaButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "buttonMinhaListaDisable"), for: .normal)
+        return button
     }()
     
     lazy var categoriesLabel : UILabel = {
@@ -88,6 +92,7 @@ class DescriptionView: UIView {
         label.numberOfLines = 100
         label.font = UIFont.systemFont(ofSize: 22)
         label.text = ""
+        label.sizeToFit()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -116,6 +121,7 @@ class DescriptionView: UIView {
     
     func addSubviews() {
         addSubview(titleLabel)
+        addSubview(minhaListaButton)
         addSubview(categoriesLabel)
         addSubview(imageImdb)
         addSubview(imdbLabel)
@@ -134,8 +140,14 @@ class DescriptionView: UIView {
         // Title
         NSLayoutConstraint.activate([
             titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -80),
             titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20)
+        ])
+        
+        // buton minha lista
+        NSLayoutConstraint.activate([
+            minhaListaButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            minhaListaButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20)
         ])
         
         // Categories
@@ -177,7 +189,8 @@ class DescriptionView: UIView {
         NSLayoutConstraint.activate([
             disponibleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             disponibleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            disponibleLabel.topAnchor.constraint(equalTo: captionLabel.bottomAnchor, constant: 10)
+            disponibleLabel.topAnchor.constraint(equalTo: captionLabel.bottomAnchor, constant: 10),
+            disponibleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
 }

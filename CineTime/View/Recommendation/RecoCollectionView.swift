@@ -13,6 +13,7 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
     let flowLayout = ZoomAndSnapFlowLayout()
     var context = CIContext(options: nil)
     let image =  UIImageView()
+    weak var delegatePush: DelegatePushDescriptionViewController?
     
     var moviesAPI = [Film]()
     
@@ -120,5 +121,9 @@ extension RecoCollectionView: UICollectionViewDataSource {
         image.alpha = 0.3
         image.contentMode = .scaleAspectFill
         self.backgroundView = image
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegatePush?.didSelect(movie: moviesAPI[indexPath.item])
     }
 }

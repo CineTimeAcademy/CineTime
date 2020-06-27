@@ -30,6 +30,20 @@ struct Film: Codable {
 }
 
 extension Film {
+    
+    // ajeitar isso pfvr
+    func saveImage(with path: String) -> Data? {
+        
+        let not = URL(string: path)
+        
+        guard let url = not else { return nil }
+        let teste = Data()
+  
+        return teste
+         
+        
+    }
+    
     func downloaded(from url: URL, completion: @escaping (Data) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
