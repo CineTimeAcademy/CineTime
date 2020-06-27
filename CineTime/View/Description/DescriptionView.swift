@@ -39,11 +39,15 @@ class DescriptionView: UIView {
     }
     
     func result(film: Film) {
-        if film.media_type == "movie" {
+        switch film.media_type {
+        case "movie":
             titleLabel.text = film.title
-        } else if film.media_type == "tv" {
+        case "tv":
             titleLabel.text = film.name
+        default:
+            titleLabel.text = film.title
         }
+
         descriptionTextView.text = film.overview
         captionLabel.text = film.release_date
         imdbLabel.text = String(format:"%.1f", film.vote_average!)

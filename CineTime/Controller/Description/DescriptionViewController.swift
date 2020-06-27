@@ -112,7 +112,7 @@ lazy var viewDescription: DescriptionView = {
     func callAPI() {
         guard let dataFilm = dataFilm else { return }
         
-        Service.shared.getTrailer(filmId: String(dataFilm.id), mediaType: dataFilm.media_type!) { (result) in
+        Service.shared.getTrailer(filmId: String(dataFilm.id), mediaType: dataFilm.media_type ?? "movie") { (result) in
             var keyYT : String = ""
 
             for trailer in result! {
