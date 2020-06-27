@@ -23,7 +23,7 @@ class MyListTests: XCTestCase {
     
     func test_filter_filterNetflixMovie_movieCount3() {
         // given
-        var netflix = Streaming(name: "Netflix")
+        var netflix = Streaming(name: "Netflix", display_name: "Netflix")
         netflix.selected = true
         
         // when
@@ -37,7 +37,7 @@ class MyListTests: XCTestCase {
     
     func test_filter_filterAmazonMovie_movieCount3() {
         // given
-        var amazon = Streaming(name: "Amazon")
+        var amazon = Streaming(name: "Amazon", display_name: "Amazon")
         amazon.selected = true
         
         // when
@@ -51,8 +51,8 @@ class MyListTests: XCTestCase {
     
     func test_filter_filterMultiStreamingMovie_movieCount6() {
         // given
-        var amazon = Streaming(name: "Amazon")
-        var netflix = Streaming(name: "Netflix")
+        var amazon = Streaming(name: "Amazon", display_name: "Amazon")
+        var netflix = Streaming(name: "Netflix", display_name: "Netflix")
         netflix.selected = true
         amazon.selected = true
         

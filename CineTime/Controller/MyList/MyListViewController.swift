@@ -32,7 +32,7 @@ class MyListViewController: UITableViewController {
     let header = HeaderChildViewController()
     
     // Itens there are displayed, variable used to switch when click on Segmented Control
-    lazy var rowToDisplay = assistidos
+    lazy var rowToDisplay = paraAssistir
     
     // MARK: - TableView DataSource
     var assistidos = [Film]()
@@ -108,7 +108,7 @@ class MyListViewController: UITableViewController {
         tableView.addSubview(emptyStateMessage)
         NSLayoutConstraint.activate([
             emptyStateMessage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            emptyStateMessage.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            emptyStateMessage.centerYAnchor.constraint(equalTo: self.view.centerYAnchor, constant: -100)
         ])
     }
 
@@ -170,7 +170,9 @@ class MyListViewController: UITableViewController {
         switch header.headerView.segmentedControl.selectedSegmentIndex {
         case 0:
             fetchData()
-            if self.filteredStreamings.isEmpty { rowToDisplay = paraAssistir } else {
+            if self.filteredStreamings.isEmpty {
+                rowToDisplay = paraAssistir
+            } else {
                 didStartFilter(with: filteredStreamings)
             }
             tableView.sectionHeaderHeight = 0
@@ -181,7 +183,7 @@ class MyListViewController: UITableViewController {
             tableView.sectionHeaderHeight = HeaderSize.height.rawValue
             updateHeaderViewHeight(for: tableView.tableHeaderView)
         default:
-            rowToDisplay = assistidos
+            rowToDisplay = paraAssistir
         }
         tableView.reloadData()
     }
@@ -217,7 +219,7 @@ extension MyListViewController {
             } else {
                 film.downloaded(from: url) { data in
                     film.imageData = data
-                    FilmRepository(with: PlistNames.toWatch.rawValue).update(object: film)
+                    FilmRepository(with: PlistNames.watched.rawValue).update(object: film)
                     DispatchQueue.main.async() {
                         cell.film = film
                     }

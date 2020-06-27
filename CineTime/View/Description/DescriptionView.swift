@@ -41,8 +41,9 @@ class DescriptionView: UIView {
     func result(film: Film) {
         if film.media_type == "movie" {
             titleLabel.text = film.title
-        } else if film.media_type == "tv" {
-            titleLabel.text = film.name
+        } else {
+            titleLabel.text = film.title
+            
         }
         descriptionTextView.text = film.overview
         captionLabel.text = film.release_date

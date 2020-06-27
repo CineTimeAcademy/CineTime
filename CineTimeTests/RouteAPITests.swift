@@ -53,7 +53,7 @@ class RouteAPITests: XCTestCase {
     func test_route_trailer() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/508439/videos?api_key=a1d23d9e0cc08e49e4703408659fe47c&language=pt-BR" )
         let expect = expectation(description: "getting trailer")
-        guard let urlFilmAPI: URL = FilmsAPI(route: Router.trailer(id: id)).url else {return}
+        guard let urlFilmAPI: URL = FilmsAPI(route: Router.trailer(id: id, mediaType: "movie")).url else {return}
         XCTAssertEqual(url, urlFilmAPI)
         expect.fulfill()
         
