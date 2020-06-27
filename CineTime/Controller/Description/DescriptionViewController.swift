@@ -13,6 +13,8 @@ class DescriptionViewController: UIViewController {
     
     var dataFilm: Film? = nil
     
+    let repository = FilmRepository(with: "assistidos")
+    
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.backgroundColor = .black
@@ -43,25 +45,59 @@ lazy var viewDescription: DescriptionView = {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        
         addSubviews()
         configureAutoLayout()
         callAPI()
         
+        checkMyList()
         
-        viewDescription.minhaListaButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        viewDescription.myListButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
     }
     
     @objc func pressed() {
         
+        guard let dataFilm = dataFilm else { return }
+        
+        viewDescription.myListButton.isSelected = !viewDescription.myListButton.isSelected
+        
+        if viewDescription.myListButton.isSelected {
+           streamingRequest()
+        } else {
+            repository.delete(object: dataFilm)
+        }
+        
+        
+        
+    }
+    
+    func checkMyList() {
+        
+        guard let dataFilm = dataFilm else { return }
+        
+        let filmsWatched = repository.getAll()
+        
+        if filmsWatched.contains(dataFilm) {
+            viewDescription.myListButton.isSelected = true
+        }
+        
+    }
+    
+    func streamingRequest() {
         guard var dataFilm = dataFilm else { return }
         
         Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
             if let streamings = streamings {
                 dataFilm.streamings = streamings
-                FilmRepository(with: "paraAssistir").add(object: dataFilm)
+                
+                
+                FilmRepository(with: "paraAssistir").delete(object: dataFilm)
+                // Adding object to p list
+                self.repository.add(object: dataFilm)
             }
         }
-        
     }
     
     func addSubviews() {

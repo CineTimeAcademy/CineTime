@@ -10,7 +10,25 @@ import UIKit
 
 class DescriptionView: UIView {
     // Collection header names.
-    let sectionsHeader : [String: String] = ["28":"Ação", "12":"Aventura", "16":"Animação", "35":"Comédia", "80":"Crime", "99":"Documentário", "18":"Drama", "14":"Fantasia", "27":"Horror", "10402":"Musical", "9648":"Mistério", "10749":"Romance", "878":"Ficção cientifica", "53":"Suspense", "10770":"Séries", "10752":"Guerra", "37":"Faroeste"]
+    
+    let sectionsHeader : [String: String] = [
+        "28":"Ação",
+        "12":"Aventura",
+        "16":"Animação",
+        "35":"Comédia",
+        "80":"Crime",
+        "99":"Documentário",
+        "18":"Drama",
+        "14":"Fantasia",
+        "27":"Horror",
+        "10402":"Musical",
+        "9648":"Mistério",
+        "10749":"Romance",
+        "878":"Ficção cientifica",
+        "53":"Suspense", "10770":"Séries",
+        "10752":"Guerra",
+        "37":"Faroeste"
+    ]
     
     init(frame: CGRect, data: Film) {
         super.init(frame: frame)
@@ -58,10 +76,11 @@ class DescriptionView: UIView {
         return label
     }()
     
-    lazy var minhaListaButton: UIButton = {
+    lazy var myListButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "buttonMinhaListaDisable"), for: .normal)
+        button.setImage(UIImage(named: "buttonMinhaLista"), for: .selected)
         return button
     }()
     
@@ -162,7 +181,7 @@ class DescriptionView: UIView {
     
     func addSubviews() {
         addSubview(titleLabel)
-        addSubview(minhaListaButton)
+        addSubview(myListButton)
         addSubview(categoriesLabel)
         addSubview(imageImdb)
         addSubview(imdbLabel)
@@ -191,8 +210,8 @@ class DescriptionView: UIView {
         
         // buton minha lista
         NSLayoutConstraint.activate([
-            minhaListaButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            minhaListaButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20)
+            myListButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
+            myListButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 20)
         ])
         
         // Categories
