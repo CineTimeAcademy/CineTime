@@ -8,7 +8,14 @@
 
 import UIKit
 
+protocol DelegateGenerico: class {
+    func getIndexWhenPressed(films: [Film], categoryName: String)
+}
+
 class CategoriesViewController: UIViewController {
+    
+    weak var delegate: DelegateGenerico?
+    
     // Table view.
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -57,10 +64,12 @@ class CategoriesViewController: UIViewController {
         tableView.tableAutoLayout(to: view)  // setando as constraints da table view.
     }
     
-    @objc func pressed () {
+    @objc private func pressed(sender: UIButton) {
         let destination = CategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        destination.idSection = "28,12"
-        destination.category = "Ação e aventura"
+        destination.listOfResultsByGenre = listOfResultsByGenre[sender.tag]
+        destination.category = sectionsHeader[sender.tag]
+        print(sender.tag)
+        
         navigationController?.pushViewController(destination, animated: true)
     }
     
@@ -79,8 +88,8 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderTableView()
         header.button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        header.button.tag = section
         header.label.text = sectionsHeader[section]
-        
         return header
     }
     

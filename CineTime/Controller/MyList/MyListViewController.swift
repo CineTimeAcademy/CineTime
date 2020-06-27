@@ -36,8 +36,19 @@ class MyListViewController: UITableViewController {
     
     // MARK: - TableView DataSource
     var assistidos = [Film]()
-    
     var paraAssistir = [Film]()
+    
+    lazy var emptyStateMessage: UILabel = {
+        let messageLabel = UILabel()
+        messageLabel.text = "Nenhum resgistro encontrado"
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.textColor = .darkGray
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center;
+        messageLabel.font = UIFont.systemFont(ofSize: 15)
+        messageLabel.sizeToFit()
+        return messageLabel
+    }()
     
     func setToWatchModel(_ model: FilmViewModel) {
         if let films = model.films {
@@ -91,6 +102,18 @@ class MyListViewController: UITableViewController {
         tableView.register(MyListTableViewCell.self, forCellReuseIdentifier: MyListTableViewCell.identifier)
         tableView.separatorStyle = .none
         tableView.tableHeaderView = header.view
+    }
+    
+    func showEmptyState() {
+        tableView.addSubview(emptyStateMessage)
+        NSLayoutConstraint.activate([
+            emptyStateMessage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            emptyStateMessage.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+        ])
+    }
+
+    func hideEmptyState() {
+        emptyStateMessage.removeFromSuperview()
     }
     
     private func configureNavBar() {
@@ -162,13 +185,17 @@ class MyListViewController: UITableViewController {
         }
         tableView.reloadData()
     }
-    
 }
 
 // MARK: - TableView Implementation
 extension MyListViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (rowToDisplay.count == 0) {
+            self.showEmptyState()
+        } else {
+            self.hideEmptyState()
+        }
         return rowToDisplay.count
     }
 

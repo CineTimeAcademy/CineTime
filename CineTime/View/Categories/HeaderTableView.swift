@@ -10,6 +10,8 @@ import UIKit
 
 class HeaderTableView: UIView {
     
+    var section: Int = 0
+    
     lazy var label : UILabel = {
         let label = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: 41))
         label.textColor = .white

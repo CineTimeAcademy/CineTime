@@ -11,26 +11,11 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class CategoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
-    var idSection : String = ""
     var category: String = ""
     var listOfResultsByGenre = [Film]()
     
-    // Results API category.
-    func callAPI() {
-        Service.shared.findFilmByGenre(with: [idSection], completion: { films in
-            if let film = films {
-                self.listOfResultsByGenre.append(contentsOf: film)
-            }
-        })
-        
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        callAPI()
         title = category
         view.backgroundColor = .green
         self.collectionView!.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
