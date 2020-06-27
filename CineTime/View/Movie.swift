@@ -8,21 +8,14 @@
 
 import Foundation
 
-struct Movie {
-    let posterName: String
-}
-
-
 struct FilmResult: Codable {
     let page: Int
     let total_results: Int
     let total_pages: Int
     let results: [Film]
-    
 }
 
 struct Film: Codable {
-    
     let id: Int
     let title: String?
     let poster_path: String?
@@ -34,22 +27,7 @@ struct Film: Codable {
     let media_type: String?
     var streaming: String? = nil
     var imageData: Data? = nil
-    
 }
-
-struct SearchResult: Codable {
-    let id: Int
-    let title: String
-    let poster_path: String
-    let genre_ids: [Int]
-    let video: Bool = false
-    let overview: String
-    let release_date: String
-    let vote_average: Double
-    let media_type: String
-    
-}
-
 
 extension Film {
     

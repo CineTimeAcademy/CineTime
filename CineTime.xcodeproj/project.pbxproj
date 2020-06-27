@@ -22,6 +22,8 @@
 		77E0FC3B248FB37900BB50A1 /* CineTimeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E0FC3A248FB37900BB50A1 /* CineTimeUITests.swift */; };
 		77E6F34B249A4C0000376528 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E6F34A249A4C0000376528 /* DescriptionViewController.swift */; };
 		814D262E24A4375700580C0B /* RouteAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D262D24A4375700580C0B /* RouteAPITests.swift */; };
+		814D263024A4EEC400580C0B /* UtellyRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D262F24A4EEC400580C0B /* UtellyRouter.swift */; };
+		814D263224A4F31900580C0B /* SearchResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814D263124A4F31900580C0B /* SearchResults.swift */; };
 		814E1DB6248FBCD0006ADFCB /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */; };
 		814E1DB8248FBDCF006ADFCB /* RecommendationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */; };
 		814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */; };
@@ -98,6 +100,8 @@
 		77E0FC3C248FB37900BB50A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		77E6F34A249A4C0000376528 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		814D262D24A4375700580C0B /* RouteAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAPITests.swift; sourceTree = "<group>"; };
+		814D262F24A4EEC400580C0B /* UtellyRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtellyRouter.swift; sourceTree = "<group>"; };
+		814D263124A4F31900580C0B /* SearchResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResults.swift; sourceTree = SOURCE_ROOT; };
 		814E1DB5248FBCD0006ADFCB /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		814E1DB7248FBDCF006ADFCB /* RecommendationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationsViewController.swift; sourceTree = "<group>"; };
 		814E1DCE2491AC69006ADFCB /* HeaderChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderChildViewController.swift; sourceTree = "<group>"; };
@@ -304,6 +308,7 @@
 				815380D22497ECBB00E1F7F6 /* Trailer.swift */,
 				818B71D4249B977D00D217EE /* FilmList.swift */,
 				818B71DB249CEB9E00D217EE /* Streaming.swift */,
+				814D263124A4F31900580C0B /* SearchResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				815380DD249805FB00E1F7F6 /* Service.swift */,
 				815380DF2498062100E1F7F6 /* Router.swift */,
 				815380E12498F09400E1F7F6 /* HTTP.swift */,
+				814D262F24A4EEC400580C0B /* UtellyRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -543,11 +549,13 @@
 				77117434249905FE005AC1CF /* UISearch.swift in Sources */,
 				818B71D7249B994800D217EE /* FilmViewModel.swift in Sources */,
 				7705019324A1515E00A2A559 /* SearchAutoLayout.swift in Sources */,
+				814D263024A4EEC400580C0B /* UtellyRouter.swift in Sources */,
 				A7ADBEDD2492770B00D00702 /* MoviePosterCell.swift in Sources */,
 				815380DE249805FB00E1F7F6 /* Service.swift in Sources */,
 				814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */,
 				815380B42497C5A000E1F7F6 /* CategoriesAutoLayout.swift in Sources */,
 				815380E02498062100E1F7F6 /* Router.swift in Sources */,
+				814D263224A4F31900580C0B /* SearchResults.swift in Sources */,
 				7713F32C248FEE0000A6E07D /* UIColor.swift in Sources */,
 				77551AE2249A4D53008A51C1 /* DescriptionView.swift in Sources */,
 				815380BC2497C77400E1F7F6 /* CategoriesTableViewCell.swift in Sources */,

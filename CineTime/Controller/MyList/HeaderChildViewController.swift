@@ -52,7 +52,7 @@ extension HeaderChildViewController: UICollectionViewDelegate, UICollectionViewD
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MyListCollectionViewCell.identifier, for: indexPath) as? MyListCollectionViewCell {
             cell.streamingTitle.text = streaming.name
 
-            if streaming.selected {
+            if streaming.selected! {
                 cell.selected()
                 cell.isFiltering = true
             }
@@ -65,7 +65,7 @@ extension HeaderChildViewController: UICollectionViewDelegate, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if let cell = collectionView.cellForItem(at: indexPath) as? MyListCollectionViewCell {
-            streamings[indexPath.row].selected = !streamings[indexPath.row].selected
+            streamings[indexPath.row].selected = !streamings[indexPath.row].selected!
             cell.switchStateWhenSelected()
             delegate?.didStartFilter(with: streamings)
         }

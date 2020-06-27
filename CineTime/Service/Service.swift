@@ -121,8 +121,6 @@ class Service {
         }
     }
     
-    
-    
     func searchByName(name: String, completion: @escaping ([Film]?) -> Void) {
         
         let api = FilmsAPI(route: .searchByName(name: name))
@@ -142,13 +140,48 @@ class Service {
             }
             
         }
-        
     }
     
-    
-    func createList(list: FilmList) {
-        
+    func getStreamingsAvailable(filmName: String, completion: @escaping ([Streaming]?) -> Void) {
+
+        let api = UtellyAPI(route: .lookup(term: filmName))
+
+        guard let url = api.url else { return }
+
+        HTTP.get.request(url: url, header: api.headers) { (data, response, error) in
+
+            guard let data = data else { return }
+
+            do {
+//                let results = try JSONDecoder().decode(StreamingResults.self, from: data)
+//                let streamings = results.results.first?.locations
+                completion(nil)
+            } catch {
+                print(error)
+            }
+
+        }
+
     }
     
+    func getStreamings(imdb_id: String, completion: @escaping ([Streaming]?) -> Void) {
+        let api = UtellyAPI(route: .idlookup(id: imdb_id))
+        
+        guard let url = api.url else { return }
+        
+        HTTP.get.request(url: url, header: api.headers) { (data, response, error) in
+            
+            guard let data = data else { return }
+            
+            do {
+                let results = try JSONDecoder().decode(StreamingResults.self, from: data)
+                let streamings = results.collection.locations
+                completion(streamings)
+            } catch {
+                print(error)
+            }
+            
+        }
+    }
 }
- 
+

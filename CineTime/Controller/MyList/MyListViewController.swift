@@ -69,11 +69,11 @@ class MyListViewController: UITableViewController {
         paraAssistir = FilmRepository(with: PlistNames.toWatch.rawValue).getAll()
         assistidos = FilmRepository(with: PlistNames.watched.rawValue).getAll()
         
-//        Service.shared.findFilmByGenre(with: ["28"]) { films in
-//            films?.forEach({ film in
-//                FilmRepository(with: PlistNames.toWatch.rawValue).add(object: film)
-//            })
-//        }
+        Service.shared.getStreamings(imdb_id: "tt3398228") { streamings in
+            streamings?.forEach({ streaming in
+                print(streaming.display_name)
+            })
+        }
     }
 
    
