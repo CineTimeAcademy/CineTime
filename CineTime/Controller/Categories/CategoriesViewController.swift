@@ -22,13 +22,15 @@ class CategoriesViewController: UIViewController {
     // Collection header id.
     let sectionId : [String] = ["28,12", "16,14", "35", "80", "18", "27,53", "10402", "9648", "10749", "878", "10770"]
     
-    var listOfResultsByGenre = [[Film]]()
+    var listOfResultsByGenre = [[Film]](repeating: [Film](), count: 10)
     
     // Results API category.
     func callAPI() {
-        for id in sectionId {
+        
+        for (index, id) in sectionId.enumerated() {
             Service.shared.findFilmByGenre(with: [id], completion: { films in
-                self.listOfResultsByGenre.append(films!)
+                guard let films = films else { return }
+                self.listOfResultsByGenre.insert(films, at: index)
             })
         }
         
@@ -100,6 +102,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
             
             if !repository.getAll().isEmpty {
                 cell.listOfResultsByGenre = repository.getAll()
+                self.listOfResultsByGenre[indexPath.section] = repository.getAll()
             } else {
                 cell.listOfResultsByGenre = self.listOfResultsByGenre[indexPath.section]
             }

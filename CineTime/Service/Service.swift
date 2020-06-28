@@ -33,7 +33,7 @@ class Service {
                     for film in films {
                         repository.add(object: film)
                     }
-                    completion(nil)
+                    completion(films)
                 } else {
                     completion(repository.getAll())
                 }
