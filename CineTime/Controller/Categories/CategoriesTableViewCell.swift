@@ -39,7 +39,7 @@ class CategoriesTableViewCell: UITableViewCell {
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 20)
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 20
+        layout.minimumLineSpacing = 10
         
         return layout
     }

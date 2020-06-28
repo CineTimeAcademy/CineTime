@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7705019324A1515E00A2A559 /* SearchAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705019224A1515E00A2A559 /* SearchAutoLayout.swift */; };
+		7705D6F224A9080E0038EB15 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7705D6F124A9080E0038EB15 /* OnboardingViewController.swift */; };
 		770FF94D24A25F1000AC3A29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770FF94C24A25F1000AC3A29 /* LaunchScreen.storyboard */; };
 		771174302498F502005AC1CF /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7711742F2498F502005AC1CF /* SearchCollectionViewController.swift */; };
 		771174322498F574005AC1CF /* TitlesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 771174312498F574005AC1CF /* TitlesCollectionViewCell.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		7705019224A1515E00A2A559 /* SearchAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAutoLayout.swift; sourceTree = "<group>"; };
+		7705D6F124A9080E0038EB15 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		770FF94C24A25F1000AC3A29 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7711742F2498F502005AC1CF /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		771174312498F574005AC1CF /* TitlesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitlesCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -171,6 +173,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7705D6F024A907EE0038EB15 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7705D6F124A9080E0038EB15 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		7711742A2498F2B2005AC1CF /* MyList */ = {
 			isa = PBXGroup;
 			children = (
@@ -354,6 +364,7 @@
 		814E1DB1248FBB56006ADFCB /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7705D6F024A907EE0038EB15 /* Onboarding */,
 				77E6F34C249A4C1200376528 /* Description */,
 				7711742E2498F432005AC1CF /* Search */,
 				7711742C2498F39C005AC1CF /* Recommendation */,
@@ -603,6 +614,7 @@
 				771174322498F574005AC1CF /* TitlesCollectionViewCell.swift in Sources */,
 				A7825C99249692070026E899 /* HorizontalFlowLayout.swift in Sources */,
 				77E0FC1B248FB37300BB50A1 /* SceneDelegate.swift in Sources */,
+				7705D6F224A9080E0038EB15 /* OnboardingViewController.swift in Sources */,
 				8116A27624A6AF300027C6AE /* UIView+CornerRadius.swift in Sources */,
 				A7825C9D249722F00026E899 /* NewsPosterCell.swift in Sources */,
 				A7825C9B249717B30026E899 /* Movie.swift in Sources */,

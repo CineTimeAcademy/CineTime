@@ -14,7 +14,7 @@ class HorizontalFlowLayout: UICollectionViewFlowLayout {
         super.init()
         scrollDirection = .horizontal
         minimumLineSpacing = 8
-        itemSize = CGSize(width: 90 * 1, height: 153 * 1)
+        itemSize = CGSize(width: 90, height: 163)
     }
     
     required init?(coder aDecoder: NSCoder) {

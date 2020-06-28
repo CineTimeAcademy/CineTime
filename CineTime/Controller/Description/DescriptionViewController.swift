@@ -87,7 +87,6 @@ class DescriptionViewController: UIViewController {
                 guard let streamings = dataFilm.streamings else { return }
                 
                 for streaming in streamings {
-                    print(streaming.display_name!)
                     self.viewDescription.streaming = streaming
                 }
             }

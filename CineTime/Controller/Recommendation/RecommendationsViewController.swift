@@ -58,6 +58,7 @@ class RecommendationsViewController: UIViewController {
         
         configureAutoLayout()
     }
+
     
     func configureAutoLayout() {
         // Indication collection.
@@ -70,14 +71,14 @@ class RecommendationsViewController: UIViewController {
         
         // Label new name.
         NSLayoutConstraint.activate([
-            NewName.topAnchor.constraint(equalTo: indicationCollection.bottomAnchor, constant: 10),
-            NewName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            NewName.topAnchor.constraint(equalTo: indicationCollection.bottomAnchor, constant: 8),
+            NewName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             NewName.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         //News collection
         NSLayoutConstraint.activate([
-            newsCollection.topAnchor.constraint(equalTo: NewName.bottomAnchor, constant: -30),
+            newsCollection.topAnchor.constraint(equalTo: NewName.bottomAnchor, constant: -40),
             newsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             newsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             newsCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
