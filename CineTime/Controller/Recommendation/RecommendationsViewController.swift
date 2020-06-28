@@ -9,7 +9,9 @@
 import UIKit
 
 class RecommendationsViewController: UIViewController {
-    let indicationColletion = RecoCollectionView(frame: .zero, collectionViewLayout: ZoomAndSnapFlowLayout())
+    let indicationCollection = RecoCollectionView(frame: .zero, collectionViewLayout: ZoomAndSnapFlowLayout())
+    let newsCollection = NewCollectionView(frame: .zero, collectionViewLayout: HorizontalFlowLayout())
+
     lazy var NewName: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
@@ -19,7 +21,10 @@ class RecommendationsViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-    let newsColletion = NewCollectionView(frame: .zero, collectionViewLayout: HorizontalFlowLayout())
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -38,15 +43,15 @@ class RecommendationsViewController: UIViewController {
         view.backgroundColor = .black
         navigationController?.navigationBar.barStyle  = .black
     
-        indicationColletion.delegatePush = self
-        indicationColletion.translatesAutoresizingMaskIntoConstraints = false
-        indicationColletion.backgroundColor = .black
-        view.addSubview(indicationColletion)
+        indicationCollection.delegatePush = self
+        indicationCollection.translatesAutoresizingMaskIntoConstraints = false
+        indicationCollection.backgroundColor = .black
+        view.addSubview(indicationCollection)
         
-        newsColletion.delegatePush = self
-        newsColletion.backgroundColor = .black
-        newsColletion.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(newsColletion)
+        newsCollection.delegatePush = self
+        newsCollection.backgroundColor = .black
+        newsCollection.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(newsCollection)
         
 
         view.addSubview(NewName)
@@ -55,27 +60,27 @@ class RecommendationsViewController: UIViewController {
     }
     
     func configureAutoLayout() {
-        // Recomendações
+        // Indication collection.
         NSLayoutConstraint.activate([
-            indicationColletion.topAnchor.constraint(equalTo: view.topAnchor),
-            indicationColletion.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            indicationColletion.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            indicationColletion.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 6/10)
+            indicationCollection.topAnchor.constraint(equalTo: view.topAnchor),
+            indicationCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            indicationCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            indicationCollection.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 6/10)
         ])
         
-        // Label
+        // Label new name.
         NSLayoutConstraint.activate([
-            NewName.topAnchor.constraint(equalTo: indicationColletion.bottomAnchor, constant: 10),
+            NewName.topAnchor.constraint(equalTo: indicationCollection.bottomAnchor, constant: 10),
             NewName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             NewName.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        //
+        //News collection
         NSLayoutConstraint.activate([
-            newsColletion.topAnchor.constraint(equalTo: NewName.bottomAnchor, constant: -40),
-            newsColletion.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            newsColletion.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            newsColletion.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            newsCollection.topAnchor.constraint(equalTo: NewName.bottomAnchor, constant: -30),
+            newsCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            newsCollection.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            newsCollection.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }

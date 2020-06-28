@@ -12,11 +12,30 @@ class MyListTableViewCell: UITableViewCell {
     
     static let identifier = "myCell"
     
+    let sectionsHeader : [String: String] = [
+        "28":"Ação",
+        "12":"Aventura",
+        "16":"Animação",
+        "35":"Comédia",
+        "80":"Crime",
+        "99":"Documentário",
+        "18":"Drama",
+        "14":"Fantasia",
+        "27":"Horror",
+        "10402":"Musical",
+        "9648":"Mistério",
+        "10749":"Romance",
+        "878":"Ficção cientifica",
+        "53":"Suspense", "10770":"Séries",
+        "10752":"Guerra",
+        "37":"Faroeste"
+    ]
+    
     var film: Film? {
         didSet {
             self.imageFilm.downloaded(from: "https://image.tmdb.org/t/p/w500/\(film?.poster_path ?? "nil")")
             self.title.text = film?.title
-            self.category.text = "\(film?.genre_ids ?? [12])"
+            self.category.text = formatCategories(film: film!)
         }
     }
     
@@ -74,6 +93,20 @@ class MyListTableViewCell: UITableViewCell {
         addSubview(title)
         addSubview(category)
         addSubview(advisoryRating)
+    }
+    
+    public func formatCategories(film: Film) -> String {
+        var categories = [String]()
+
+        guard let categoriesId = film.genre_ids else {
+            return "Não exite categorias cadastradas."
+        }
+        for id in categoriesId {
+            categories.append(sectionsHeader[String(id)] ?? "")
+        }
+        let result = categories.compactMap { $0 }
+        
+        return result.joined(separator: ", ") + "."
     }
     
     func setupConstraints() {

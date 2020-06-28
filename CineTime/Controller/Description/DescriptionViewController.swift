@@ -10,9 +10,7 @@ import UIKit
 import WebKit
 
 class DescriptionViewController: UIViewController {
-    
     var dataFilm: Film? = nil
-    
     let repository = FilmRepository(with: "assistidos")
     
     lazy var scrollView: UIScrollView = {
@@ -36,8 +34,8 @@ class DescriptionViewController: UIViewController {
         webView.translatesAutoresizingMaskIntoConstraints = false
         return webView
     }()
-
-lazy var viewDescription: DescriptionView = {
+    
+    lazy var viewDescription: DescriptionView = {
         let viewDescription = DescriptionView(frame: .zero, data: dataFilm!)
         viewDescription.backgroundColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha: 1.00)
         return viewDescription
@@ -45,7 +43,6 @@ lazy var viewDescription: DescriptionView = {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
         addSubviews()
@@ -53,25 +50,22 @@ lazy var viewDescription: DescriptionView = {
         callAPI()
         streamingRequest()
         checkMyList()
-        
-        viewDescription.myListButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        viewDescription.myListButton.addTarget(self, action: #selector(pressedButtonHeader), for: .touchUpInside)
     }
     
-    @objc func pressed() {
-        
+    @objc func pressedButtonHeader() {
         guard let dataFilm = dataFilm else { return }
         
         viewDescription.myListButton.isSelected = !viewDescription.myListButton.isSelected
         
         if viewDescription.myListButton.isSelected {
-           repository.add(object: dataFilm)
+            repository.add(object: dataFilm)
         } else {
             repository.delete(object: dataFilm)
         }
     }
     
     func checkMyList() {
-        
         guard let dataFilm = dataFilm else { return }
         
         let filmsWatched = repository.getAll()
@@ -83,9 +77,8 @@ lazy var viewDescription: DescriptionView = {
     }
     
     func streamingRequest() {
-        
         guard var dataFilm = dataFilm else { return }
-    
+        
         Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
             if let streamings = streamings {
                 dataFilm.streamings = streamings
@@ -94,7 +87,7 @@ lazy var viewDescription: DescriptionView = {
                 guard let streamings = dataFilm.streamings else { return }
                 
                 for streaming in streamings {
-                    print(streaming.display_name)
+                    print(streaming.display_name!)
                     self.viewDescription.streaming = streaming
                 }
             }
@@ -115,7 +108,7 @@ lazy var viewDescription: DescriptionView = {
         
         Service.shared.getTrailer(filmId: String(dataFilm.id), mediaType: dataFilm.media_type ?? "movie") { (result) in
             var keyYT : String = ""
-
+            
             for trailer in result! {
                 keyYT = trailer.key
             }

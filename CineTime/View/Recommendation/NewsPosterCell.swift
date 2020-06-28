@@ -13,12 +13,10 @@ class NewsPosterCell: UICollectionViewCell {
     var film: Film? {
         didSet {
             guard let unwrappedFilm = film else { return }
-
-
+            
             let name = unwrappedFilm.poster_path!
-
             let api = FilmsAPI(route: .getImageFilm(name: name))
-
+            
             guard let url = api.url else { return }
 
             posterImageView.downloaded(from: url.absoluteString)
@@ -36,7 +34,6 @@ class NewsPosterCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.backgroundColor = .white
-        
         setupPoster()
     }
 
@@ -48,7 +45,6 @@ class NewsPosterCell: UICollectionViewCell {
         self.addSubview(posterImageView)
   
         posterImageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-//        posterImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         posterImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         posterImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.88).isActive = true
         posterImageView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
