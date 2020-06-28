@@ -24,7 +24,6 @@ class TabBarViewController: UITabBarController {
         let recommendationsVC = UINavigationController(rootViewController: RecommendationsViewController())
         recommendationsVC.tabBarItem = UITabBarItem(title: "Recomendações", image: UIImage(named: "rolinho"), tag: 0)
         
-//        let categoriesVC = SearchViewController(collectionViewLayout: UICollectionViewFlowLayout())
         let categoriesVC = UINavigationController(rootViewController: CategoriesViewController())
         categoriesVC.tabBarItem = UITabBarItem(title: "Buscar", image: UIImage(named: "buscar"), tag: 1)
         
@@ -32,6 +31,12 @@ class TabBarViewController: UITabBarController {
         myListVC.tabBarItem = UITabBarItem(title: "Minha Lista", image: UIImage(named: "line.horizontal.3"), tag: 2)
         
         viewControllers = [recommendationsVC, categoriesVC, myListVC]
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        guard let navigations = viewControllers else { return }
+        let navigation = navigations[item.tag] as? UINavigationController
+        navigation?.popToRootViewController(animated: true)
     }
 
 
