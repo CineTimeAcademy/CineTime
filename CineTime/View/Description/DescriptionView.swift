@@ -80,7 +80,7 @@ class DescriptionView: UIView {
         var categories = [String]()
 
         guard let categoriesId = film.genre_ids else {
-            return "Não exite categorias cadastradas."
+            return "Não existe categorias cadastradas."
         }
         for id in categoriesId {
             categories.append(sectionsHeader[String(id)] ?? "")
