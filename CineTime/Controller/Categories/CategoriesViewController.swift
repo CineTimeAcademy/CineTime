@@ -22,13 +22,15 @@ class CategoriesViewController: UIViewController {
     // Collection header id.
     let sectionId : [String] = ["28,12", "16,14", "35", "80", "18", "27,53", "10402", "9648", "10749", "878", "10770"]
     
-    var listOfResultsByGenre = [[Film]]()
+    var listOfResultsByGenre = [[Film]](repeating: [Film](), count: 10)
     
     // Results API category.
     func callAPI() {
-        for id in sectionId {
+        
+        for (index, id) in sectionId.enumerated() {
             Service.shared.findFilmByGenre(with: [id], completion: { films in
-                self.listOfResultsByGenre.append(films!)
+                guard let films = films else { return }
+                self.listOfResultsByGenre.insert(films, at: index)
             })
         }
         
@@ -42,6 +44,7 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        
         callAPI()
         configureTableView()
         configureNavBar()
@@ -94,7 +97,16 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CategoriesTableViewCell
         cell.delegate = self
         if listOfResultsByGenre.count - 1 >= indexPath.section {
-            cell.listOfResultsByGenre = self.listOfResultsByGenre[indexPath.section]
+            let category = self.sectionId[indexPath.section]
+            let repository = FilmRepository(with: category)
+            
+            if !repository.getAll().isEmpty {
+                cell.listOfResultsByGenre = repository.getAll()
+                self.listOfResultsByGenre[indexPath.section] = repository.getAll()
+            } else {
+                cell.listOfResultsByGenre = self.listOfResultsByGenre[indexPath.section]
+            }
+            
         }
         return cell
     }
