@@ -20,6 +20,7 @@ class Service {
         
         guard let url = api.url else { return }
         
+        let repository = FilmRepository(with: genresId.first!)
         
         HTTP.get.request(url: url) { (data, response, error) in
             guard let data = data else { return }
@@ -27,7 +28,16 @@ class Service {
             do {
                 let results = try JSONDecoder().decode(FilmResult.self, from: data)
                 let films = results.results
-                completion(films)
+                
+                if repository.getAll().isEmpty {
+                    for film in films {
+                        repository.add(object: film)
+                    }
+                    completion(nil)
+                } else {
+                    completion(repository.getAll())
+                }
+                
             } catch {
                 
             }

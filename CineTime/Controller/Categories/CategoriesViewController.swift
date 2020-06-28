@@ -42,6 +42,7 @@ class CategoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        
         callAPI()
         configureTableView()
         configureNavBar()
@@ -94,7 +95,15 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell") as! CategoriesTableViewCell
         cell.delegate = self
         if listOfResultsByGenre.count - 1 >= indexPath.section {
-            cell.listOfResultsByGenre = self.listOfResultsByGenre[indexPath.section]
+            let category = self.sectionId[indexPath.section]
+            let repository = FilmRepository(with: category)
+            
+            if !repository.getAll().isEmpty {
+                cell.listOfResultsByGenre = repository.getAll()
+            } else {
+                cell.listOfResultsByGenre = self.listOfResultsByGenre[indexPath.section]
+            }
+            
         }
         return cell
     }
