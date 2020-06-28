@@ -51,7 +51,7 @@ lazy var viewDescription: DescriptionView = {
         addSubviews()
         configureAutoLayout()
         callAPI()
-        
+        streamingRequest()
         checkMyList()
         
         viewDescription.myListButton.addTarget(self, action: #selector(pressed), for: .touchUpInside)
@@ -64,7 +64,7 @@ lazy var viewDescription: DescriptionView = {
         viewDescription.myListButton.isSelected = !viewDescription.myListButton.isSelected
         
         if viewDescription.myListButton.isSelected {
-           streamingRequest()
+           repository.add(object: dataFilm)
         } else {
             repository.delete(object: dataFilm)
         }
@@ -83,13 +83,20 @@ lazy var viewDescription: DescriptionView = {
     }
     
     func streamingRequest() {
-        guard var dataFilm = dataFilm else { return }
         
+        guard var dataFilm = dataFilm else { return }
+    
         Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
             if let streamings = streamings {
                 dataFilm.streamings = streamings
-                // Adding object to p list
-                self.repository.add(object: dataFilm)
+                self.dataFilm = dataFilm
+                
+                guard let streamings = dataFilm.streamings else { return }
+                
+                for streaming in streamings {
+                    print(streaming.display_name)
+                    self.viewDescription.streaming = streaming
+                }
             }
         }
     }
