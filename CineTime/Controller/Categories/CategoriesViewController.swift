@@ -123,9 +123,9 @@ extension CategoriesViewController: DelegatePushDescriptionViewController {
 
 // Configuration search + navigation
 extension CategoriesViewController: UISearchBarDelegate {
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
         navigationItem.largeTitleDisplayMode = .automatic
     }
     

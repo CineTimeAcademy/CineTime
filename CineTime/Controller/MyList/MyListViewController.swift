@@ -66,13 +66,13 @@ class MyListViewController: UITableViewController {
         
         // TableView delegates and setting TableViewHeader
         setupTableView()
-
-        // Change color and large title from Navbar
-        configureNavBar()
+        
+         fetchData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        fetchData()
+        // Change color and large title from Navbar
+        configureNavBar()
         rowToDisplay = paraAssistir
     }
  
@@ -226,7 +226,6 @@ extension MyListViewController {
                 }
             }
         }
-        cell.film = film
         return cell
     }
     
