@@ -12,8 +12,7 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     
     var moviesAPI = [Film]()
     weak var delegatePush: DelegatePushDescriptionViewController?
-
-
+    
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         
@@ -27,7 +26,6 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
         self.register(NewsPosterCell.self, forCellWithReuseIdentifier: "NewsCell")
         self.isPagingEnabled = false
         self.showsHorizontalScrollIndicator = false
-        
     }
     
     required init?(coder: NSCoder) {
@@ -37,14 +35,15 @@ class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     func getNewMovies() {
         Service.shared.nowPlaying() { films in
             films?.forEach({ film in
-                self.moviesAPI.append(film)
+                if film.overview != "" {
+                    self.moviesAPI.append(film)
+                }
             })
             DispatchQueue.main.async {
                 self.reloadData()
             }
         }
     }
-    
 }
 
 extension NewCollectionView: UICollectionViewDataSource {
@@ -54,8 +53,9 @@ extension NewCollectionView: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let movie = moviesAPI[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCell", for: indexPath) as! NewsPosterCell
-        cell.film = moviesAPI[indexPath.item]
+        cell.film = movie
         return cell
     }
     

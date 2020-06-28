@@ -20,7 +20,6 @@ enum DisplayNameApi: String {
 
 class DescriptionView: UIView {
     // Collection header names.
-    
     let sectionsHeader : [String: String] = [
         "28":"Ação",
         "12":"Aventura",
@@ -77,6 +76,20 @@ class DescriptionView: UIView {
         autoLayout()
     }
     
+    public func formatCategories(film: Film) -> String {
+        var categories = [String]()
+
+        guard let categoriesId = film.genre_ids else {
+            return "Não existe categorias cadastradas."
+        }
+        for id in categoriesId {
+            categories.append(sectionsHeader[String(id)] ?? "")
+        }
+        let result = categories.compactMap { $0 }
+        
+        return result.joined(separator: ", ") + "."
+    }
+    
     func result(film: Film) {
         switch film.media_type {
         case "movie":
@@ -89,12 +102,7 @@ class DescriptionView: UIView {
         descriptionTextView.text = film.overview
         captionLabel.text = formatDate(data: film.release_date!)
         imdbLabel.text = String(format:"%.1f", film.vote_average!)
-        let categoriesId = film.genre_ids!
-        var categories = [String]()
-        for id in categoriesId {
-            categories.append(sectionsHeader[String(id)] ?? "")
-        }
-        categoriesLabel.text = categories.joined(separator: ", ") + "."
+        categoriesLabel.text = formatCategories(film: film)
     }
     
     required init?(coder: NSCoder) {

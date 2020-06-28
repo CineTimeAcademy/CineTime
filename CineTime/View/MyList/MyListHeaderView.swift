@@ -9,7 +9,7 @@
 import UIKit
 
 class MyListHeaderView: UIView {
-    
+    // Collection header names.
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal

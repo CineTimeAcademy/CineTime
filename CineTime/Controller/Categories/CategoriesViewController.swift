@@ -60,7 +60,7 @@ class CategoriesViewController: UIViewController {
         tableView.tableAutoLayout(to: view)  // setando as constraints da table view.
     }
     
-    @objc private func pressed(sender: UIButton) {
+    @objc private func pressedButtonHeader(sender: UIButton) {
         let destination = CategoryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         destination.listOfResultsByGenre = listOfResultsByGenre[sender.tag]
         destination.category = sectionsHeader[sender.tag]
@@ -83,7 +83,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = HeaderTableView()
-        header.button.addTarget(self, action: #selector(pressed), for: .touchUpInside)
+        header.button.addTarget(self, action: #selector(pressedButtonHeader), for: .touchUpInside)
         header.button.tag = section
         header.label.text = sectionsHeader[section]
         return header

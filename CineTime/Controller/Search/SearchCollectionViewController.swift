@@ -13,6 +13,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     let searchController = UISearchController(searchResultsController: nil)
     var arrayOfResults = [String]()
     var resultsOfSearch = 0
+    var emptyState : Bool = false
     var listOfResults = [Film]() {
         didSet {
             DispatchQueue.main.async {
@@ -38,7 +39,14 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
         messageLabel.sizeToFit()
         return messageLabel
     }()
-
+    
+    lazy var imageInitial: UIImageView = {
+        let imagem = UIImageView()
+        imagem.image = UIImage(named: "initialSearch")
+        imagem.translatesAutoresizingMaskIntoConstraints = false
+        return imagem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.backgroundColor = .black
@@ -72,18 +80,39 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     }
     
     func showEmptyState() {
+        emptyState = true
         collectionView.addSubview(emptyStateMessage)
         NSLayoutConstraint.activate([
             emptyStateMessage.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             emptyStateMessage.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
+    
+    func showInitialImage () {
+        collectionView.addSubview(imageInitial)
+        NSLayoutConstraint.activate([
+            imageInitial.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageInitial.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
 
     func hideEmptyState() {
-        emptyStateMessage.removeFromSuperview()
+        if emptyState {
+            emptyStateMessage.removeFromSuperview()
+        }
+        emptyState = true
+    }
+    
+    func hideInitialImage () {
+        imageInitial.removeFromSuperview()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if self.listOfResults.count == 0 && emptyState == false {
+            showInitialImage()
+        } else {
+            hideInitialImage()
+        }
         return self.listOfResults.count
     }
     
