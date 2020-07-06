@@ -21,7 +21,7 @@ struct UtellyMovie: Decodable {
     let provider: String
 }
 
-struct Streaming: Codable {
+struct Streaming: Codable, Equatable {
     var id: String? = nil
     let name: String
     var icon: String? = nil

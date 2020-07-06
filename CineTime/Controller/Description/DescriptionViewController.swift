@@ -10,6 +10,7 @@ import UIKit
 import WebKit
 
 class DescriptionViewController: UIViewController {
+    
     var dataFilm: Film? = nil
     let repository = FilmRepository(with: "assistidos")
     
@@ -56,6 +57,8 @@ class DescriptionViewController: UIViewController {
     @objc func pressedButtonHeader() {
         guard let dataFilm = dataFilm else { return }
         
+        guard let _ = dataFilm.streamings else { return }
+        
         viewDescription.myListButton.isSelected = !viewDescription.myListButton.isSelected
         
         if viewDescription.myListButton.isSelected {
@@ -79,18 +82,32 @@ class DescriptionViewController: UIViewController {
     func streamingRequest() {
         guard var dataFilm = dataFilm else { return }
         
-        Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
-            if let streamings = streamings {
-                dataFilm.streamings = streamings
-                self.dataFilm = dataFilm
-                
-                guard let streamings = dataFilm.streamings else { return }
-                
-                for streaming in streamings {
-                    self.viewDescription.streaming = streaming
+        if dataFilm.streamings == nil {
+            
+            Service.shared.getStreamings (tmdb_id: String(dataFilm.id)) { streamings in
+                if let streamings = streamings {
+                    dataFilm.streamings = streamings
+                    self.dataFilm = dataFilm
+                    
+                    guard let streamings = dataFilm.streamings else { return }
+                    
+                    for streaming in streamings {
+                        self.viewDescription.streaming = streaming
+                    }
                 }
             }
         }
+            
+        else {
+            
+            guard let streamings = dataFilm.streamings else { return }
+            
+            for streaming in streamings {
+                self.viewDescription.streaming = streaming
+            }
+        }
+        
+        
     }
     
     func addSubviews() {
@@ -105,14 +122,18 @@ class DescriptionViewController: UIViewController {
     func callAPI() {
         guard let dataFilm = dataFilm else { return }
         
-        Service.shared.getTrailer(filmId: String(dataFilm.id), mediaType: dataFilm.media_type ?? "movie") { (result) in
-            var keyYT : String = ""
-            
-            for trailer in result! {
-                keyYT = trailer.key
+        if dataFilm.streamings == nil {
+            Service.shared.getTrailer(filmId: String(dataFilm.id), mediaType: dataFilm.media_type ?? "movie") { (result) in
+                var keyYT : String = ""
+                
+                for trailer in result! {
+                    keyYT = trailer.key
+                }
+                self.loadTrailer(key: keyYT)
             }
-            self.loadTrailer(key: keyYT)
         }
+        
+       
     }
     
     

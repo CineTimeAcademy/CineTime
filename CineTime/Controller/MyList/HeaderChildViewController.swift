@@ -18,8 +18,8 @@ class HeaderChildViewController: UIViewController {
     var streamings = [
         Streaming(name: "Prime Video", display_name: "Amazon Instant Video"),
         Streaming(name: "Netflix", display_name: "Netflix"),
-        Streaming(name: "Disney Plus", display_name: "Disney Plus"),
-        Streaming(name: "Apple TV+", display_name: "Apple TV+"),
+        Streaming(name: "Disney Plus", display_name: "Disney+"),
+        Streaming(name: "Apple TV+", display_name: "Apple TV Plus"),
         Streaming(name: "Telecine", display_name: "Telecine"),
     ]
     
@@ -35,10 +35,19 @@ class HeaderChildViewController: UIViewController {
     
     override func viewDidLoad() {
         self.view = headerView
-
-        
         
     }
+    
+//    @objc fileprivate func handleSegmentChange() {
+//        switch headerView.segmentedControl.selectedSegmentIndex {
+//        case 0:
+//            delegate?.didChangeSegmentedControl(index: 0)
+//        case 1:
+//            delegate?.didChangeSegmentedControl(index: 1)
+//        default:
+//            print("Finish")
+//        }
+//    }
     
 }
 
