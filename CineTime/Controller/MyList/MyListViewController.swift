@@ -67,7 +67,17 @@ class MyListViewController: UITableViewController {
         // TableView delegates and setting TableViewHeader
         setupTableView()
         
-         fetchData()
+        fetchData()
+        
+        navigationController?.navigationBar.barStyle = .black
+              navigationItem.title = "Minha Lista"
+              
+              navigationController?.navigationBar.tintColor = .actionColor
+              navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+              navigationController?.navigationBar.prefersLargeTitles = true
+              
+              // Place the search bar in the navigation item's title view.
+              navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
