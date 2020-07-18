@@ -17,7 +17,7 @@ struct UtellyAPI {
     let hostname: String = "https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com"
     let headers = [
         "x-rapidapi-host": "utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com",
-        "x-rapidapi-key": "196ca2cb34mshfdaee870159c0d2p1e03dfjsnff9041512773"
+        "x-rapidapi-key": "API_KEY"
     ]
   
     var country = "country=BR"
