@@ -1,7 +1,7 @@
 
 <h1 align="center">Welcome to Cine Time 🎥 👋</h1>
 
-> Aplicação em iOS com o objetivo de otimizar a recomendação de filmes e séries.
+> IOS application that purpose to optimize the recommendation of films and series.
 
 ![Untitled-1](https://user-images.githubusercontent.com/43412432/87839710-7308b980-c872-11ea-93cd-846ef12fb6b8.png)
 
