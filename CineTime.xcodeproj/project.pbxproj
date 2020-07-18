@@ -35,6 +35,7 @@
 		814E1DD32491ACBD006ADFCB /* MyListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */; };
 		814E1DD52491ACF8006ADFCB /* UIViewController+Child.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */; };
 		814E1DD72491B934006ADFCB /* MyListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */; };
+		814FC99924AF230B00F4EA41 /* UINavigationBar+Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 814FC99824AF230B00F4EA41 /* UINavigationBar+Configure.swift */; };
 		815380B42497C5A000E1F7F6 /* CategoriesAutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380B32497C5A000E1F7F6 /* CategoriesAutoLayout.swift */; };
 		815380B82497C71B00E1F7F6 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380B72497C71B00E1F7F6 /* CategoriesViewController.swift */; };
 		815380BA2497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380B92497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift */; };
@@ -48,7 +49,6 @@
 		815380E5249A556900E1F7F6 /* UIViewController+LargeTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815380E4249A556900E1F7F6 /* UIViewController+LargeTitle.swift */; };
 		818B71CF249A9F4F00D217EE /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71CE249A9F4F00D217EE /* Repository.swift */; };
 		818B71D1249A9F7100D217EE /* FilmRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D0249A9F7100D217EE /* FilmRepository.swift */; };
-		818B71D5249B977D00D217EE /* FilmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D4249B977D00D217EE /* FilmList.swift */; };
 		818B71D7249B994800D217EE /* FilmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D6249B994800D217EE /* FilmViewModel.swift */; };
 		818B71DA249B9C9700D217EE /* PlistManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71D9249B9C9700D217EE /* PlistManager.swift */; };
 		818B71DC249CEB9E00D217EE /* Streaming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818B71DB249CEB9E00D217EE /* Streaming.swift */; };
@@ -117,6 +117,7 @@
 		814E1DD22491ACBD006ADFCB /* MyListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListTableViewCell.swift; sourceTree = "<group>"; };
 		814E1DD42491ACF8006ADFCB /* UIViewController+Child.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Child.swift"; sourceTree = "<group>"; };
 		814E1DD62491B934006ADFCB /* MyListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListCollectionViewCell.swift; sourceTree = "<group>"; };
+		814FC99824AF230B00F4EA41 /* UINavigationBar+Configure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Configure.swift"; sourceTree = "<group>"; };
 		815380B32497C5A000E1F7F6 /* CategoriesAutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesAutoLayout.swift; sourceTree = "<group>"; };
 		815380B72497C71B00E1F7F6 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		815380B92497C74500E1F7F6 /* RowTableViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowTableViewCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -130,7 +131,6 @@
 		815380E4249A556900E1F7F6 /* UIViewController+LargeTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+LargeTitle.swift"; sourceTree = "<group>"; };
 		818B71CE249A9F4F00D217EE /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		818B71D0249A9F7100D217EE /* FilmRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmRepository.swift; sourceTree = "<group>"; };
-		818B71D4249B977D00D217EE /* FilmList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilmList.swift; path = CineTime/Repository/FilmList.swift; sourceTree = SOURCE_ROOT; };
 		818B71D6249B994800D217EE /* FilmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilmViewModel.swift; sourceTree = "<group>"; };
 		818B71D9249B9C9700D217EE /* PlistManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistManager.swift; sourceTree = "<group>"; };
 		818B71DB249CEB9E00D217EE /* Streaming.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Streaming.swift; path = CineTime/Controller/MyList/Streaming.swift; sourceTree = SOURCE_ROOT; };
@@ -241,6 +241,7 @@
 				A77A068824A039180094927E /* ImageViewDownload.swift */,
 				7705019224A1515E00A2A559 /* SearchAutoLayout.swift */,
 				8116A27524A6AF300027C6AE /* UIView+CornerRadius.swift */,
+				814FC99824AF230B00F4EA41 /* UINavigationBar+Configure.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -339,7 +340,6 @@
 			children = (
 				A7825C9A249717B30026E899 /* Movie.swift */,
 				815380D22497ECBB00E1F7F6 /* Trailer.swift */,
-				818B71D4249B977D00D217EE /* FilmList.swift */,
 				818B71DB249CEB9E00D217EE /* Streaming.swift */,
 				814D263124A4F31900580C0B /* SearchResults.swift */,
 			);
@@ -603,6 +603,7 @@
 				818B71DA249B9C9700D217EE /* PlistManager.swift in Sources */,
 				815380E5249A556900E1F7F6 /* UIViewController+LargeTitle.swift in Sources */,
 				A7ADBED9249274AD00D00702 /* ZoomAndSnapFlowLayout.swift in Sources */,
+				814FC99924AF230B00F4EA41 /* UINavigationBar+Configure.swift in Sources */,
 				818B71D1249A9F7100D217EE /* FilmRepository.swift in Sources */,
 				814E1DD12491AC89006ADFCB /* MyListHeaderView.swift in Sources */,
 				818B71DC249CEB9E00D217EE /* Streaming.swift in Sources */,
@@ -625,7 +626,6 @@
 				815380C12497C81700E1F7F6 /* HeaderTableView.swift in Sources */,
 				818B71CF249A9F4F00D217EE /* Repository.swift in Sources */,
 				815380D32497ECBB00E1F7F6 /* Trailer.swift in Sources */,
-				818B71D5249B977D00D217EE /* FilmList.swift in Sources */,
 				814E1DCF2491AC69006ADFCB /* HeaderChildViewController.swift in Sources */,
 				77E6F34B249A4C0000376528 /* DescriptionViewController.swift in Sources */,
 				818B71E324A23C8100D217EE /* MockRepository.swift in Sources */,

@@ -15,8 +15,3 @@ protocol Repository {
     func delete(object: Film)
     
 }
-
-protocol RepositoryList {
-    func createList(object: FilmMyList)
-    func addToList(object: Film)
-}

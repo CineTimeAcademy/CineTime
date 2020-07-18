@@ -7,7 +7,6 @@
 //
 import UIKit
 
-// sectionHeaderHeight & sectionHeaderWidth
 extension MyListViewController {
     
     private enum CollectionViewSize: CGFloat {
@@ -52,6 +51,7 @@ class MyListViewController: UITableViewController {
     
     func setToWatchModel(_ model: FilmViewModel) {
         if let films = model.films {
+            paraAssistir = films
             rowToDisplay = films
         }
     }
@@ -67,13 +67,36 @@ class MyListViewController: UITableViewController {
         // TableView delegates and setting TableViewHeader
         setupTableView()
         
-         fetchData()
+        fetchData()
+        
+        navigationController?.navigationBar.barStyle = .black
+              navigationItem.title = "Minha Lista"
+              
+              navigationController?.navigationBar.tintColor = .actionColor
+              navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+              navigationController?.navigationBar.prefersLargeTitles = true
+              
+              // Place the search bar in the navigation item's title view.
+              navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // Change color and large title from Navbar
+        
+        let index = UserDefaults.standard.integer(forKey: "SegmentIndex")
+        self.header.headerView.segmentedControl.selectedSegmentIndex = index
+       
         configureNavBar()
-        rowToDisplay = paraAssistir
+        
+        switch index {
+        case 0:
+            rowToDisplay = paraAssistir
+        case 1:
+            rowToDisplay = assistidos
+        default:
+            rowToDisplay = paraAssistir
+        }
+        
     }
  
     func fetchData() {
@@ -119,26 +142,11 @@ class MyListViewController: UITableViewController {
     private func configureNavBar() {
         view.backgroundColor = .black
         
-        // Changing status bar color
-        navigationController?.navigationBar.barStyle  = .black
-        
-        // Allows large title
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.configure(title: "Minha Lista")
         
         // Change title from rootViewController
-        navigationItem.title = "Minha Lista"
+//        navigationItem.title = "Minha Lista"
         
-        // Change large title color
-         navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
-        
-        navigationController?.navigationBar.tintColor = .actionColor
-        
-        // Change title color
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-                NSAttributedString.Key.foregroundColor : UIColor.white
-        ]
     }
     
     override func viewWillLayoutSubviews() {
@@ -175,6 +183,7 @@ class MyListViewController: UITableViewController {
             } else {
                 didStartFilter(with: filteredStreamings)
             }
+             UserDefaults.standard.set(0, forKey: "SegmentIndex")
             tableView.sectionHeaderHeight = 0
             updateHeaderViewHeight(for: tableView.tableHeaderView)
         case 1:
@@ -182,8 +191,9 @@ class MyListViewController: UITableViewController {
             rowToDisplay = assistidos
             tableView.sectionHeaderHeight = HeaderSize.height.rawValue
             updateHeaderViewHeight(for: tableView.tableHeaderView)
+             UserDefaults.standard.set(1, forKey: "SegmentIndex")
         default:
-            rowToDisplay = paraAssistir
+            rowToDisplay = assistidos
         }
         tableView.reloadData()
     }
@@ -259,15 +269,20 @@ extension MyListViewController {
             PlistNames.watched.rawValue)
             success(true)
         }
+        
+        let remove = UIContextualAction(style: .destructive, title: "Remove") { (_, _, success) in
+            self.deleteRowAt(with: indexPath.item, plist: PlistNames.toWatch.rawValue)
+            success(true)
+        }
        
         switch index {
         case 0:
             toWatch.backgroundColor = .orange
             toWatch.title = "Já Assisti"
-            configure = UISwipeActionsConfiguration(actions: [toWatch])
+            configure = UISwipeActionsConfiguration(actions: [toWatch, remove])
         case 1:
-            watched.backgroundColor = .red
-            watched.title = "Remover"
+            watched.backgroundColor = .orange
+            watched.title = "Para Assistir"
             configure = UISwipeActionsConfiguration(actions: [watched])
         default:
             configure = UISwipeActionsConfiguration(actions: [toWatch])
@@ -288,6 +303,17 @@ extension MyListViewController {
         tableView.endUpdates()
     }
     
+    
+    func deleteRowAt(with item: Int, plist: String) {
+        let film = self.rowToDisplay[item]
+        tableView.beginUpdates()
+        FilmRepository(with: plist).delete(object: film)
+        rowToDisplay.remove(at: item)
+        let indexPath = IndexPath(item: item, section: 0)
+        tableView.deleteRows(at: [indexPath], with: .right)
+        tableView.endUpdates()
+    }
+    
 }
 
 // Filter table View Delegate
@@ -295,18 +321,26 @@ extension MyListViewController: FilterDelegate {
     
     // Testar
     func didStartFilter(with streamings: [Streaming]) {
-        let filteredStreamings = streamings.filter {
+        
+        let streamingsToFilter = streamings.filter {
             $0.selected == true
         }
         
-        self.filteredStreamings = filteredStreamings
+        self.filteredStreamings = streamingsToFilter
         
-        if !filteredStreamings.isEmpty {
+        if !streamingsToFilter.isEmpty {
+            
             var filteredMovies = [Film]()
-            print("Streamings que eu quero filtrar: \(filteredStreamings)")
+            
+            print("Streamings que eu quero filtrar: \(streamingsToFilter)")
+            
+            // array de streaming do filme = array de streaming filtrada
+            
+            // todos os streamings do filme precisam conter em streaming filtradas
+            
             
             filteredStreamings.forEach { streaming in
-                for film in rowToDisplay {
+                for film in paraAssistir {
                     guard let streamingsArray = film.streamings else { return }
                     
                     for filmStreaming in streamingsArray {
@@ -314,16 +348,17 @@ extension MyListViewController: FilterDelegate {
                         print("Streamings onde o filme está disponivel: \(filmStreaming)")
                         if filmStreaming.display_name == streaming.display_name {
                             if !filteredMovies.contains(film) {
-                               filteredMovies.append(film)
+                                filteredMovies.append(film)
                             }
-                            break
                         }
                     }
                 }
             }
             
+            
             self.rowToDisplay = filteredMovies
             self.tableView.reloadData()
+            
             
         } else {
             rowToDisplay = paraAssistir
