@@ -3,6 +3,8 @@
 
 > Aplicação em iOS com o objetivo de otimizar a recomendação de filmes e séries.
 
+![Untitled-1](https://user-images.githubusercontent.com/43412432/87839710-7308b980-c872-11ea-93cd-846ef12fb6b8.png)
+
 ## Authors
 
  👤 **Beatriz Carlos**
