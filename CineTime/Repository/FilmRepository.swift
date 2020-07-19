@@ -10,34 +10,34 @@ import Foundation
 
 class FilmRepository: Repository {
     
-    var plist: PlistManager<Film>
+    var plist: PlistManager<Movie>
     
     init(with plistName: String) {
-        plist = PlistManager<Film>(plistName: plistName)
+        plist = PlistManager<Movie>(plistName: plistName)
     }
     
-    func getAll() -> [Film] {
+    func getAll() -> [Movie] {
         
         // Getting films in plist
         if let films = plist.readPlist() {
             return films
         }
         
-        return [Film]()
+        return [Movie]()
     }
     
-    func get(id: Int) -> Film? {
+    func get(id: Int) -> Movie? {
         return nil
     }
     
     
-    func add(object: Film) {
+    func add(object: Movie) {
         
         // Saving in plist
         plist.addInPlist(object: object)
     }
     
-    func update(object: Film) {
+    func update(object: Movie) {
         
         // update plist
         delete(object: object)
@@ -45,7 +45,7 @@ class FilmRepository: Repository {
         
     }
     
-    func delete(object: Film) {
+    func delete(object: Movie) {
         
         // deleting from plist
         if var plist = plist.readPlist() {

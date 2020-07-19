@@ -10,7 +10,7 @@ import UIKit
 
 class NewsPosterCell: UICollectionViewCell {
     
-    var film: Film? {
+    var film: Movie? {
         didSet {
             guard let unwrappedFilm = film else { return }
             

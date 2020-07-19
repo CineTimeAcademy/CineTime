@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DelegatePushDescriptionViewController: NSObjectProtocol {
-    func didSelect(movie: Film)
+    func didSelect(movie: Movie)
 }
 
 class CategoriesTableViewCell: UITableViewCell {
@@ -18,7 +18,7 @@ class CategoriesTableViewCell: UITableViewCell {
     // Collection view.
     var collectionView : UICollectionView!
     // API results by category.
-    var listOfResultsByGenre = [Film]() {
+    var listOfResultsByGenre = [Movie]() {
         didSet {
             collectionView.reloadData()
         }

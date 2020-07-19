@@ -88,7 +88,7 @@ class RecommendationsViewController: UIViewController {
 
 // Custom delegate to push the description screen.
 extension RecommendationsViewController: DelegatePushDescriptionViewController {
-    func didSelect(movie: Film) {
+    func didSelect(movie: Movie) {
         let destination = DescriptionViewController()
         destination.dataFilm = movie
         navigationController?.pushViewController(destination, animated: true)

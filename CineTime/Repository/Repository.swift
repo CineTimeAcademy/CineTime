@@ -8,10 +8,10 @@
 
 protocol Repository {
     
-    func getAll() -> [Film]
-    func get(id: Int) -> Film?
-    func add(object: Film)
-    func update(object: Film)
-    func delete(object: Film)
+    func getAll() -> [Movie]
+    func get(id: Int) -> Movie?
+    func add(object: Movie)
+    func update(object: Movie)
+    func delete(object: Movie)
     
 }

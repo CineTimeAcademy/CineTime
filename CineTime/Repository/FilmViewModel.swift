@@ -10,7 +10,7 @@ import Foundation
 
 class FilmViewModel {
     
-    var films: [Film]?
+    var films: [Movie]?
     
     var repository: Repository
     
