@@ -12,8 +12,7 @@ protocol FilterDelegate: class {
     func didStartFilter(with streamings: [Streaming])
 }
 
-
-class HeaderChildViewController: UIViewController {
+class MyListHeaderViewController: UIViewController {
     
     var streamings = [
         Streaming(name: "Prime Video", display_name: "Amazon Instant Video"),
@@ -26,32 +25,21 @@ class HeaderChildViewController: UIViewController {
     lazy var headerView: MyListHeaderView = {
         let header = MyListHeaderView(frame: .zero)
         header.collectionView.register(MyListCollectionViewCell.self, forCellWithReuseIdentifier: MyListCollectionViewCell.identifier)
-        header.collectionView.delegate = self
-        header.collectionView.dataSource = self
         return header
     }()
     
     weak var delegate: FilterDelegate?
     
     override func viewDidLoad() {
+        headerView.collectionView.delegate = self
+        headerView.collectionView.dataSource = self
         self.view = headerView
         
     }
     
-//    @objc fileprivate func handleSegmentChange() {
-//        switch headerView.segmentedControl.selectedSegmentIndex {
-//        case 0:
-//            delegate?.didChangeSegmentedControl(index: 0)
-//        case 1:
-//            delegate?.didChangeSegmentedControl(index: 1)
-//        default:
-//            print("Finish")
-//        }
-//    }
-    
 }
 
-extension HeaderChildViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension MyListHeaderViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return streamings.count

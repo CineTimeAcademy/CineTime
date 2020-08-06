@@ -31,7 +31,7 @@ class MyListTableViewCell: UITableViewCell {
         "37":"Faroeste"
     ]
     
-    var film: Film? {
+    var film: Movie? {
         didSet {
             self.imageFilm.downloaded(from: "https://image.tmdb.org/t/p/w500/\(film?.poster_path ?? "nil")")
             self.title.text = film?.title
@@ -95,7 +95,7 @@ class MyListTableViewCell: UITableViewCell {
         addSubview(advisoryRating)
     }
     
-    public func formatCategories(film: Film) -> String {
+    public func formatCategories(film: Movie) -> String {
         var categories = [String]()
 
         guard let categoriesId = film.genre_ids else {

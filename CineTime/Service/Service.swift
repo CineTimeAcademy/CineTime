@@ -14,7 +14,7 @@ class Service {
     
     private init() { }
     
-    func findFilmByGenre(with genresId: [String], completion: @escaping ([Film]?) -> Void) {
+    func findFilmByGenre(with genresId: [String], completion: @escaping ([Movie]?) -> Void) {
         
         let api = FilmsAPI(route: .genre(id: genresId))
         
@@ -26,7 +26,7 @@ class Service {
             guard let data = data else { return }
             
             do {
-                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let results = try JSONDecoder().decode(MovieResult.self, from: data)
                 let films = results.results
                 
                 if repository.getAll().isEmpty {
@@ -65,7 +65,7 @@ class Service {
         }
     }
     
-    func getRecomendations(filmId: String, completion: @escaping ([Film]?) -> Void) {
+    func getRecomendations(filmId: String, completion: @escaping ([Movie]?) -> Void) {
         
         let api = FilmsAPI(route: .recommendations(id: filmId))
         
@@ -75,7 +75,7 @@ class Service {
             guard let data = data else { return }
             
             do {
-                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let results = try JSONDecoder().decode(MovieResult.self, from: data)
                 let films = results.results
                 completion(films)
             } catch {
@@ -85,7 +85,7 @@ class Service {
         }
     }
     
-    func getTrendings(completion: @escaping ([Film]?) -> Void) {
+    func getTrendings(completion: @escaping ([Movie]?) -> Void) {
         
         let api = FilmsAPI(route: .latest)
         
@@ -96,7 +96,7 @@ class Service {
             guard let data = data else { return }
             
             do {
-                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let results = try JSONDecoder().decode(MovieResult.self, from: data)
                 let films = results.results
                 completion(films)
             } catch {
@@ -106,7 +106,7 @@ class Service {
         }
     }
     
-    func nowPlaying(completion: @escaping ([Film]?) -> Void) {
+    func nowPlaying(completion: @escaping ([Movie]?) -> Void) {
         
         let api = FilmsAPI(route: .nowPlaying)
         
@@ -121,7 +121,7 @@ class Service {
             }
             
             do {
-                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let results = try JSONDecoder().decode(MovieResult.self, from: data)
                 let films = results.results
                 completion(films)
             } catch {
@@ -131,7 +131,7 @@ class Service {
         }
     }
     
-    func searchByName(name: String, completion: @escaping ([Film]?) -> Void) {
+    func searchByName(name: String, completion: @escaping ([Movie]?) -> Void) {
         
         let api = FilmsAPI(route: .searchByName(name: name))
         
@@ -142,7 +142,7 @@ class Service {
             guard let data = data else { return }
             
             do {
-                let results = try JSONDecoder().decode(FilmResult.self, from: data)
+                let results = try JSONDecoder().decode(MovieResult.self, from: data)
                 let films = results.results
                 completion(films)
             } catch {

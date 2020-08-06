@@ -11,7 +11,7 @@ import WebKit
 
 class DescriptionViewController: UIViewController {
     
-    var dataFilm: Film? = nil
+    var dataFilm: Movie? = nil
     let repository = FilmRepository(with: "assistidos")
     
     lazy var scrollView: UIScrollView = {

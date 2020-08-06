@@ -10,7 +10,7 @@ import UIKit
 
 class MoviePosterCell: UICollectionViewCell {
 
-    var film: Film? {
+    var film: Movie? {
         didSet {
             guard let unwrappedFilm = film else { return }
             let name = unwrappedFilm.poster_path

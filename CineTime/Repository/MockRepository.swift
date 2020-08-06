@@ -13,7 +13,7 @@ class MockRepository: Repository {
     
     var films = [
         
-        Film(id: 0, name: nil,
+        Movie(id: 0, name: nil,
              title: "Teste 1",
              poster_path: nil,
              genre_ids: nil,
@@ -22,7 +22,7 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Netflix", display_name: "Netflix")]),
         
-        Film(id: 1, name: nil,
+        Movie(id: 1, name: nil,
              title: "Teste 2",
              poster_path: nil,
              genre_ids: nil,
@@ -31,7 +31,7 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Netflix", display_name: "Netflix")]),
         
-        Film(id: 2, name: nil,
+        Movie(id: 2, name: nil,
              title: "Teste 3",
              poster_path: nil,
              genre_ids: nil,
@@ -40,7 +40,7 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Netflix", display_name: "Netflix")]),
         
-        Film(id: 3, name: nil,
+        Movie(id: 3, name: nil,
              title: "Teste 4",
              poster_path: nil,
              genre_ids: nil,
@@ -49,7 +49,7 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Amazon", display_name: "Amazon")]),
         
-        Film(id: 4, name: nil,
+        Movie(id: 4, name: nil,
              title: "Teste 5",
              poster_path: nil,
              genre_ids: nil,
@@ -58,7 +58,7 @@ class MockRepository: Repository {
              vote_average: nil,
              media_type: nil, streamings: [Streaming(name: "Amazon", display_name: "Amazon")]),
         
-        Film(id: 5, name: nil,
+        Movie(id: 5, name: nil,
              title: "Teste 6",
              poster_path: nil,
              genre_ids: nil,
@@ -69,23 +69,23 @@ class MockRepository: Repository {
         
     ]
     
-    func getAll() -> [Film] {
+    func getAll() -> [Movie] {
         return films
     }
     
-    func get(id: Int) -> Film? {
+    func get(id: Int) -> Movie? {
         return nil
     }
     
-    func add(object: Film) {
+    func add(object: Movie) {
         
     }
     
-    func update(object: Film) {
+    func update(object: Movie) {
         
     }
     
-    func delete(object: Film) {
+    func delete(object: Movie) {
         
     }
     

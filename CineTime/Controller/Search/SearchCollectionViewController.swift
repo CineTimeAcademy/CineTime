@@ -14,7 +14,7 @@ class SearchViewController: UICollectionViewController, UICollectionViewDelegate
     var arrayOfResults = [String]()
     var resultsOfSearch = 0
     var emptyState : Bool = false
-    var listOfResults = [Film]() {
+    var listOfResults = [Movie]() {
         didSet {
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -147,7 +147,7 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         var textSearchBar = searchController.searchBar.text!
         textSearchBar = textSearchBar.replacingOccurrences(of: " ", with: "%20")
-        listOfResults = [Film]()
+        listOfResults = [Movie]()
         Service.shared.searchByName(name: textSearchBar) { films in
             films?.forEach({ film in
                 if (film.poster_path != nil && film.overview != nil) {

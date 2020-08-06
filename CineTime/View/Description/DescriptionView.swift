@@ -68,7 +68,7 @@ class DescriptionView: UIView {
         }
     }
     
-    init(frame: CGRect, data: Film) {
+    init(frame: CGRect, data: Movie) {
         super.init(frame: frame)
         result(film: data)
         addSubviews()
@@ -76,7 +76,7 @@ class DescriptionView: UIView {
         autoLayout()
     }
     
-    public func formatCategories(film: Film) -> String {
+    public func formatCategories(film: Movie) -> String {
         var categories = [String]()
 
         guard let categoriesId = film.genre_ids else {
@@ -90,7 +90,7 @@ class DescriptionView: UIView {
         return result.joined(separator: ", ") + "."
     }
     
-    func result(film: Film) {
+    func result(film: Movie) {
         switch film.media_type {
         case "movie":
             titleLabel.text = film.title

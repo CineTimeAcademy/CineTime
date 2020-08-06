@@ -12,7 +12,7 @@ private let reuseIdentifier = "Cell"
 
 class CategoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout{
     var category: String = ""
-    var listOfResultsByGenre = [Film]()
+    var listOfResultsByGenre = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()

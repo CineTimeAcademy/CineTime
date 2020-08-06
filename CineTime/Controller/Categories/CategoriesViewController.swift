@@ -22,7 +22,7 @@ class CategoriesViewController: UIViewController {
     // Collection header id.
     let sectionId : [String] = ["28,12", "16,14", "35", "80", "18", "27,53", "10402", "9648", "10749", "878", "10770"]
     
-    var listOfResultsByGenre = [[Film]](repeating: [Film](), count: 10)
+    var listOfResultsByGenre = [[Movie]](repeating: [Movie](), count: 11)
     
     // Results API category.
     func callAPI() {
@@ -114,7 +114,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 
 // Custom delegate to push the description screen.
 extension CategoriesViewController: DelegatePushDescriptionViewController {
-    func didSelect(movie: Film) {
+    func didSelect(movie: Movie) {
         let destination = DescriptionViewController()
         destination.dataFilm = movie
         navigationController?.pushViewController(destination, animated: true)

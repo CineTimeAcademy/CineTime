@@ -10,7 +10,7 @@ import UIKit
 
 class NewCollectionView: UICollectionView, UICollectionViewDelegate {
     
-    var moviesAPI = [Film]()
+    var moviesAPI = [Movie]()
     weak var delegatePush: DelegatePushDescriptionViewController?
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {

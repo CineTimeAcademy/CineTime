@@ -15,7 +15,7 @@ class RecoCollectionView: UICollectionView, UICollectionViewDelegate {
     let image =  UIImageView()
     weak var delegatePush: DelegatePushDescriptionViewController?
     
-    var moviesAPI = [Film]()
+    var moviesAPI = [Movie]()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
